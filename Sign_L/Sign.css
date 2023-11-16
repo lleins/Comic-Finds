@@ -1,0 +1,950 @@
+body {
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+}
+
+
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    /* Ensure the loading container is on top */
+    color: rgb(70, 70, 70);
+    font-family: Helvetica;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+#LoadingText {
+    justify-content: center;
+    align-items: center;
+    animation: scaleAnimation .4s ease;
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(.5);
+        /* Initial scale */
+    }
+
+    100% {
+        transform: scale(1.5);
+        /* Final scale */
+    }
+}
+
+#LoadingSecondary {
+    color: rgb(255, 66, 66);
+}
+
+
+
+/*Top Navigation Bar*/
+
+#NavigationBarTop {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255);
+    border-bottom: 2px solid rgb(240, 240, 240);
+    transition: top 0.3s ease;
+    display: none;
+}
+
+.TopNavItem {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.TopNavItem:hover {
+    text-decoration: underline;
+    transform: scale(1.02);
+}
+
+#Language {
+    margin-left: 0%;
+    margin-top: 17px;
+}
+
+
+
+
+.TopNavSign {
+    font-family: Helvetica;
+    color: rgb(255, 66, 66);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+    text-decoration: underline;
+}
+
+.TopNavSign:hover {
+    transform: scale(1.05);
+}
+
+#TopSignInItem {
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    font-family: Helvetica;
+    margin-left: 3%;
+    margin-top: 17px;
+}
+
+#HelpContact {
+    margin-left: 3%;
+    margin-top: 17px;
+}
+
+#WatchList2 {
+
+    position: fixed;
+    right: 30px;
+    height: 24px;
+    width: 24px;
+    top: 8px;
+    opacity: .7;
+    transition: .1s;
+    transform: .1s;
+    cursor: pointer;
+}
+
+#Account2 {
+
+    position: fixed;
+    right: 90px;
+    top: 8px;
+    height: 24px;
+    width: 24px;
+    opacity: .7;
+    transition: .1s;
+    transform: .1s;
+    cursor: pointer;
+}
+
+#WatchList2:hover {
+    opacity: 1;
+}
+
+#Account2:hover {
+    opacity: 1;
+}
+
+#Account2:active {
+    transform: scale(.95);
+}
+
+#WatchList2:active {
+    transform: scale(.95);
+}
+
+.LanguageFlags {
+    height: 24px;
+    width: 24px;
+    transform: scale(1);
+}
+
+#CanadaFlag {
+    margin-top: 12px;
+    margin-left: 55%;
+}
+
+#LanguageSwitch {
+    position: fixed;
+    width: 120px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    z-index: 8;
+    border: 2px solid rgb(240, 240, 240);
+    margin-left: 72%;
+    margin-top: 31px;
+    display: none;
+}
+
+#FrenchLanguage {
+    margin-left: 53px;
+    margin-top: 14px;
+}
+
+#FrenchFlagImg {
+    margin-left: 27px;
+    margin-top: -31px;
+}
+
+/*Top Navigation Bar*/
+
+
+
+
+
+/*Main Navigation Bar*/
+
+#NavigationBarMain {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 44px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255, 1);
+    transition: top 0.3s ease;
+    display: none;
+}
+
+#NavTitle {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+    font-weight: bold;
+    font-variant: small-caps;
+    margin-left: 3%;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#NavTitleSecond {
+    color: rgb(255, 66, 66);
+}
+
+
+
+
+#SearchBar {
+    color: rgb(40, 40, 40);
+    margin-top: 25px;
+    font-family: Helvetica;
+    font-size: 15px;
+    width: 50%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 0px 10px 10px 0;
+    background-color: rgb(250, 250, 250);
+    border-right: 2px solid rgb(170, 170, 170);
+    border-top: 2px solid rgb(170, 170, 170);
+    border-bottom: 2px solid rgb(170, 170, 170);
+    border-left: 0px solid rgb(170, 170, 170);
+}
+
+#SearchImageButton {
+    margin-top: 25px;
+    height: 45px;
+    border-radius: 10px 0 0 10px;
+    border-right: 0px solid rgb(170, 170, 170);
+    border-left: 2px solid rgb(170, 170, 170);
+    border-top: 2px solid rgb(170, 170, 170);
+    border-bottom: 2px solid rgb(170, 170, 170);
+    cursor: pointer;
+    margin-left: 5%;
+    background-color: rgb(250, 250, 250);
+}
+
+#SearchBar:focus {
+    outline: none;
+}
+
+#SearchIcon {
+    transform: scale(.7);
+    margin-left: 5px;
+}
+
+
+
+#NavSearchButton {
+    margin-left: 1%;
+    background-color: rgb(255, 66, 66);
+    height: 45px;
+    margin-top: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border: none;
+    cursor: pointer;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    border-radius: 10px;
+    transition: .1s;
+
+}
+
+#NavSearchButton:active {
+    transition: .1s;
+    transform: scale(0.97);
+}
+
+#NavSearchButton:hover {
+
+    background-color: rgb(255, 48, 48);
+}
+
+/*Main Navigation Bar*/
+
+/*Bottom Navigation Bar*/
+#NavigationBarBottom {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 140px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255, 1);
+    border-top: 2px solid rgb(240, 240, 240);
+    justify-content: space-around;
+    transition: top 0.3s ease;
+    display: none;
+}
+
+.BottomNavItem {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.BottomNavItem:hover {
+    color: rgb(255, 66, 66);
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+
+/*Bottom Navigation Bar*/
+
+
+
+
+
+/*Sign Image*/
+#Comic_Image {
+    width: 80%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, .8);
+    position: absolute;
+    top: 0px;
+}
+
+#Actual_Sign_Img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    filter: brightness(30%);
+}
+
+#Sign_Image_Title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    z-index: 7;
+    color: rgb(70, 70, 70);
+    font-family: Helvetica;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+
+    padding: 10px;
+
+}
+
+#Sign_Image_Title_Secondary {
+    color: rgb(255, 66, 66);
+}
+
+
+/*Sign Image*/
+
+
+
+
+/*Sign In Container*/
+
+#SignInContainer {
+    width: 700px;
+    height: 100%;
+    background-color: rgb(250, 250, 250);
+    position: absolute;
+    top: 0px;
+    box-shadow: 3px 3px 5px rgb(0, 0, 0, .1);
+    left: 100%;
+    transform: translate(-98%, 0%);
+}
+
+
+.SignIn_Headers {
+    position: relative;
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    display: inline;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0px;
+    margin-left: 120px;
+    cursor: pointer;
+    transition: .1s;
+    padding-bottom: 15px;
+}
+
+
+#Sign_In_Title {
+    position: relative;
+    z-index: 7;
+    color: rgb(70, 70, 70);
+    font-family: Helvetica;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+    font-size: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    transform: scale(1.5);
+    font-weight: bold;
+    text-align: center;
+    top: 30px;
+
+
+}
+
+#Sign_In_Title_Secondary {
+    color: rgb(255, 66, 66);
+}
+
+#SignIn {
+    top: 130px;
+    /*50px*/
+    border-bottom: 4px solid rgb(255, 66, 66);
+}
+
+#CreateAccount {
+    top: 130px;
+    /*50px*/
+}
+
+#SignInContainerSecondary {
+    position: relative;
+    width: 650px;
+    height: 310px;
+    background-color: rgb(250, 250, 250);
+    margin-top: 25%;
+    border-radius: 5px;
+    margin-left: 25px;
+    display: block;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    transform: scale(.9);
+}
+
+.SignText {
+    font-family: Helvetica;
+    color: rgb(120, 120, 120);
+    font-size: 14px;
+    letter-spacing: 0px;
+    margin-left: 50px;
+}
+
+.SignInput {
+    font-family: Helvetica;
+    color: rgb(120, 120, 120);
+    font-size: 15px;
+    border: 2px solid rgb(230, 230, 230);
+    background-color: rgb(245, 245, 245);
+    border-radius: 2px;
+    width: 500px;
+    height: 40px;
+    margin-top: 60px;
+    margin-left: 50px;
+}
+
+
+.SignInput:focus {
+    outline: none;
+    border: 2px solid rgb(255, 66, 66);
+
+}
+
+#EmailTextSignIn {
+    position: absolute;
+    margin-top: 25px;
+}
+
+#PassTextSignIn {
+    position: absolute;
+    margin-top: 25px;
+}
+
+.SignButtons {
+    background-color: rgb(250, 250, 250);
+    border: 2px solid rgb(255, 66, 66);
+    transform: .1s;
+    font-family: helvetica;
+    font-size: 15px;
+    color: rgb(255, 66, 66);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    transition: .1s;
+}
+
+#SignInButton {
+    position: absolute;
+    margin-top: 140px;
+    margin-left: -500px;
+}
+
+.SignButtons:active {
+    transform: scale(.95);
+}
+
+.SignButtons:hover {
+    color: rgb(240, 240, 240);
+    background-color: rgb(255, 66, 66);
+}
+
+#ForgotPassText {
+    font-family: helvetica;
+    font-size: 15px;
+    color: rgb(70, 70, 70);
+    position: absolute;
+    cursor: pointer;
+    transform: .1s;
+    transition: .1s;
+    margin-left: 400px;
+    margin-top: 50px;
+}
+
+
+#ForgotPassText:hover {
+    transform: scale(1.03);
+    color: rgb(255, 66, 66);
+    text-decoration: underline;
+
+}
+
+#CreateAccContainerSecondary {
+    position: relative;
+    width: 650px;
+    height: 340px;
+    background-color: rgb(250, 250, 250);
+    margin-top: 22%;
+    border-radius: 5px;
+    margin-left: 25px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    display: none;
+    transform: scale(.9);
+}
+
+#EmailTextCreate {
+    position: absolute;
+    margin-top: 25px;
+}
+
+#PassTextCreate {
+    position: absolute;
+    margin-top: 25px;
+}
+
+#CreateButton {
+    position: absolute;
+    margin-top: 140px;
+    margin-left: -500px;
+}
+
+.CreateText {
+    font-family: Helvetica;
+    color: rgb(120, 120, 120);
+    font-size: 14px;
+    letter-spacing: 0px;
+
+}
+
+
+.CheckBoxSign:checked {
+    outline: 1px solid rgb(220, 220, 220);
+    accent-color: rgb(40, 40, 40);
+}
+
+
+#SubscribeBox {
+    position: absolute;
+    margin-top: 128px;
+    margin-left: -500px;
+}
+
+#SubscribeText {
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 80px;
+}
+
+#CreateButton {
+    position: absolute;
+    margin-top: 175px;
+}
+
+#TermsBox {
+    position: absolute;
+    margin-top: 190px;
+    margin-left: -275px;
+}
+
+
+#Terms {
+    position: absolute;
+    margin-top: 87px;
+    margin-left: 300px;
+}
+
+#TermsPolicyText {
+    text-decoration: underline;
+    transition: .1s;
+    cursor: pointer;
+}
+
+#TermsPolicyText:hover {
+    color: rgb(255, 66, 66);
+}
+
+/*Sign In Container*/
+
+
+
+
+
+
+/*CSS Rules*/
+@media (max-width: 750px) {
+
+    .SignIn_Headers {
+        font-size: 20px;
+        margin-left: 20%;
+
+    }
+
+    #SignInContainer {
+        width: 80%;
+        height: 500px;
+        background-color: rgb(250, 250, 250);
+        position: absolute;
+        top: 250px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 5px rgb(0, 0, 0, .1);
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    #SignInContainerSecondary {
+        position: relative;
+        width: 93%;
+        height: 310px;
+        background-color: rgb(250, 250, 250);
+        margin-top: 90px;
+        border-radius: 5px;
+        margin-left: 3%;
+        display: block;
+        border-bottom: 1px solid rgb(220, 220, 220);
+    }
+
+
+
+    #CreateAccount {
+        word-break: normal;
+    }
+
+    #AccountSec {
+        word-break: break-all;
+    }
+
+    .SignInput {
+        font-size: 15px;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #ForgotPassText {
+        font-size: 12px;
+        margin-left: 55%;
+        margin-top: 50px;
+    }
+
+    #SignInButton {
+        position: absolute;
+        margin-top: 140px;
+        margin-left: -79%;
+    }
+
+    .SignButtons {
+        background-color: rgb(250, 250, 250);
+        border: 2px solid rgb(255, 66, 66);
+        transform: .1s;
+        font-family: helvetica;
+        font-size: 15px;
+        color: rgb(255, 66, 66);
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        transition: .1s;
+    }
+
+    .SignText {
+
+        margin-left: 10%;
+    }
+
+
+    #CreateAccContainerSecondary {
+        position: relative;
+        width: 95%;
+        height: 360px;
+        background-color: rgb(250, 250, 250);
+        margin-top: 90px;
+        border-radius: 5px;
+        margin-left: 2%;
+
+    }
+
+    #CreateButton {
+        position: absolute;
+        margin-top: 195px;
+        margin-left: -79%;
+    }
+
+    #TermsBox {
+        position: absolute;
+        margin-top: 160px;
+        margin-left: -79%;
+    }
+
+    #SubscribeBox {
+        position: absolute;
+        margin-top: 115px;
+        margin-left: -79%;
+    }
+
+    #SubscribeText {
+        position: absolute;
+        margin-top: 13px;
+        margin-left: 17%;
+    }
+
+    #Terms {
+        position: absolute;
+        margin-top: 59px;
+        margin-left: 17%;
+    }
+}
+
+
+
+@media (max-width: 650px) {
+
+    .SignIn_Headers {
+        font-size: 20px;
+        margin-left: 16%;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .SignIn_Headers {
+        font-size: 20px;
+        margin-left: 11%;
+
+    }
+
+}
+
+@media (max-width: 1100px) {
+
+
+
+    #HelpContact {
+        white-space: nowrap;
+    }
+
+    #TopSignInItem {
+        white-space: nowrap;
+    }
+
+    #NavTitle {
+        white-space: nowrap;
+    }
+
+    #SearchBar {
+        color: rgb(40, 40, 40);
+        margin-top: 25px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 40%;
+        height: 45px;
+        padding: 10px;
+    }
+
+    #SearchImageButton {
+        margin-top: 25px;
+        height: 45px;
+        margin-left: 10%;
+
+    }
+
+
+    #NavSearchButton {
+        margin-left: 1%;
+        background-color: rgb(255, 66, 66);
+        height: 45px;
+        margin-top: 25px;
+        padding-left: 60px;
+        padding-right: 60px;
+        border: none;
+        cursor: pointer;
+        font-family: Helvetica;
+        font-size: 15px;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        border-radius: 10px;
+        transition: .1s;
+
+    }
+}
+
+@media (max-width: 900px) {
+
+    #Sign_In_Title {
+        display: none;
+    }
+
+    #SignIn {
+        top: 50px;
+    }
+
+    #CreateAccount {
+        top: 50px;
+    }
+
+    #SignInContainer {
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    #Comic_Image {
+        display: none;
+    }
+
+    #NavigationBarMain {
+        padding-bottom: 20px;
+
+    }
+
+    #NavTitle {
+        font-size: 22px;
+        margin-top: 35px;
+    }
+
+    #Bottom4 {
+        display: none;
+    }
+
+    #Bottom5 {
+        display: none;
+    }
+
+    #Bottom6 {
+        display: none;
+    }
+
+    #NavSearchButton {
+        margin-left: 1%;
+        background-color: rgb(255, 66, 66);
+        height: 40px;
+        margin-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: none;
+        cursor: pointer;
+        font-family: Helvetica;
+        font-size: 13px;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        border-radius: 10px;
+        transition: .1s;
+
+    }
+
+    #SearchImageButton {
+        margin-top: 30px;
+        height: 40px;
+        margin-left: 8%;
+
+    }
+
+    #SearchBar {
+        color: rgb(40, 40, 40);
+        margin-top: 30px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 40%;
+        height: 40px;
+        padding: 10px;
+    }
+
+
+}
+
+@media (max-width: 650px) {
+
+
+    #NavSearchButton {
+        display: none;
+
+    }
+
+    #SearchImageButton {
+        margin-top: 30px;
+        height: 40px;
+        margin-left: 3%;
+
+    }
+
+    #SearchBar {
+        color: rgb(40, 40, 40);
+        margin-top: 30px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 45%;
+        height: 40px;
+        padding: 10px;
+    }
+}
+
+/*CSS Rules*/

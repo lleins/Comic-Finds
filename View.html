@@ -1,0 +1,140 @@
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="View_L/View.js" defer></script>
+    <link href="View_L/View.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="ICO/CFLogo_A.ico" type="image/x-icon">
+    <title>Comic Finds - View</title>
+</head>
+
+<body>
+
+    <div class="loading-container">
+        <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
+    </div>
+
+    <!--Top Navigation Bar-->
+    <div id="NavigationBarTop">
+        <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
+                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+        <p class="TopNavItem" id="HelpContact">Help & Contact</p>
+        <img id="WatchList2" class="TopImages" src="Images/WatchList.png">
+        <img id="Account2" class="TopImages" src="Images/Account2.png">
+    </div>
+    <!--Top Navigation Bar-->
+
+
+    <!--Main Navigation Bar-->
+    <div id="NavigationBarMain">
+        <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
+
+        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" placeholder="Search for anything">
+
+        <button id="NavSearchButton">Search</button>
+
+    </div>
+    <!--Main Navigation Bar-->
+
+    <!--Bottom Navigation Bar-->
+    <div id="NavigationBarBottom">
+        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
+        <p class="BottomNavItem">Watchlist</p>
+        <p class="BottomNavItem">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2">Batman</p>
+        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5">Superman</p>
+        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+    </div>
+    <!--Bottom Navigation Bar-->
+
+
+    <!--View Item-->
+
+    <div id="Item_View_Container" onmousemove="zoomImage(event)" onmouseleave="resetImage()">
+        <img id="View_Img" src="Images/TestComicImg.jpg">
+    </div>
+
+
+    <div id="Item_View_Container_Text">
+        <p id="View_Issue" class="View_Text_Style">DF AMAZING SPIDERMAN #20 DODSON SGN (C: 0-1-2)</p>
+        <p id="View_Vendor" class="View_Text_Style">Vendor: <span id="Vendor_Name">Dynamic Forces</span></p>
+        <p id="View_Price" class="View_Text_Style">$32.56</p>
+
+        <p id="View_Written" class="View_Text_Style">Written by: <span id="Written_Name"></span></p>
+        <p id="View_Artist" class="View_Text_Style">Artist by: <span id="Artist_Name"></span></p>
+        <p id="View_Description" class="View_Text_Style">Description: </p>
+        <p id="View_Description_Text" class="View_Text_Style"> Jaime Reyes is back home, but just when he thought he had
+            a grasp on this alter-ego, the Blue Beetle, he discovers everything he believed about his scarab is a lie
+            according to the mysterious Doctor Fate. With dire warnings about the symbiote that is fused to Reyes'
+            spine, Kent Nelson, the original wielder of Doctor Fate's power, seemingly on verge of insanity, has he come
+            to save Jaime as he claims...or will he try to eliminate the Blue Beetle, no matter the cost? Event priced
+            in honor of the first appearance of the original Blue Beetle in Mystery Men Comics #1 (August 1939). FINAL
+            COVER MAY VARY! ALLOCATIONS MAY OCCUR!</p>
+
+    </div>
+
+    <div id="WatchList_Container">
+        <p id="View_AddWishList">Add to watchlist</p>
+    </div>
+
+    <div id="Share_Container">
+        <p id="View_Share" class="View_Text_Style">Share:</p>
+        <img src="Images/ShareImg.png" id="ShareImg">
+    </div>
+
+    <!--View Item-->
+
+
+
+    <!--Footer-->
+    <div id="BottomContainer">
+        <div id="AccountFooter" class="FooterContainers">
+            <p class="FooterHeaders">Account</p>
+            <p class="FooterItem">Manage Account</p>
+            <p class="FooterItem">WatchList</p>
+        </div>
+
+
+        <div id="QuickLinks" class="FooterContainers">
+            <p class="FooterHeaders">Quick Links</p>
+            <p class="FooterItem">Home</p>
+            <p class="FooterItem">Watchlist</p>
+            <p class="FooterItem">Daily Deals</p>
+            <p class="FooterItem">Avengers</p>
+            <p class="FooterItem">Batman</p>
+            <p class="FooterItem">Spiderman</p>
+            <p class="FooterItem">Star Wars</p>
+            <p class="FooterItem">Superman</p>
+            <p class="FooterItem">X-Mean</p>
+            <p class="FooterItem">Etc....</p>
+        </div>
+
+
+        <div id="Contact" class="FooterContainers">
+            <p class="FooterHeaders">Contact</p>
+            <p class="FooterItem">Contact us</p>
+            <p class="FooterItem">Learn about us</p>
+            <p class="FooterItem">More Information</p>
+        </div>
+
+    </div>
+
+    <div id="RightsContainer">
+        <p id="RightsItem">Copyright © 2023 Comic Finds. All Rights Reserved. User Agreement, Privacy, Payments Terms of
+            Use, Cookies and AdChoice</p>
+    </div>
+    <!--Footer-->
+
+</body>
+
+
+
+
+
+</html>

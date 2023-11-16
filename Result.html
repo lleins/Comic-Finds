@@ -1,0 +1,340 @@
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Result_L/Result.js" defer></script>
+    <link href="Result_L/Result.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="ICO/CFLogo_A.ico" type="image/x-icon">
+    <title>Comic Finds - Search Result</title>
+</head>
+
+<body>
+
+    <div class="loading-container">
+        <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
+    </div>
+
+    <!--Top Navigation Bar-->
+    <div id="NavigationBarTop">
+        <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
+                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+        <p class="TopNavItem" id="HelpContact">Help & Contact</p>
+        <img id="WatchList2" class="TopImages" src="Images/WatchList.png">
+        <img id="Account2" class="TopImages" src="Images/Account2.png">
+    </div>
+    <!--Top Navigation Bar-->
+
+
+    <!--Main Navigation Bar-->
+    <div id="NavigationBarMain">
+        <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
+
+        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" placeholder="Search for anything">
+
+        <button id="NavSearchButton">Search</button>
+
+    </div>
+    <!--Main Navigation Bar-->
+
+    <!--Bottom Navigation Bar-->
+    <div id="NavigationBarBottom">
+        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
+        <p class="BottomNavItem">Watchlist</p>
+        <p class="BottomNavItem">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2">Batman</p>
+        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5">Superman</p>
+        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+
+    </div>
+    <!--Bottom Navigation Bar-->
+
+
+
+
+
+
+    <!--Search Result Title-->
+
+    <div id="SearchResult_Title">
+        <p id="SearchResult_NumberTitle"><span id="ResultBackTrack">Home</span><span id="ResultArrow"> > </span> Search:
+            <span id="SearchResult_Number">000</span> results found...
+        </p>
+        <p id="Title" class="SearchResultTitle">Your search for "<span id="SearchResult_Title_PlaceHere">Text
+                Here</span>" revealed the following:</p>
+    </div>
+
+
+
+
+
+
+    <!--Search Result Title-->
+
+
+
+
+
+    <!--Grid View Results-->
+    <div id="SearchResults_Grid_Container">
+        <div id="SearchResults_Grid">
+            <div id="Item1" class="Item_Grid">
+                <img id="FeaturedImg1" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv1">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue1"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice1"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+
+            <div id="Item2" class="Item_Grid">
+
+                <img id="FeaturedImg2" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv2">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue2"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice2"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+
+
+            <div id="Item3" class="Item_Grid">
+
+                <img id="FeaturedImg3" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv3">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue3"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice3"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+
+
+            <div id="Item4" class="Item_Grid">
+
+                <img id="FeaturedImg4" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv4">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue4"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice4"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item5" class="Item_Grid">
+
+                <img id="FeaturedImg5" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv5">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue5"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice5"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item6" class="Item_Grid">
+
+                <img id="FeaturedImg6" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv6">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue6"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice6"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item7" class="Item_Grid">
+
+                <img id="FeaturedImg7" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item8" class="Item_Grid">
+
+                <img id="FeaturedImg8" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item9" class="Item_Grid">
+
+                <img id="FeaturedImg7" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item10" class="Item_Grid">
+
+                <img id="FeaturedImg8" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item11" class="Item_Grid">
+
+                <img id="FeaturedImg7" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item12" class="Item_Grid">
+
+                <img id="FeaturedImg8" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item13" class="Item_Grid">
+
+                <img id="FeaturedImg7" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item14" class="Item_Grid">
+
+                <img id="FeaturedImg8" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item15" class="Item_Grid">
+
+                <img id="FeaturedImg7" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item16" class="Item_Grid">
+
+                <img id="FeaturedImg8" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item17" class="Item_Grid">
+
+                <img id="FeaturedImg7" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item18" class="Item_Grid">
+
+                <img id="FeaturedImg8" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item19" class="Item_Grid">
+
+                <img id="FeaturedImg7" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+            <div id="Item20" class="Item_Grid">
+
+                <img id="FeaturedImg8" class="GridItem_Img" src="">
+                <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+                <button class="AddWatchList">Add to WatchList</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Grid View Results-->
+
+
+
+
+
+
+
+    <!--Page Counter Bottom-->
+
+    <div id="PageCounter">
+        <p id="PrevPage" class="Next_PrevPage"><span style="font-size: 17px;">&larr;</span> Prev</p>
+        <p id="CurrentPage" class="Next_PrevPage" style="text-decoration: none;">&nbsp;1&nbsp;</p>
+        <p id="NextPage" class="Next_PrevPage">Next <span style="font-size: 17px;">&rarr;</span></p>
+    </div>
+
+    <!--Page Counter Bottom-->
+
+
+
+
+
+    <!--Footer-->
+    <div id="BottomContainer">
+        <div id="AccountFooter" class="FooterContainers">
+            <p class="FooterHeaders">Account</p>
+            <p class="FooterItem">Manage Account</p>
+            <p class="FooterItem">WatchList</p>
+        </div>
+
+
+        <div id="QuickLinks" class="FooterContainers">
+            <p class="FooterHeaders">Quick Links</p>
+            <p class="FooterItem">Home</p>
+            <p class="FooterItem">Watchlist</p>
+            <p class="FooterItem">Daily Deals</p>
+            <p class="FooterItem">Avengers</p>
+            <p class="FooterItem">Batman</p>
+            <p class="FooterItem">Spiderman</p>
+            <p class="FooterItem">Star Wars</p>
+            <p class="FooterItem">Superman</p>
+            <p class="FooterItem">X-Mean</p>
+            <p class="FooterItem">Etc....</p>
+        </div>
+
+
+        <div id="Contact" class="FooterContainers">
+            <p class="FooterHeaders">Contact</p>
+            <p class="FooterItem">Contact us</p>
+            <p class="FooterItem">Learn about us</p>
+            <p class="FooterItem">More Information</p>
+        </div>
+
+    </div>
+
+    <div id="RightsContainer">
+        <p id="RightsItem">Copyright © 2023 Comic Finds. All Rights Reserved. User Agreement, Privacy, Payments Terms of
+            Use, Cookies and AdChoice</p>
+    </div>
+    <!--Footer-->
+
+</body>
+
+
+
+
+
+</html>

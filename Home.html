@@ -1,0 +1,855 @@
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Home_L/Home.js" defer></script>
+    <link href="Home_L/Home.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="ICO/CFLogo_A.ico" type="image/x-icon">
+    <title>Comic Finds - Home Page</title>
+</head>
+
+<body>
+
+    <div class="loading-container">
+        <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
+    </div>
+
+    <!--Top Navigation Bar-->
+    <div id="NavigationBarTop">
+        <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
+                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+        <p class="TopNavItem" id="HelpContact" onclick="GoToContactPage()">Help & Contact</p>
+        <!--
+    <img class="LanguageFlags" id="CanadaFlag" src="Images/CanadianFlag.png">
+    <p class="TopNavItem" id="Language">English</p>
+    -->
+        <img id="WatchList2" class="TopImages" src="Images/WatchList.png" onclick="GoToWatchListPage()">
+        <img id="Account2" class="TopImages" src="Images/Account2.png" onclick="GoToAccountPage()">
+    </div>
+    <!--
+<div id="LanguageSwitch">
+    <img id="FrenchFlagImg" class="LanguageFlags" src="Images/FrenchFlag.png">
+    <p id="FrenchLanguage" class="TopNavItem">Français</p>
+</div>
+-->
+
+    <!--Top Navigation Bar-->
+
+
+    <!--Main Navigation Bar-->
+    <div id="NavigationBarMain">
+        <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
+
+        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" placeholder="Search for anything">
+
+        <button id="NavSearchButton">Search</button>
+
+    </div>
+    <!--Main Navigation Bar-->
+
+    <!--Bottom Navigation Bar-->
+    <div id="NavigationBarBottom">
+        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
+        <p class="BottomNavItem">Watchlist</p>
+        <p class="BottomNavItem">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2">Batman</p>
+        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5">Superman</p>
+        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+
+
+    </div>
+    <!--Bottom Navigation Bar-->
+
+
+
+
+
+    <!--Cookies Section-->
+    <div id="Cookies_Container">
+        <p id="Cookies_Title">Cookies</p>
+        <p id="Cookies_Text">This website uses cookies in order to offer you the most relevant information.<br>
+            Please accept cookies for optimal performance. </p>
+
+        <button id="Cookie_Accept" onclick="AcceptCookies()">Accept Cookies</button>
+        <a id="Cookie_Settings">Change Settings</a>
+    </div>
+
+
+
+    <!--Cookies Section-->
+
+
+
+
+
+    <!--News Letter Section-->
+
+    <div id="NewsLetterContainer">
+        <button id="NewsLetter" onclick="NewsLetter()"><img id="NewsLetter_Image" src="Images/NewsLetter.png"><img
+                id="Exit_Image" src="Images/CloseImg.png"></button>
+    </div>
+
+    <div id="NewsLetterSignUp">
+        <p class="NewsLetter_Text" id="Welcome_Text_NewsLetter">Welcome to</p>
+        <p class="NewsLetter_Text" id="ComicFinds_Text_NewsLetter"><span id="ComicTitle_NewsLetter">Comic</span> Finds
+        </p>
+        <div id="NewsLetterSignUpSecondary">
+            <p id="NewsLetter_Text_Title" class="NewsLetter_Text_Style">Sign up</p>
+            <p id="NewsLetter_Text_Description" class="NewsLetter_Text_Style">Sign up now and get access to exlusive
+                offers, updates and more. Also a chance to register for our Newsletter.</p>
+            <button id="NewsLetter_Signup_Button" onclick="GoToSignInPageCreateAcc()">Sign up</button>
+            <p id="Sign_in_TextBottom" class="NewsLetter_Text_Style">Already have an account? <span
+                    id="NewsLetter_SignIn_Text" onclick="GoToSignInPage()">Sign in</span></p>
+        </div>
+    </div>
+
+    <!--News Letter Section-->
+
+    <!--
+    <div id="Test_Loader" class="loader-container">
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+    </div>
+    -->
+
+    <!--Container for cycling through images at top of page-->
+
+    <div id="AutoScroll_Container">
+        <div id="AutoScroll_1" class="AutoScroll_Item">
+
+        </div>
+
+        <div id="AutoScroll_2" class="AutoScroll_Item">
+
+        </div>
+
+        <div id="AutoScroll_3" class="AutoScroll_Item">
+
+        </div>
+
+        <div id="AutoScroll_4" class="AutoScroll_Item">
+
+        </div>
+
+        <div id="AutoScroll_5" class="AutoScroll_Item">
+
+        </div>
+
+        <div id="AutoScroll_6" class="AutoScroll_Item">
+
+        </div>
+    </div>
+
+    <!--Container for cycling through images at top of page-->
+
+
+    <!--Shadow Bars for auto scroll container at top of page-->
+    <div id="AutoScrollSideBars">
+        <div id="LeftSideBar" class="SideBars"></div>
+        <div id="RightSideBar" class="SideBars"></div>
+    </div>
+    <!--Shadow Bars for auto scroll container at top of page-->
+
+
+
+    <div id="FeaturedTextTitle_Container">
+        <p id="FeaturedTitle"><span id="FeaturedTitle_Span">The latest.</span> Take a look at whats new today.</p>
+    </div>
+
+    <div id="Arrow_Container">
+        <img id="LeftArrowImg" class="Featured_Arrow" src="Images/LeftArrow.png" onclick="Featured_ScrollLeft()">
+        <img id="RightArrowImg" class="Featured_Arrow" src="Images/RightArrow.png" onclick="Featured_ScrollRight()">
+    </div>
+
+
+
+    <div id="FeaturedHeading">
+        <p class="Univ_Heading">Featured Comics Today</p>
+    </div>
+
+    <div id="FeaturedToday">
+
+        <div id="Featured_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+
+        <div id="Item1" class="FeaturedItem">
+            <img id="FeaturedImg1" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv1">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue1"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice1"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+
+        <div id="Item2" class="FeaturedItem">
+
+            <img id="FeaturedImg2" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv2">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue2"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice2"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+
+
+        <div id="Item3" class="FeaturedItem">
+
+            <img id="FeaturedImg3" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv3">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue3"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice3"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+
+
+        <div id="Item4" class="FeaturedItem">
+
+            <img id="FeaturedImg4" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv4">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue4"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice4"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+        <div id="Item5" class="FeaturedItem">
+
+            <img id="FeaturedImg5" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv5">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue5"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice5"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+        <div id="Item6" class="FeaturedItem">
+
+            <img id="FeaturedImg6" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv6">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue6"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice6"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+        <div id="Item7" class="FeaturedItem">
+
+            <img id="FeaturedImg7" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+        <div id="Item8" class="FeaturedItem">
+
+            <img id="FeaturedImg8" class="FeaturedItem_Img" src="">
+            <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
+            <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
+            <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
+            <button class="AddWatchList">Add to WatchList</button>
+        </div>
+
+    </div>
+
+
+
+    <div id="UniverseTitle_Container">
+        <p id="UniverseTitle"><span id="UniverseTitle_Span">All Comics.</span> Browse featured comic book universes
+            below.</p>
+    </div>
+
+    <!--
+<div id="Featured_Univ_Container">
+
+    <div id="Marvel_Univ_ItemTitle" class="Univ_ItemStyle_Title">
+        <p class="UnivItemTitle_Style" id="Marvel_Title_Text">Marvel Comics</p>
+        
+        <p class="UnivItemTitle_Style"></p>
+        <p class="TitleWriteUpText" id="MarvelTitleWriteUpText"><br> </p>
+        <button id="Marvel_Browse_Button" class="Browse_Button">Browse Now&nbsp;&nbsp;&nbsp;<span class="Univ_Button_Arrow">&rarr;</span></button>
+        
+    </div>
+
+
+    <div id="DC_Univ_ItemTitle" class="Univ_ItemStyle_Title">
+        <p id="DC_Title_Text" class="UnivItemTitle_Style">DC Comics</p>
+        
+        <p id="DC_Title_Text" class="UnivItemTitle_Style">DC Comics</p>
+        <p class="TitleWriteUpText" id="DCTitleWriteUpText">Featured DC comics<br>here. </p>
+        <button id="DC_Browse_Button" class="Browse_Button">Browse Now&nbsp;&nbsp;&nbsp;<span class="Univ_Button_Arrow">&rarr;</span></button>
+        
+    </div>
+
+    <div id="StarWars_Univ_ItemTitle" class="Univ_ItemStyle_Title">
+        <p id="StarWars_Title_Text" class="UnivItemTitle_Style">Star Wars Comics</p>
+        
+        <p id="DC_Title_Text" class="UnivItemTitle_Style">DC Comics</p>
+        <p class="TitleWriteUpText" id="DCTitleWriteUpText">Featured DC comics<br>here. </p>
+        <button id="DC_Browse_Button" class="Browse_Button">Browse Now&nbsp;&nbsp;&nbsp;<span class="Univ_Button_Arrow">&rarr;</span></button>
+        
+    </div>
+
+
+    <div id="StarTrek_Univ_ItemTitle" class="Univ_ItemStyle_Title">
+        <p id="StarTrek_Title_Text" class="UnivItemTitle_Style">Star Trek Comics</p>
+        
+        <p id="DC_Title_Text" class="UnivItemTitle_Style">DC Comics</p>
+        <p class="TitleWriteUpText" id="DCTitleWriteUpText">Featured DC comics<br>here. </p>
+        <button id="DC_Browse_Button" class="Browse_Button">Browse Now&nbsp;&nbsp;&nbsp;<span class="Univ_Button_Arrow">&rarr;</span></button>
+        
+    </div>
+
+
+    <div id="WalkingDead_Univ_ItemTitle" class="Univ_ItemStyle_Title">
+        <p id="WalkingDead_Title_Text" class="UnivItemTitle_Style">Walking Dead<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comics</p>
+        
+        <p id="DC_Title_Text" class="UnivItemTitle_Style">DC Comics</p>
+        <p class="TitleWriteUpText" id="DCTitleWriteUpText">Featured DC comics<br>here. </p>
+        <button id="DC_Browse_Button" class="Browse_Button">Browse Now&nbsp;&nbsp;&nbsp;<span class="Univ_Button_Arrow">&rarr;</span></button>
+        
+    </div>
+
+</div>
+
+-->
+
+
+
+    <div id="Marvel_Heading">
+        <p class="Univ_Heading">Avengers Comics</p>
+    </div>
+
+    <div id="Marvel_Arrows">
+        <img id="Marvel_LeftArrow" class="Univ_SmallArrow" src="Images/LeftArrow.png" alt="Arrow"
+            onclick="Marvel_ScrollLeft()">
+        <img id="Marvel_RightArrow" class="Univ_SmallArrow" src="Images/RightArrow.png" alt="Arrow"
+            onclick="Marvel_ScrollRight()">
+    </div>
+
+
+    <div id="MarvelUniverseContainer">
+
+        <div id="Marvel_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+
+        <div id="MarvelComicContainer">
+
+            <div id="Marvel_Univ_Item1" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img1" class="Univ_Img_Item" src="">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel1">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue1" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price1" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton1" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+            <div id="Marvel_Univ_Item2" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img2" class="Univ_Img_Item" src="">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel2">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue2" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price2" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton2" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="Marvel_Univ_Item3" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img3" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel3">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue3" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price3" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton3" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="Marvel_Univ_Item4" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img4" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel4">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue4" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price4" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton4" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="Marvel_Univ_Item5" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img5" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel5">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue5" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price5" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton5" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="Marvel_Univ_Item6" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img6" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel6">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue6" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price6" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton6" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="Marvel_Univ_Item7" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img7" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel7">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue7" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price7" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton7" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+            <div id="Marvel_Univ_Item8" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img8" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_Marvel8">Dynamic Forces</p>
+                <p id="Marvel_Univ_Issue8" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price8" class="Univ_Price_Item"></p>
+                <button id="Marvel_Univ_SaveButton8" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="DC_Heading">
+        <p class="Univ_Heading">Batman Comics</p>
+    </div>
+
+
+
+    <div id="DC_Arrows">
+        <img id="DC_LeftArrow" class="Univ_SmallArrow" src="Images/LeftArrow.png" alt="Arrow" onclick="DC_ScrollLeft()">
+        <img id="DC_RightArrow" class="Univ_SmallArrow" src="Images/RightArrow.png" alt="Arrow"
+            onclick="DC_ScrollRight()">
+    </div>
+
+
+    <div id="DcUniverseContainer">
+
+        <div id="DC_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+
+
+        <div id="DcComicContainer">
+            <div id="DC_Univ_Item1" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img1" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC1">Dynamic Forces</p>
+                <p id="DC_Univ_Issue1" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price1" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton1" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="DC_Univ_Item2" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img2" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC2">Dynamic Forces</p>
+                <p id="DC_Univ_Issue2" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price2" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton2" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="DC_Univ_Item3" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img3" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC3">Dynamic Forces</p>
+                <p id="DC_Univ_Issue3" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price3" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton3" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="DC_Univ_Item4" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img4" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC4">Dynamic Forces</p>
+                <p id="DC_Univ_Issue4" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price4" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton4" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="DC_Univ_Item4" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img5" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC5">Dynamic Forces</p>
+                <p id="DC_Univ_Issue5" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price5" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton5" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="DC_Univ_Item5" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img6" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC6">Dynamic Forces</p>
+                <p id="DC_Univ_Issue6" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price6" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton6" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="DC_Univ_Item7" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img7" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC7">Dynamic Forces</p>
+                <p id="DC_Univ_Issue7" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price7" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton7" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+            <div id="DC_Univ_Item8" class="Univ_ItemStyle">
+                <img id="DC_Univ_Img8" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_DC8">Dynamic Forces</p>
+                <p id="DC_Univ_Issue8" class="Univ_Issue_Item"></p>
+                <p id="DC_Univ_Price8" class="Univ_Price_Item"></p>
+                <button id="DC_Univ_SaveButton8" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="StarWars_Heading">
+        <p class="Univ_Heading">Spiderman Comics</p>
+    </div>
+
+
+
+    <div id="StarWars_Arrows">
+        <img id="StarWars_LeftArrow" class="Univ_SmallArrow" src="Images/LeftArrow.png" alt="Arrow"
+            onclick="StarWars_ScrollLeft()">
+        <img id="StarWars_RightArrow" class="Univ_SmallArrow" src="Images/RightArrow.png" alt="Arrow"
+            onclick="StarWars_ScrollRight()">
+    </div>
+
+
+
+    <div id="StarWarsUniverseContainer">
+
+        <div id="StarWars_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+
+        <div id="StarWarsComicContainer">
+            <div id="StarWars_Univ_Item1" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img1" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars1">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue1" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price1" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton1" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarWars_Univ_Item2" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img2" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars2">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue2" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price2" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton2" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarWars_Univ_Item3" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img3" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars3">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue3" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price3" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton3" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarWars_Univ_Item4" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img4" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars4">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue4" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price4" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton4" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarWars_Univ_Item4" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img5" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars5">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue5" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price5" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton5" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarWars_Univ_Item5" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img6" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars6">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue6" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price6" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton6" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarWars_Univ_Item7" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img7" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars7">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue7" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price7" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton7" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+            <div id="StarWars_Univ_Item8" class="Univ_ItemStyle">
+                <img id="StarWars_Univ_Img8" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarWars8">Dynamic Forces</p>
+                <p id="StarWars_Univ_Issue8" class="Univ_Issue_Item"></p>
+                <p id="StarWars_Univ_Price8" class="Univ_Price_Item"></p>
+                <button id="StarWars_Univ_SaveButton8" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="StarTrek_Heading">
+        <p class="Univ_Heading">Superman Comics</p>
+    </div>
+
+    <div id="StarTrek_Arrows">
+        <img id="StarTrek_LeftArrow" class="Univ_SmallArrow" src="Images/LeftArrow.png" alt="Arrow"
+            onclick="StarTrek_ScrollLeft()">
+        <img id="StarTrek_RightArrow" class="Univ_SmallArrow" src="Images/RightArrow.png" alt="Arrow"
+            onclick="StarTrek_ScrollRight()">
+    </div>
+
+
+    <div id="StarTrekUniverseContainer">
+
+        <div id="StarTrek_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+
+        <div id="StarTrekComicContainer">
+            <div id="StarTrek_Univ_Item1" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img1" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek1">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue1" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price1" class="Univ_Price_Item"></p>
+                <button id="StarTrek_Univ_SaveButton1" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarTrek_Univ_Item2" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img2" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek2">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue2" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price2" class="Univ_Price_Item"></p>
+                <button id="StarTrek_Univ_SaveButton2" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarTrek_Univ_Item3" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img3" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek3">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue3" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price3" class="Univ_Price_Item"></p>
+                <button id="StarTrek_Univ_SaveButton3" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarTrek_Univ_Item4" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img4" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek4">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue4" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price4" class="Univ_Price_Item"></p>
+                <button id="StarTrek_Univ_SaveButton4" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarTrek_Univ_Item4" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img5" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek5">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue5" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price5" class="Univ_Price_Item"></p>
+                <button id="StaTrek_Univ_SaveButton5" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarTrek_Univ_Item5" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img6" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek6">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue6" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price6" class="Univ_Price_Item"></p>
+                <button id="StarTrek_Univ_SaveButton6" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="StarTrek_Univ_Item7" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img7" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek7">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue7" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price7" class="Univ_Price_Item"></p>
+                <button id="StarTrek_Univ_SaveButton7" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+            <div id="StarTrek_Univ_Item8" class="Univ_ItemStyle">
+                <img id="StarTrek_Univ_Img8" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_StarTrek8">Dynamic Forces</p>
+                <p id="StarTrek_Univ_Issue8" class="Univ_Issue_Item"></p>
+                <p id="StarTrek_Univ_Price8" class="Univ_Price_Item"></p>
+                <button id="StarTrek_Univ_SaveButton8" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="WalkingDead_Heading">
+        <p class="Univ_Heading">Walking Dead Comics</p>
+    </div>
+
+    <div id="WalkingDead_Arrows">
+        <img id="WalkingDead_LeftArrow" class="Univ_SmallArrow" src="Images/LeftArrow.png" alt="Arrow"
+            onclick="WalkingDead_ScrollLeft()">
+        <img id="WalkingDead_RightArrow" class="Univ_SmallArrow" src="Images/RightArrow.png" alt="Arrow"
+            onclick="WalkingDead_ScrollRight()">
+    </div>
+
+    <div id="WalkingDeadUniverseContainer">
+
+        <div id="WalkingDead_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+
+        <div id="WalkingDeadComicContainer">
+            <div id="WalkingDead_Univ_Item1" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img1" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead1">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue1" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price1" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton1" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="WalkingDead_Univ_Item2" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img2" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead2">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue2" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price2" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton2" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="WalkingDead_Univ_Item3" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img3" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead3">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue3" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price3" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton3" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="WalkingDead_Univ_Item4" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img4" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead4">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue4" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price4" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton4" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="WalkingDead_Univ_Item4" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img5" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead5">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue5" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price5" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton5" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="WalkingDead_Univ_Item5" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img6" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead6">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue6" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price6" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton6" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+
+            <div id="WalkingDead_Univ_Item7" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img7" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead7">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue7" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price7" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton7" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+            <div id="WalkingDead_Univ_Item8" class="Univ_ItemStyle">
+                <img id="WalkingDead_Univ_Img8" class="Univ_Img_Item">
+                <p class="FeaturedSource_Text" id="FeatSource_WalkingDead8">Dynamic Forces</p>
+                <p id="WalkingDead_Univ_Issue8" class="Univ_Issue_Item"></p>
+                <p id="WalkingDead_Univ_Price8" class="Univ_Price_Item"></p>
+                <button id="WalkingDead_Univ_SaveButton8" class="UnivSaveButton">ADD TO WATCHLIST</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="BottomContainer">
+        <div id="AccountFooter" class="FooterContainers">
+            <p class="FooterHeaders">Account</p>
+            <p class="FooterItem">Manage Account</p>
+            <p class="FooterItem">WatchList</p>
+        </div>
+
+
+        <div id="QuickLinks" class="FooterContainers">
+            <p class="FooterHeaders">Quick Links</p>
+            <p class="FooterItem">Home</p>
+            <p class="FooterItem">Watchlist</p>
+            <p class="FooterItem">Daily Deals</p>
+            <p class="FooterItem">Avengers</p>
+            <p class="FooterItem">Batman</p>
+            <p class="FooterItem">Spiderman</p>
+            <p class="FooterItem">Star Wars</p>
+            <p class="FooterItem">Superman</p>
+            <p class="FooterItem">X-Mean</p>
+            <p class="FooterItem">Etc....</p>
+        </div>
+
+
+        <div id="Contact" class="FooterContainers">
+            <p class="FooterHeaders">Contact</p>
+            <p class="FooterItem">Contact us</p>
+            <p class="FooterItem">Learn about us</p>
+            <p class="FooterItem">More Information</p>
+        </div>
+
+    </div>
+
+    <div id="RightsContainer">
+        <p id="RightsItem">Copyright © 2023 Comic Finds. All Rights Reserved. User Agreement, Privacy, Payments
+            Terms of
+            Use, Cookies and AdChoice</p>
+    </div>
+
+</body>
+
+
+
+
+
+</html>

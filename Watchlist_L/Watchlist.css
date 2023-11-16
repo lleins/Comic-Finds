@@ -1,0 +1,1046 @@
+body {
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+}
+
+
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    /* Ensure the loading container is on top */
+    color: rgb(70, 70, 70);
+    font-family: Helvetica;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+#LoadingText {
+    justify-content: center;
+    align-items: center;
+    animation: scaleAnimation .4s ease;
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(.5);
+        /* Initial scale */
+    }
+
+    100% {
+        transform: scale(1.5);
+        /* Final scale */
+    }
+}
+
+#LoadingSecondary {
+    color: rgb(255, 66, 66);
+}
+
+
+
+/*Top Navigation Bar*/
+
+#NavigationBarTop {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255);
+    border-bottom: 2px solid rgb(240, 240, 240);
+    transition: top 0.3s ease;
+}
+
+.TopNavItem {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.TopNavItem:hover {
+    text-decoration: underline;
+    transform: scale(1.02);
+}
+
+#Language {
+    margin-left: 0%;
+    margin-top: 17px;
+}
+
+
+
+
+
+.TopNavSign {
+    font-family: Helvetica;
+    color: rgb(255, 66, 66);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+    text-decoration: underline;
+}
+
+.TopNavSign:hover {
+    transform: scale(1.05);
+}
+
+#TopSignInItem {
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    font-family: Helvetica;
+    margin-left: 3%;
+    margin-top: 17px;
+}
+
+#HelpContact {
+    margin-left: 3%;
+    margin-top: 17px;
+}
+
+#WatchList2 {
+
+    position: fixed;
+    right: 30px;
+    height: 24px;
+    width: 24px;
+    top: 8px;
+    opacity: .7;
+    transition: .1s;
+    transform: .1s;
+    cursor: pointer;
+}
+
+#Account2 {
+
+    position: fixed;
+    right: 90px;
+    top: 8px;
+    height: 24px;
+    width: 24px;
+    opacity: .7;
+    transition: .1s;
+    transform: .1s;
+    cursor: pointer;
+}
+
+#WatchList2:hover {
+    opacity: 1;
+}
+
+#Account2:hover {
+    opacity: 1;
+}
+
+#Account2:active {
+    transform: scale(.95);
+}
+
+#WatchList2:active {
+    transform: scale(.95);
+}
+
+.LanguageFlags {
+    height: 24px;
+    width: 24px;
+    transform: scale(1);
+}
+
+#CanadaFlag {
+    margin-top: 12px;
+    margin-left: 55%;
+}
+
+#LanguageSwitch {
+    position: fixed;
+    width: 120px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    z-index: 8;
+    border: 2px solid rgb(240, 240, 240);
+    margin-left: 72%;
+    margin-top: 31px;
+    display: none;
+}
+
+#FrenchLanguage {
+    margin-left: 53px;
+    margin-top: 14px;
+}
+
+#FrenchFlagImg {
+    margin-left: 27px;
+    margin-top: -31px;
+}
+
+/*Top Navigation Bar*/
+
+
+
+
+
+/*Main Navigation Bar*/
+
+#NavigationBarMain {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 44px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255, 1);
+    transition: top 0.3s ease;
+}
+
+#NavTitle {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+    font-weight: bold;
+    font-variant: small-caps;
+    margin-left: 3%;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#NavTitleSecond {
+    color: rgb(255, 66, 66);
+}
+
+
+
+
+#SearchBar {
+    color: rgb(40, 40, 40);
+    margin-top: 25px;
+    font-family: Helvetica;
+    font-size: 15px;
+    width: 50%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 0px 10px 10px 0;
+    background-color: rgb(250, 250, 250);
+    border-right: 2px solid rgb(170, 170, 170);
+    border-top: 2px solid rgb(170, 170, 170);
+    border-bottom: 2px solid rgb(170, 170, 170);
+    border-left: 0px solid rgb(170, 170, 170);
+}
+
+#SearchImageButton {
+    margin-top: 25px;
+    height: 45px;
+    border-radius: 10px 0 0 10px;
+    border-right: 0px solid rgb(170, 170, 170);
+    border-left: 2px solid rgb(170, 170, 170);
+    border-top: 2px solid rgb(170, 170, 170);
+    border-bottom: 2px solid rgb(170, 170, 170);
+    cursor: pointer;
+    margin-left: 5%;
+    background-color: rgb(250, 250, 250);
+}
+
+#SearchBar:focus {
+    outline: none;
+}
+
+#SearchIcon {
+    transform: scale(.7);
+    margin-left: 5px;
+}
+
+
+
+#NavSearchButton {
+    margin-left: 1%;
+    background-color: rgb(255, 66, 66);
+    height: 45px;
+    margin-top: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border: none;
+    cursor: pointer;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    border-radius: 10px;
+    transition: .1s;
+
+}
+
+#NavSearchButton:active {
+    transition: .1s;
+    transform: scale(0.97);
+}
+
+#NavSearchButton:hover {
+
+    background-color: rgb(255, 48, 48);
+}
+
+/*Main Navigation Bar*/
+
+/*Bottom Navigation Bar*/
+#NavigationBarBottom {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 140px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255, 1);
+    border-top: 2px solid rgb(240, 240, 240);
+    justify-content: space-around;
+    transition: top 0.3s ease;
+}
+
+.BottomNavItem {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.BottomNavItem:hover {
+    color: rgb(255, 66, 66);
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+
+/*Bottom Navigation Bar*/
+
+
+
+
+/*Confirm Remove*/
+#Confirm_Remove {
+    position: fixed;
+    top: 200px;
+    left: -350px;
+    /*to show 20px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Confirm_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+#Success_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+#Close_Success_Notif_Watch {
+    transform: scale(.6);
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 17px;
+}
+
+#Error_Remove {
+    position: fixed;
+    top: 200px;
+    left: -350px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Error_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+#Error_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+#Close_Error_Notif_Watch {
+    transform: scale(.6);
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 17px;
+}
+
+/*Confirm Remove*/
+
+
+
+/*Watchlist Titles*/
+
+
+#Top_Title {
+    position: relative;
+    top: 200px;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    padding-bottom: 10px;
+
+}
+
+#Watchlist_Number_Text {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+#Top_Second_Title {
+    position: relative;
+    top: 200px;
+
+}
+
+#Title {
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#Watchlist_Note {
+    font-family: Helvetica;
+    color: rgb(130, 130, 130);
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/*Watchlist Titles*/
+
+
+
+/*Watchlist Grid*/
+
+#SearchResults_Grid_Container {
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    margin-left: 2%;
+    display: flex;
+}
+
+#SearchResults_Grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Define the number of columns */
+    grid-template-rows: repeat(6, 1fr);
+    width: 1130px;
+    height: 2500px;
+    scroll-behavior: smooth;
+    margin-top: 250px;
+    border-radius: 2px;
+
+
+}
+
+
+.Item_Grid {
+
+    position: relative;
+    background-color: white;
+    padding: 80px;
+    border-radius: 5px;
+    transition: .3s;
+    border: 1px solid rgb(220, 220, 220);
+    width: 100px;
+    height: 365px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    margin-bottom: 15px;
+
+}
+
+.GridItem_Img {
+    height: 330px;
+    width: 250px;
+    border-radius: 2px;
+    margin-left: -75%;
+    margin-top: -75%;
+}
+
+.FeaturedItem_Text {
+    font-family: helvetica;
+    font-size: 20px;
+    color: rgb(70, 70, 70);
+    margin-top: -34%;
+    width: 260px;
+}
+
+.FeaturedItem_Text_Issue {
+    font-family: helvetica;
+    font-size: 12px;
+    color: rgb(70, 70, 70);
+    transition: .1s;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-left: -50px;
+    text-transform: uppercase;
+
+    white-space: pre-wrap;
+    width: 210px;
+}
+
+.FeaturedItem_Text_Issue:hover {
+    color: rgb(255, 66, 66);
+    text-decoration: underline;
+    transform: scale(1.01);
+}
+
+
+
+.FeaturedItem_Text_Price {
+    font-family: helvetica;
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+    position: flex;
+    margin-top: -10px;
+    font-weight: bold;
+    margin-left: -50px;
+}
+
+.FeaturedItem_Text_Universe {
+    position: flex;
+    font-family: helvetica;
+    font-size: 13px;
+    color: rgb(180, 180, 180);
+    margin-top: 15px;
+    transition: .1s;
+    cursor: pointer;
+    margin-left: -50px;
+
+}
+
+
+.FeaturedItem_Text_Universe:hover {
+    color: rgb(70, 70, 70);
+    text-decoration: underline;
+    transform: scale(1.02);
+}
+
+.AddWatchList {
+    position: absolute;
+    font-family: helvetica;
+    border: 2px solid rgb(255, 66, 66);
+    color: rgb(255, 66, 66);
+    text-transform: uppercase;
+    font-size: 15px;
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    bottom: 10px;
+    margin-left: -65px;
+    margin-left: -69px;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    transition: .2s;
+    border-radius: 2px;
+}
+
+.AddWatchList:hover {
+    background-color: rgb(255, 66, 66);
+    color: white;
+}
+
+.AddWatchList:active {
+    transition: .1s;
+    transform: scale(0.97);
+}
+
+/*Watchlist Grid*/
+
+
+
+
+/*Footer*/
+
+#BottomContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    border-top: 1px solid rgb(180, 180, 180);
+    top: 1900px;
+
+}
+
+.FooterContainers {
+    margin-top: 12%;
+    margin-left: 33%;
+}
+
+.FooterHeaders {
+    font-family: Helvetica;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(90, 90, 90);
+}
+
+.FooterItem {
+    font-family: Helvetica;
+    font-size: 12px;
+    color: rgb(90, 90, 90);
+    cursor: pointer;
+    transition: .1s;
+}
+
+.FooterItem:hover {
+    text-decoration: underline;
+}
+
+#RightsContainer {
+    position: relative;
+    top: 2000px;
+
+    margin-left: 5%;
+    padding-bottom: 5%;
+}
+
+#RightsItem {
+    font-family: Helvetica;
+    font-size: 12px;
+    color: rgb(40, 40, 40);
+    transition: .1s;
+}
+
+
+/*Footer*/
+
+
+
+@media (max-width: 1200px) {
+
+    meta[name="viewport"] {
+        content: width=device-width, initial-scale=1;
+    }
+
+    #SearchResults_Grid {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Define the number of columns */
+        grid-template-rows: repeat(6, 1fr);
+        width: 850px;
+        height: 2500px;
+        scroll-behavior: smooth;
+        margin-top: 250px;
+        border-radius: 2px;
+
+
+    }
+
+    #BottomContainer {
+        top: 3100px;
+
+    }
+
+    #RightsContainer {
+        top: 3200px;
+
+    }
+
+    #PageCounter {
+        top: 1450px;
+    }
+
+
+    .List_Text_Issue {
+        color: rgb(70, 70, 70);
+
+        margin-left: 270px;
+        margin-top: -350px;
+    }
+
+    .List_Text_Universe {
+
+        margin-top: 15px;
+        margin-left: 270px;
+        margin-top: 0px;
+
+    }
+
+    .List_Text_Price {
+
+        margin-left: 270px;
+        margin-top: 0px;
+    }
+
+    .AddWatchList_List {
+        margin-left: 270px;
+
+    }
+
+    .AddWatchList_List2 {
+
+        margin-left: 270px;
+
+
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    meta[name="viewport"] {
+        content: width=device-width, initial-scale=1;
+    }
+
+    #SearchResults_Grid {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* Define the number of columns */
+        grid-template-rows: repeat(10, 1fr);
+        width: 560px;
+        height: 2500px;
+        scroll-behavior: smooth;
+        margin-top: 250px;
+        border-radius: 2px;
+
+
+    }
+
+    #BottomContainer {
+        top: 5800px;
+
+    }
+
+    #RightsContainer {
+        top: 5900px;
+
+    }
+
+    #PageCounter {
+        top: 3050px;
+    }
+
+    .ListItem_Img {
+        height: 300px;
+        width: 230px;
+    }
+
+    .List_Text_Issue {
+        color: rgb(70, 70, 70);
+        width: 40vw;
+        white-space: normal;
+        margin-left: 220px;
+        position: relative;
+        margin-top: -300px;
+        font-size: 13px;
+    }
+
+    .List_Text_Universe {
+        margin-left: 220px;
+        position: relative;
+        margin-top: 0px;
+
+    }
+
+    .List_Text_Price {
+        margin-left: 220px;
+        position: relative;
+        margin-top: 0px;
+        font-size: 20px;
+    }
+
+    .AddWatchList_List {
+        margin-left: 220px;
+        bottom: 85px;
+    }
+
+    .AddWatchList_List2 {
+
+        margin-left: 220px;
+        bottom: 85px;
+
+    }
+}
+
+@media (max-width: 570px) {
+
+    meta[name="viewport"] {
+        content: width=device-width, initial-scale=1;
+    }
+
+    #SearchResults_Grid {
+        grid-template-columns: repeat(1, 1fr);
+        /* Define the number of columns */
+        grid-template-rows: repeat(20, 1fr);
+        width: 250px;
+        height: 2500px;
+    }
+
+    #BottomContainer {
+        top: 14000px;
+
+    }
+
+    #RightsContainer {
+        top: 14100px;
+
+    }
+
+    #PageCounter {
+        top: 8450px;
+    }
+
+    .ListItem_Img {
+        height: 280px;
+        width: 175px;
+    }
+
+    .List_Text_Issue {
+        font-size: 10px;
+        color: rgb(70, 70, 70);
+        width: 60vw;
+        margin-left: 180px;
+        margin-top: -280px;
+    }
+
+    .List_Text_Universe {
+        font-size: 12px;
+        margin-top: 15px;
+        margin-left: 180px;
+        margin-top: -0px;
+
+    }
+
+    .List_Text_Price {
+        margin-left: 180px;
+        margin-top: 0px;
+        font-size: 17px;
+    }
+
+    .AddWatchList_List {
+        margin-left: 180px;
+        bottom: 85px;
+    }
+
+    .AddWatchList_List2 {
+
+        margin-left: 180px;
+        bottom: 85px;
+
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 1100px) {
+
+
+
+    #HelpContact {
+        white-space: nowrap;
+    }
+
+    #TopSignInItem {
+        white-space: nowrap;
+    }
+
+    #NavTitle {
+        white-space: nowrap;
+    }
+
+    #SearchBar {
+        color: rgb(40, 40, 40);
+        margin-top: 25px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 40%;
+        height: 45px;
+        padding: 10px;
+    }
+
+    #SearchImageButton {
+        margin-top: 25px;
+        height: 45px;
+        margin-left: 10%;
+
+    }
+
+
+    #NavSearchButton {
+        margin-left: 1%;
+        background-color: rgb(255, 66, 66);
+        height: 45px;
+        margin-top: 25px;
+        padding-left: 60px;
+        padding-right: 60px;
+        border: none;
+        cursor: pointer;
+        font-family: Helvetica;
+        font-size: 15px;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        border-radius: 10px;
+        transition: .1s;
+
+    }
+}
+
+@media (max-width: 900px) {
+
+
+    #NavigationBarMain {
+        padding-bottom: 20px;
+
+    }
+
+    #NavTitle {
+        font-size: 22px;
+        margin-top: 35px;
+    }
+
+    #Bottom4 {
+        display: none;
+    }
+
+    #Bottom5 {
+        display: none;
+    }
+
+    #Bottom6 {
+        display: none;
+    }
+
+    #NavSearchButton {
+        margin-left: 1%;
+        background-color: rgb(255, 66, 66);
+        height: 40px;
+        margin-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: none;
+        cursor: pointer;
+        font-family: Helvetica;
+        font-size: 13px;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        border-radius: 10px;
+        transition: .1s;
+
+    }
+
+    #SearchImageButton {
+        margin-top: 30px;
+        height: 40px;
+        margin-left: 8%;
+
+    }
+
+    #SearchBar {
+        color: rgb(40, 40, 40);
+        margin-top: 30px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 40%;
+        height: 40px;
+        padding: 10px;
+    }
+
+
+}
+
+@media (max-width: 650px) {
+
+
+    #NavSearchButton {
+        display: none;
+
+    }
+
+    #SearchImageButton {
+        margin-top: 30px;
+        height: 40px;
+        margin-left: 3%;
+
+    }
+
+    #SearchBar {
+        color: rgb(40, 40, 40);
+        margin-top: 30px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 45%;
+        height: 40px;
+        padding: 10px;
+    }
+}
+
+/*Footer*/

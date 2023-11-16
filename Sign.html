@@ -1,0 +1,121 @@
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Sign_L/Sign.js" defer></script>
+    <link href="Sign_L/Sign.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="ICO/CFLogo_A.ico" type="image/x-icon">
+    <title>Comic Finds - Sign In</title>
+</head>
+
+<body>
+
+    <div class="loading-container">
+        <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
+    </div>
+
+    <!--Top Navigation Bar-->
+    <div id="NavigationBarTop">
+        <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
+                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+        <p class="TopNavItem" id="HelpContact">Help & Contact</p>
+        <img id="WatchList2" class="TopImages" src="Images/WatchList.png">
+        <img id="Account2" class="TopImages" src="Images/Account2.png">
+    </div>
+    <!--Top Navigation Bar-->
+
+
+    <!--Main Navigation Bar-->
+    <div id="NavigationBarMain">
+        <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
+
+        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" placeholder="Search for anything">
+
+        <button id="NavSearchButton">Search</button>
+
+    </div>
+    <!--Main Navigation Bar-->
+
+    <!--Bottom Navigation Bar-->
+    <div id="NavigationBarBottom">
+        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
+        <p class="BottomNavItem">Watchlist</p>
+        <p class="BottomNavItem">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2">Batman</p>
+        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5">Superman</p>
+        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+
+    </div>
+    <!--Bottom Navigation Bar-->
+
+
+
+
+
+    <!--Image Beside Login/Register-->
+
+    <div id="Comic_Image">
+        <img id="Actual_Sign_Img" src="Images/SignImg.jpg">
+
+    </div>
+
+    <!--Image Beside Login/Register-->
+
+
+
+
+    <!--Sign In/Sign Up Container-->
+
+    <div id="SignInContainer">
+        <p id="Sign_In_Title">Comic&nbsp;<span id="Sign_In_Title_Secondary">Finds</span></p>
+        <p id="SignIn" class="SignIn_Headers" onclick="SignInStyle()">Sign In</p>
+        <p id="CreateAccount" class="SignIn_Headers" onclick="CreateAccStyle()">Create <span
+                id="AccountSec">Account</span></p>
+        <div id="SignInContainerSecondary">
+            <p id="EmailTextSignIn" class="SignText">Email address *</p>
+            <input id="InputEmailSign" class="SignInput" type="text" placeholder="">
+            <p id="PassTextSignIn" class="SignText">Password *</p>
+            <input id="InputPassSign" class="SignInput" type="password" placeholder="">
+            <button id="SignInButton" class="SignButtons">Sign in&nbsp;&nbsp;<span
+                    style="font-size: 20px;">&rarr;</span></button>
+            <p id="ForgotPassText">Forgot your password?</p>
+        </div>
+
+        <div id="CreateAccContainerSecondary">
+            <p id="EmailTextCreate" class="SignText">Your email address *</p>
+            <input id="InputEmailCreate" class="SignInput" type="text" placeholder="">
+            <p id="PassTextCreate" class="SignText">Password *</p>
+            <input id="InputPassSign" class="SignInput" type="password" placeholder="">
+            <input type="checkbox" id="SubscribeBox" class="CheckBoxSign">
+            <p id="SubscribeText" class="CreateText">Subscribe to stay updated with new products and offers!</p>
+            <button id="CreateButton" class="SignButtons">Create account&nbsp;&nbsp;<span
+                    style="font-size: 20px;">&rarr;</span></button>
+            <input type="checkbox" id="TermsBox" class="CheckBoxSign">
+            <p id="Terms" class="CreateText">I accept the <span id="TermsPolicyText">Terms / Privacy Policy.</span></p>
+        </div>
+    </div>
+
+
+
+
+
+    <!--Sign In/Sign Up Container-->
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>

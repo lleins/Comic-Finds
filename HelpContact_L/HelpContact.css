@@ -1,0 +1,811 @@
+body{
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    
+}
+
+
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7; /* Ensure the loading container is on top */
+    color: rgb(70, 70, 70);
+    font-family: Helvetica;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+#LoadingText{
+    justify-content: center;
+    align-items: center;
+    animation: scaleAnimation .4s ease;
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(.5); /* Initial scale */
+    }
+    100% {
+        transform: scale(1.5); /* Final scale */
+    }
+}
+
+#LoadingSecondary{
+    color: rgb(255, 66, 66);
+}
+
+
+
+/*Top Navigation Bar*/
+
+#NavigationBarTop{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255);
+    border-bottom: 2px solid rgb(240, 240, 240);
+    transition: top 0.3s ease; 
+}
+
+.TopNavItem{
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.TopNavItem:hover{
+    text-decoration: underline;
+    transform: scale(1.02);
+}
+
+#Language{
+    margin-left: 0%;
+    margin-top: 17px;
+}
+
+
+
+
+
+.TopNavSign{
+    font-family: Helvetica;
+    color: rgb(255, 66, 66);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+    text-decoration: underline;
+}
+
+.TopNavSign:hover{
+    transform: scale(1.05);
+}
+
+#TopSignInItem{
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    font-family: Helvetica;
+    margin-left: 3%;
+    margin-top: 17px;
+}
+
+#HelpContact{
+    margin-left: 3%;
+    margin-top: 17px;
+}
+
+#WatchList2{
+    
+    position: fixed;
+    right: 30px;
+    height: 24px;
+    width: 24px;
+    top: 8px;
+    opacity: .7;
+    transition: .1s;
+    transform: .1s;
+    cursor: pointer;
+}
+#Account2{
+   
+    position: fixed;
+    right: 90px;
+    top: 8px;
+    height: 24px;
+    width: 24px;
+    opacity: .7;
+    transition: .1s;
+    transform: .1s;
+    cursor: pointer;
+}
+
+#WatchList2:hover{
+    opacity: 1;
+}
+
+#Account2:hover{
+    opacity: 1;
+}
+#Account2:active{
+    transform: scale(.95);
+}
+#WatchList2:active{
+    transform: scale(.95);
+}
+
+.LanguageFlags{
+    height: 24px;
+    width: 24px;
+    transform: scale(1);
+}
+
+#CanadaFlag{
+    margin-top: 12px;
+    margin-left: 55%;
+}
+
+#LanguageSwitch{
+    position: fixed;
+    width: 120px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    z-index: 8;
+    border: 2px solid rgb(240, 240, 240);
+    margin-left: 72%;
+    margin-top: 31px;
+    display: none;
+}
+
+#FrenchLanguage{
+    margin-left: 53px;
+    margin-top: 14px;
+}
+
+#FrenchFlagImg{
+    margin-left: 27px;
+    margin-top: -31px;
+}
+
+/*Top Navigation Bar*/
+
+
+
+
+
+/*Main Navigation Bar*/
+
+#NavigationBarMain{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 44px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255, 1);
+    transition: top 0.3s ease; 
+}
+
+#NavTitle{
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 30px; 
+    font-weight: bold;
+    font-variant: small-caps;
+    margin-left: 3%;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#NavTitleSecond{
+    color: rgb(255, 66, 66);
+}
+
+
+
+
+#SearchBar{
+    color: rgb(40, 40, 40);
+    margin-top: 25px;
+    font-family: Helvetica;
+    font-size: 15px;
+    width: 50%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 0px 10px 10px 0;
+    background-color: rgb(250, 250, 250);
+    border-right: 2px solid rgb(170, 170, 170);
+    border-top: 2px solid rgb(170, 170, 170);
+    border-bottom: 2px solid rgb(170, 170, 170);
+    border-left: 0px solid rgb(170, 170, 170);
+} 
+
+#SearchImageButton{
+    margin-top: 25px;
+    height: 45px;
+    border-radius: 10px 0 0 10px;
+    border-right: 0px solid rgb(170, 170, 170);
+    border-left: 2px solid rgb(170, 170, 170);
+    border-top: 2px solid rgb(170, 170, 170);
+    border-bottom: 2px solid rgb(170, 170, 170);
+    cursor: pointer;
+    margin-left: 5%;
+    background-color: rgb(250, 250, 250);
+}
+
+#SearchBar:focus {
+    outline: none;
+}
+
+#SearchIcon{
+    transform: scale(.7);
+    margin-left: 5px;
+}
+
+
+
+#NavSearchButton{
+    margin-left: 1%;
+    background-color: rgb(255, 66, 66);
+    height: 45px;
+    margin-top: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border: none;
+    cursor: pointer;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    border-radius: 10px;
+    transition: .1s;
+    
+}
+
+#NavSearchButton:active {
+    transition: .1s;
+    transform: scale(0.97);
+}
+
+#NavSearchButton:hover {
+
+    background-color: rgb(255, 48, 48);
+}
+
+/*Main Navigation Bar*/
+
+/*Bottom Navigation Bar*/
+#NavigationBarBottom{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 140px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    /*color: #8c8c8c;*/
+    z-index: 6;
+    background-color: rgba(255, 255, 255, 1);
+    border-top: 2px solid rgb(240, 240, 240);
+    justify-content: space-around;
+    transition: top 0.3s ease; 
+}
+
+.BottomNavItem{
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 12px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.BottomNavItem:hover{
+    color: rgb(255, 66, 66); 
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+
+/*Bottom Navigation Bar*/
+
+
+
+/*HelpContact Container*/
+
+#HelpContainer{
+    position: absolute;
+    top: 200px;
+    width: 1000px;
+    height: 800px;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    box-shadow: 5px 5px 10px rgb(0, 0, 0, .2);
+    
+}
+
+#Title{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 40px;
+    font-size: 28px;
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+}
+
+#WriteUp{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+    top: 120px;
+    font-family: Helvetica;
+    color: rgb(130, 130, 130);
+    font-size: 14px;
+    width: 85%;
+}
+
+#Click_Name{
+    font-size: 14px;
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    position: absolute;
+    top: 290px;
+    left: 253px;
+    z-index: 4;
+    display: none;
+    transition: .5s ease;
+}
+
+#Click_Email{
+    font-size: 14px;
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    position: absolute;
+    top: 338px;
+    left: 253px;
+    z-index: 4;
+    display: none;
+    transition: .5s ease;
+}
+
+#Click_Question{
+    font-size: 14px;
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    position: absolute;
+    top: 390px;
+    left: 253px;
+    z-index: 4;
+    display: none;
+    transition: .5s ease;
+}
+
+
+.Input_Feild_Style{
+    position: relative;
+    display: block;
+    font-size: 14px;
+    font-family: Helvetica;
+    color: rgb(130, 130, 130);
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 50%;
+    height: 35px; 
+    border: 2px solid rgb(130, 130, 130);
+    margin-bottom: 15px;
+    top: 300px;
+    transition: .1s;
+    z-index: 3;
+}
+
+#Problem_Text{
+    position: relative;
+    resize: none;
+    font-size: 14px;
+    font-family: Helvetica;
+    color: rgb(130, 130, 130);
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 50%;
+    height: 150px;
+    border: 2px solid rgb(130, 130, 130);
+    top: 300px;
+    transition: .1s;
+    
+}
+
+.Input_Feild_Style:focus {
+    border: 2px solid rgb(255, 66, 66);
+    outline: none;
+    
+
+}
+#Problem_Text:focus {
+    border: 2px solid rgb(255, 66, 66);
+    outline: none;
+}
+
+#SendButton{
+    position: absolute;
+    left: 50%;
+    top: 600px;
+    transform: translate(-50%, 0%);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 66, 66);
+    transform: .1s;
+    font-family: helvetica;
+    font-size: 15px;
+    color: rgb(255, 66, 66);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    transition: .1s;
+}
+
+#SendButton:hover{
+    color: rgb(240, 240, 240);
+    background-color: rgb(255, 66, 66);
+}
+
+/*HelpContact Container*/
+
+
+/*Footer*/
+
+#BottomContainer{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 10px;
+    border-top: 1px solid rgb(180, 180, 180);
+    top: 1100px;
+ 
+}
+
+.FooterContainers{
+    margin-top: 12%;
+    margin-left: 33%;
+}
+
+.FooterHeaders{
+    font-family: Helvetica;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(90, 90, 90);
+}
+
+.FooterItem{
+    font-family: Helvetica;
+    font-size: 12px;
+    color: rgb(90, 90, 90);
+    cursor: pointer;
+    transition: .1s;
+}
+
+.FooterItem:hover{
+    text-decoration: underline;
+}
+
+#RightsContainer{
+    position: relative;
+    top: 1200px;
+    
+    margin-left: 5%;
+    padding-bottom: 5%;
+}
+
+#RightsItem{
+    font-family: Helvetica;
+    font-size: 12px;
+    color: rgb(40, 40, 40);
+    transition: .1s;
+}
+
+
+/*Footer*/
+
+
+@media (max-width: 1000px){
+    #HelpContainer{
+        position: absolute;
+        top: 200px;
+        width: 90%;
+        height: 600px;
+        background-color: white;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    #Title{
+        top: 20px;
+        
+    }
+    
+    #WriteUp{
+
+        top: 80px;
+        
+    }
+    .Input_Feild_Style{
+        position: relative;
+        display: block;
+        font-size: 14px;
+        font-family: Helvetica;
+        color: rgb(130, 130, 130);
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 70%;
+        height: 30px; 
+        border: 2px solid rgb(130, 130, 130);
+        margin-bottom: 10px;
+        top: 200px;
+        transition: .1s;
+    }
+    
+    #Problem_Text{
+        position: relative;
+        resize: none;
+        font-size: 14px;
+        font-family: Helvetica;
+        color: rgb(130, 130, 130);
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 70%;
+        height: 150px;
+        border: 2px solid rgb(130, 130, 130);
+        top: 200px;
+        transition: .1s;
+    }
+    #SendButton{
+        
+        top: 475px;
+      
+    }
+
+    #Click_Name{
+        font-size: 14px;
+        font-family: Helvetica;
+        color: rgb(70, 70, 70);
+        font-weight: bold;
+        position: absolute;
+        top: 190px;
+        left: 16%;
+        z-index: 4;
+        display: none;
+        transition: .5s ease;
+    }
+    
+    #Click_Email{
+        font-size: 14px;
+        font-family: Helvetica;
+        color: rgb(70, 70, 70);
+        font-weight: bold;
+        position: absolute;
+        top: 235px;
+        left: 16%;
+        z-index: 4;
+        display: none;
+        transition: .5s ease;
+    }
+    
+    #Click_Question{
+        font-size: 14px;
+        font-family: Helvetica;
+        color: rgb(70, 70, 70);
+        font-weight: bold;
+        position: absolute;
+        top: 270px;
+        left: 16%;
+        z-index: 4;
+        display: none;
+        transition: .5s ease;
+    }
+}
+
+
+@media (min-width: 1400px) {
+
+    meta[name="viewport"] {
+        content: width=device-width, initial-scale=1;
+    }
+    
+
+    #RightsContainer{
+        top: 90vw;
+    }
+
+    #BottomContainer{
+        top: 80vw;
+    }
+
+}
+
+
+@media (max-width: 1050px) {
+
+    meta[name="viewport"] {
+        content: width=device-width, initial-scale=1;
+    }
+
+    #WatchList_Container{
+        position: absolute;
+        top: 800px;
+        left: 8%;
+        border-bottom: 2px solid rgb(220, 220, 220);
+        width: 80%;
+    }
+
+    #Share_Container{
+        position: absolute;
+        top: 900px;
+        left: 9%;
+    }
+    
+    
+}
+
+
+
+@media (max-width: 1100px){
+
+ 
+
+    #HelpContact{
+        white-space: nowrap;
+    }
+
+    #TopSignInItem{
+        white-space: nowrap;
+    }
+
+    #NavTitle{
+        white-space: nowrap;
+    }
+
+    #SearchBar{
+        color: rgb(40, 40, 40);
+        margin-top: 25px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 40%;
+        height: 45px;
+        padding: 10px;
+    } 
+    
+    #SearchImageButton{
+        margin-top: 25px;
+        height: 45px;
+        margin-left: 10%;
+      
+    }
+    
+    
+    #NavSearchButton{
+        margin-left: 1%;
+        background-color: rgb(255, 66, 66);
+        height: 45px;
+        margin-top: 25px;
+        padding-left: 60px;
+        padding-right: 60px;
+        border: none;
+        cursor: pointer;
+        font-family: Helvetica;
+        font-size: 15px;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        border-radius: 10px;
+        transition: .1s;
+        
+    }
+}
+
+@media (max-width: 900px){
+
+
+    #NavigationBarMain{
+        padding-bottom: 20px;
+       
+    }
+
+    #NavTitle{
+       font-size: 22px;
+       margin-top: 35px;
+    }
+    #Bottom4{
+        display: none;
+    }
+    #Bottom5{
+        display: none;
+    }
+    #Bottom6{
+        display: none;
+    }
+
+   #NavSearchButton{
+        margin-left: 1%;
+        background-color: rgb(255, 66, 66);
+        height: 40px;
+        margin-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: none;
+        cursor: pointer;
+        font-family: Helvetica;
+        font-size: 13px;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        border-radius: 10px;
+        transition: .1s;
+    
+    }
+    #SearchImageButton{
+        margin-top: 30px;
+        height: 40px;
+        margin-left: 8%;
+      
+    }
+
+    #SearchBar{
+        color: rgb(40, 40, 40);
+        margin-top: 30px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 40%;
+        height: 40px;
+        padding: 10px;
+    } 
+    
+   
+}
+
+@media (max-width: 650px){
+
+
+    #NavSearchButton{
+        display: none;
+    
+    }
+    #SearchImageButton{
+        margin-top: 30px;
+        height: 40px;
+        margin-left: 3%;
+      
+    }
+
+    #SearchBar{
+        color: rgb(40, 40, 40);
+        margin-top: 30px;
+        font-family: Helvetica;
+        font-size: 15px;
+        width: 45%;
+        height: 40px;
+        padding: 10px;
+    } 
+}
