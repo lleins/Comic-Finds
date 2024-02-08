@@ -1,10 +1,10 @@
-body{
+body {
     background-color: rgb(240, 240, 240);
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    
+
 }
 
 
@@ -18,7 +18,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 7; /* Ensure the loading container is on top */
+    z-index: 7;
+    /* Ensure the loading container is on top */
     color: rgb(70, 70, 70);
     font-family: Helvetica;
     letter-spacing: 1px;
@@ -27,7 +28,7 @@ body{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-#LoadingText{
+#LoadingText {
     justify-content: center;
     align-items: center;
     animation: scaleAnimation .4s ease;
@@ -35,22 +36,193 @@ body{
 
 @keyframes scaleAnimation {
     0% {
-        transform: scale(.5); /* Initial scale */
+        transform: scale(.5);
+        /* Initial scale */
     }
+
     100% {
-        transform: scale(1.5); /* Final scale */
+        transform: scale(1.5);
+        /* Final scale */
     }
 }
 
-#LoadingSecondary{
+#LoadingSecondary {
     color: rgb(255, 66, 66);
 }
 
 
+/*Notifs*/
+
+.Notif_Sign_Pos {
+    top: 200px;
+}
+
+#Logout_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Logout_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Login_prompt {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+.Error_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Error_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+.Close_Error_Notif_Watch {
+    transform: scale(.6);
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 17px;
+}
+
+.Confirm_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Success_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+/*Notifs*/
+
+
+/*Loaders*/
+
+#Logout_Loader {
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 20%;
+    margin-top: 250px;
+    transform: translate(-50%, -20%);
+    display: none;
+}
+
+.loader-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.dot-loader {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255, 66, 66);
+    border-radius: 50%;
+    animation: bounce 1s ease-in-out infinite;
+    margin: 0 2px;
+}
+
+.dot-loader:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.dot-loader:nth-child(3) {
+    animation-delay: .2s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-15px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-15px);
+    }
+}
+
+/*Loaders*/
 
 /*Top Navigation Bar*/
 
-#NavigationBarTop{
+#NavigationBarTop {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -62,10 +234,10 @@ body{
     z-index: 6;
     background-color: rgba(255, 255, 255);
     border-bottom: 2px solid rgb(240, 240, 240);
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-.TopNavItem{
+.TopNavItem {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 12px;
@@ -73,21 +245,29 @@ body{
     transition: .1s;
 }
 
-.TopNavItem:hover{
+.TopNavItem:hover {
     text-decoration: underline;
     transform: scale(1.02);
 }
 
-#Language{
+#Language {
     margin-left: 0%;
     margin-top: 17px;
 }
 
 
+#TopLogoutItem {
+    position: relative;
+    color: rgb(255, 66, 66);
+    font-size: 12px;
+    font-family: Helvetica;
+    left: 3%;
+    margin-top: 17px;
+    display: block;
+}
 
 
-
-.TopNavSign{
+.TopNavSign {
     font-family: Helvetica;
     color: rgb(255, 66, 66);
     font-size: 12px;
@@ -96,11 +276,11 @@ body{
     text-decoration: underline;
 }
 
-.TopNavSign:hover{
+.TopNavSign:hover {
     transform: scale(1.05);
 }
 
-#TopSignInItem{
+#TopSignInItem {
     color: rgb(70, 70, 70);
     font-size: 12px;
     font-family: Helvetica;
@@ -108,62 +288,67 @@ body{
     margin-top: 17px;
 }
 
-#HelpContact{
-    margin-left: 3%;
+#HelpContact {
+    margin-left: 6%;
     margin-top: 17px;
 }
 
-#WatchList2{
-    
+#WatchList2 {
+
     position: fixed;
     right: 30px;
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     top: 8px;
     opacity: .7;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
 }
-#Account2{
-   
+
+#Account2 {
+
     position: fixed;
     right: 90px;
     top: 8px;
-    height: 24px;
-    width: 24px;
-    opacity: .7;
+    height: 26px;
+    width: 26px;
+    opacity: .6;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
 }
 
-#WatchList2:hover{
+#WatchList2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
 
-#Account2:hover{
+#Account2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
-#Account2:active{
-    transform: scale(.95);
-}
-#WatchList2:active{
+
+#Account2:active {
     transform: scale(.95);
 }
 
-.LanguageFlags{
+#WatchList2:active {
+    transform: scale(.95);
+}
+
+.LanguageFlags {
     height: 24px;
     width: 24px;
     transform: scale(1);
 }
 
-#CanadaFlag{
+#CanadaFlag {
     margin-top: 12px;
     margin-left: 55%;
 }
 
-#LanguageSwitch{
+#LanguageSwitch {
     position: fixed;
     width: 120px;
     height: 45px;
@@ -175,12 +360,12 @@ body{
     display: none;
 }
 
-#FrenchLanguage{
+#FrenchLanguage {
     margin-left: 53px;
     margin-top: 14px;
 }
 
-#FrenchFlagImg{
+#FrenchFlagImg {
     margin-left: 27px;
     margin-top: -31px;
 }
@@ -193,7 +378,7 @@ body{
 
 /*Main Navigation Bar*/
 
-#NavigationBarMain{
+#NavigationBarMain {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -204,13 +389,13 @@ body{
     /*color: #8c8c8c;*/
     z-index: 6;
     background-color: rgba(255, 255, 255, 1);
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-#NavTitle{
+#NavTitle {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
-    font-size: 30px; 
+    font-size: 30px;
     font-weight: bold;
     font-variant: small-caps;
     margin-left: 3%;
@@ -218,14 +403,14 @@ body{
     cursor: pointer;
 }
 
-#NavTitleSecond{
+#NavTitleSecond {
     color: rgb(255, 66, 66);
 }
 
 
 
 
-#SearchBar{
+#SearchBar {
     color: rgb(40, 40, 40);
     margin-top: 25px;
     font-family: Helvetica;
@@ -239,9 +424,9 @@ body{
     border-top: 2px solid rgb(170, 170, 170);
     border-bottom: 2px solid rgb(170, 170, 170);
     border-left: 0px solid rgb(170, 170, 170);
-} 
+}
 
-#SearchImageButton{
+#SearchImageButton {
     margin-top: 25px;
     height: 45px;
     border-radius: 10px 0 0 10px;
@@ -258,14 +443,14 @@ body{
     outline: none;
 }
 
-#SearchIcon{
+#SearchIcon {
     transform: scale(.7);
     margin-left: 5px;
 }
 
 
 
-#NavSearchButton{
+#NavSearchButton {
     margin-left: 1%;
     background-color: rgb(255, 66, 66);
     height: 45px;
@@ -280,7 +465,7 @@ body{
     letter-spacing: 1px;
     border-radius: 10px;
     transition: .1s;
-    
+
 }
 
 #NavSearchButton:active {
@@ -296,7 +481,7 @@ body{
 /*Main Navigation Bar*/
 
 /*Bottom Navigation Bar*/
-#NavigationBarBottom{
+#NavigationBarBottom {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -309,10 +494,10 @@ body{
     background-color: rgba(255, 255, 255, 1);
     border-top: 2px solid rgb(240, 240, 240);
     justify-content: space-around;
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-.BottomNavItem{
+.BottomNavItem {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 12px;
@@ -320,8 +505,8 @@ body{
     transition: .1s;
 }
 
-.BottomNavItem:hover{
-    color: rgb(255, 66, 66); 
+.BottomNavItem:hover {
+    color: rgb(255, 66, 66);
     text-decoration: underline;
     transform: scale(1.05);
 }
@@ -333,37 +518,38 @@ body{
 
 /*Account - Side Buttons*/
 
-#Account_Container{
+#Account_Container {
     position: relative;
-    display: grid;  
-    grid-template-columns: repeat(2, 1fr); /* Define the number of columns */
-    grid-template-rows: repeat(1, 1fr); 
-    scroll-behavior: smooth;  
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Define the number of columns */
+    grid-template-rows: repeat(1, 1fr);
+    scroll-behavior: smooth;
     width: 1000px;
     height: 800px;
     background-color: rgb(141, 141, 141);
     left: 50%;
     transform: translate(-50%, 0%);
     top: 220px;
-   
+
 }
 
-#Mobile_Menu_Container{
+#Mobile_Menu_Container {
     display: none;
 }
 
-#Side_Buttons_Mobile{
+#Side_Buttons_Mobile {
     display: none;
 }
 
-#Side_Buttons{
+#Side_Buttons {
     background-color: rgb(240, 240, 240);
     height: 800px;
     width: 250px;
     display: block;
 }
 
-.Side_Buttons_Style{
+.Side_Buttons_Style {
     display: block;
     font-family: Helvetica;
     color: rgb(50, 50, 50);
@@ -382,82 +568,89 @@ body{
 }
 
 
-.Account_Tab_Container{
+.Account_Tab_Container {
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(220, 220, 220);
     height: 800px;
     width: 750px;
-    box-shadow: 5px 5px 10px rgb(0, 0, 0, .2);
- 
+
+
 }
 
-#Account_Img{
+#Account_Img {
+    transform: scale(.7);
+    height: 26px;
+    width: 26px;
+    vertical-align: middle;
+    filter: invert(100%);
+
+}
+
+#Watchlist_Img {
+    transform: scale(.7);
+    vertical-align: middle;
+    height: 28px;
+    width: 28px;
+
+}
+
+#NewsLetter_Img {
+    transform: scale(.8);
+    vertical-align: middle;
+}
+
+#Help_Img {
+    transform: scale(.7);
+    vertical-align: middle;
+
+}
+
+#Delete_Img {
+    transform: scale(.7);
+    vertical-align: middle;
+
+}
+
+#Account_Img_Mobile {
     transform: scale(.7);
     vertical-align: middle;
     filter: invert(100%);
 }
 
-#Watchlist_Img{
+#Watchlist_Img_Mobile {
     transform: scale(.7);
     vertical-align: middle;
-   
+
 }
 
-#NewsLetter_Img{
+#NewsLetter_Img_Mobile {
     transform: scale(.8);
     vertical-align: middle;
 }
 
-#Help_Img{
+#Help_Img_Mobile {
     transform: scale(.7);
     vertical-align: middle;
-   
-}
-#Delete_Img{
-    transform: scale(.7);
-    vertical-align: middle;
-    
+
 }
 
-#Account_Img_Mobile{
+#Delete_Img_Mobile {
     transform: scale(.7);
     vertical-align: middle;
-    filter: invert(100%);
+
 }
 
-#Watchlist_Img_Mobile{
-    transform: scale(.7);
-    vertical-align: middle;
-   
-}
-
-#NewsLetter_Img_Mobile{
-    transform: scale(.8);
-    vertical-align: middle;
-}
-
-#Help_Img_Mobile{
-    transform: scale(.7);
-    vertical-align: middle;
-   
-}
-#Delete_Img_Mobile{
-    transform: scale(.7);
-    vertical-align: middle;
-    
-}
-
-#AccountDashBoard_Mobile{
+#AccountDashBoard_Mobile {
     display: block;
 }
 
-#Manage_Acc_Top{
+#Manage_Acc_Top {
     position: relative;
     left: 40px;
     top: 20px;
 }
 
-#Manage_Acc_Top_Title{
+#Manage_Acc_Top_Title {
     position: relative;
     left: 40px;
     top: 20px;
@@ -467,24 +660,24 @@ body{
     font-weight: bold;
 }
 
-#Manage_Info{
+#Manage_Info {
     position: relative;
     left: 40px;
     top: 20px;
 }
 
-#Edit_AccountInfo{
+#Edit_AccountInfo {
     cursor: pointer;
     font-weight: bold;
 }
 
-#Manage_Acc_Title{
+#Manage_Acc_Title {
     position: relative;
     left: 40px;
     top: 20px;
 }
 
-#Personal{
+#Personal {
     position: relative;
     left: 60px;
     top: 50px;
@@ -494,7 +687,7 @@ body{
     border-radius: 5px;
 }
 
-#History{
+#History {
     position: relative;
     left: 400px;
     top: -102px;
@@ -503,38 +696,39 @@ body{
     height: 150px;
     border-radius: 5px;
 }
-.Account_Text_Style{
+
+.Account_Text_Style {
     font-family: Helvetica;
     color: rgb(130, 130, 130);
     font-size: 14px;
 }
 
-.Account_Title_Style_Med{
+.Account_Title_Style_Med {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 25px;
     font-weight: bold;
 }
 
-.Acc_Text{
+.Acc_Text {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 12px;
-    font-weight: bold;  
+    font-weight: bold;
     margin-left: 10px;
     margin-top: 20px;
 }
 
-#Personal_Title{
+#Personal_Title {
     font-family: Helvetica;
     color: rgb(130, 130, 130);
     font-size: 12px;
-    font-weight: bold;  
+    font-weight: bold;
     margin-left: 10px;
     margin-top: 20px;
 }
 
-#Forgot_Password{
+#Forgot_Password {
     position: relative;
     font-family: Helvetica;
     color: rgb(255, 255, 255);
@@ -548,60 +742,60 @@ body{
     height: 40px;
     left: 50%;
     transform: translate(-50%, 0%);
-    
+
 }
 
-#Forgot_Password:hover{
+#Forgot_Password:hover {
     background-color: rgb(255, 48, 48);
 }
 
 
-#Actual_Email{
+#Actual_Email {
     color: rgb(130, 130, 130);
 }
 
-#Actual_Pass{
+#Actual_Pass {
     color: rgb(130, 130, 130);
 }
 
-#Actual_Date{
+#Actual_Date {
     color: rgb(130, 130, 130);
 }
 
-#Actual_Comic_Watch{
+#Actual_Comic_Watch {
     color: rgb(130, 130, 130);
 }
 
-#WatchList{
+#WatchList {
     display: none;
 }
 
-#NewsLetter{
+#NewsLetter {
     display: none;
 }
 
-#HelpAndContact{
+#HelpAndContact {
     display: none;
 }
 
-#DeleteAccount{
+#DeleteAccount {
     display: none;
-    
+
 }
 
-#Blur_DeleteAccount{
+#Blur_DeleteAccount {
     filter: blur(0px);
-    
+
 }
 
-#AccountDashBoard_Button{
+#AccountDashBoard_Button {
     background-color: rgb(255, 66, 66);
     color: rgb(240, 240, 240);
-   
+
 }
 
 
-#AccountDash_Button_Mobile{
+#AccountDash_Button_Mobile {
     color: white;
     background-color: rgb(255, 66, 66);
 }
@@ -613,7 +807,7 @@ body{
 
 
 /*Watchlist*/
-#WatchList_Title_Top{
+#WatchList_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -623,7 +817,7 @@ body{
 }
 
 
-#WatchList_Main_Title_Top{
+#WatchList_Main_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -633,7 +827,7 @@ body{
     font-weight: bold;
 }
 
-#WatchList_Note{
+#WatchList_Note {
     position: relative;
     left: 40px;
     top: 20px;
@@ -643,7 +837,7 @@ body{
 }
 
 
-#WatchList_Secondary_Title{
+#WatchList_Secondary_Title {
     position: relative;
     left: 40px;
     top: 20px;
@@ -653,7 +847,7 @@ body{
     font-weight: bold;
 }
 
-#Watclist_Info_Container{
+#Watclist_Info_Container {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -664,7 +858,7 @@ body{
     border-radius: 5px;
 }
 
-#Edit_Watchlist{
+#Edit_Watchlist {
     position: relative;
     font-family: Helvetica;
     color: rgb(255, 255, 255);
@@ -682,11 +876,11 @@ body{
 }
 
 
-#Edit_Watchlist:hover{
+#Edit_Watchlist:hover {
     background-color: rgb(255, 48, 48);
 }
 
-#Actual_Comics_Watchlisted{
+#Actual_Comics_Watchlisted {
     color: rgb(130, 130, 130);
 }
 
@@ -697,7 +891,7 @@ body{
 
 
 /*NewsLetter*/
-#Newsletter_Title_Top{
+#Newsletter_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -707,7 +901,7 @@ body{
 }
 
 
-#Newsletter_Main_Title_Top{
+#Newsletter_Main_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -717,7 +911,7 @@ body{
     font-weight: bold;
 }
 
-#Newsletter_Note{
+#Newsletter_Note {
     position: relative;
     left: 40px;
     top: 20px;
@@ -727,7 +921,7 @@ body{
 }
 
 
-#Newsletter_Secondary_Title{
+#Newsletter_Secondary_Title {
     position: relative;
     left: 40px;
     top: 20px;
@@ -737,7 +931,7 @@ body{
     font-weight: bold;
 }
 
-#Newsletter_Info_Container{
+#Newsletter_Info_Container {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -748,7 +942,7 @@ body{
     border-radius: 5px;
 }
 
-#Edit_Newsletter{
+#Edit_Newsletter {
     position: relative;
     font-family: Helvetica;
     color: rgb(255, 255, 255);
@@ -766,15 +960,15 @@ body{
 }
 
 
-#Edit_Newsletter:hover{
+#Edit_Newsletter:hover {
     background-color: rgb(255, 48, 48);
 }
 
-#Date_Sub_Actual{
+#Date_Sub_Actual {
     color: rgb(130, 130, 130);
 }
 
-#News_Rec_Actual{
+#News_Rec_Actual {
     color: rgb(130, 130, 130);
 }
 
@@ -785,7 +979,7 @@ body{
 
 
 /*Help and Contact*/
-#HelpAndContact_Title_Top{
+#HelpAndContact_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -795,7 +989,7 @@ body{
 }
 
 
-#HelpAndContact_Main_Title_Top{
+#HelpAndContact_Main_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -805,18 +999,17 @@ body{
     font-weight: bold;
 }
 
-#HelpAndContact_Note{
+#HelpAndContact_Note {
     position: relative;
     left: 40px;
     top: 20px;
     font-family: Helvetica;
     color: rgb(130, 130, 130);
     font-size: 14px;
-    
+
 }
 
-
-#HelpAndContact_Secondary_Title{
+#HelpAndContact_Secondary_Title {
     position: relative;
     left: 40px;
     top: 20px;
@@ -826,7 +1019,18 @@ body{
     font-weight: bold;
 }
 
-#HelpAndContact_Info_Container{
+
+#HelpAndContact_Secondary_Title {
+    position: relative;
+    left: 40px;
+    top: 20px;
+    font-family: Helvetica;
+    color: rgb(70, 70, 70);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#HelpAndContact_Info_Container {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -837,8 +1041,8 @@ body{
     border-radius: 5px;
 }
 
-#Submit_HelpAndContact{
-    position: absolute;
+#Submit_HelpAndContact {
+    position: relative;
     font-family: Helvetica;
     color: rgb(255, 255, 255);
     font-size: 16px;
@@ -849,19 +1053,19 @@ body{
     border-radius: 5px;
     width: 150px;
     height: 40px;
-    left: 52%;
+    left: 50%;
     transform: translate(-50%, 0%);
-    top: 550px;
+    top: 150px;
 }
 
 
-#Submit_HelpAndContact:hover{
+#Submit_HelpAndContact:hover {
     background-color: rgb(255, 48, 48);
 }
 
 
 
-.Input_Feild_Style{
+.Input_Feild_Style {
     position: relative;
     display: block;
     font-size: 14px;
@@ -870,14 +1074,14 @@ body{
     left: 50%;
     transform: translate(-50%, 0%);
     width: 50%;
-    height: 30px; 
+    height: 30px;
     border: 2px solid rgb(130, 130, 130);
     margin-bottom: 10px;
     top: 100px;
     transition: .1s;
 }
 
-#Problem_Text{
+#Problem_Text {
     position: relative;
     resize: none;
     font-size: 14px;
@@ -896,15 +1100,17 @@ body{
     border: 2px solid rgb(255, 66, 66);
     outline: none;
 }
+
 #Problem_Text:focus {
     border: 2px solid rgb(255, 66, 66);
     outline: none;
 }
+
 /*Help and Contact*/
 
 
 /*Delete Account*/
-#DeleteAccount_Title_Top{
+#DeleteAccount_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -914,7 +1120,7 @@ body{
 }
 
 
-#DeleteAccount_Main_Title_Top{
+#DeleteAccount_Main_Title_Top {
     position: relative;
     left: 40px;
     top: 20px;
@@ -924,18 +1130,18 @@ body{
     font-weight: bold;
 }
 
-#DeleteAccount_Note{
+#DeleteAccount_Note {
     position: relative;
     left: 40px;
     top: 20px;
     font-family: Helvetica;
     color: rgb(130, 130, 130);
     font-size: 14px;
-    
+
 }
 
 
-#DeleteAccount_Secondary_Title{
+#DeleteAccount_Secondary_Title {
     position: relative;
     left: 40px;
     top: 20px;
@@ -945,7 +1151,7 @@ body{
     font-weight: bold;
 }
 
-#DeleteAccount_Info_Container{
+#DeleteAccount_Info_Container {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -956,7 +1162,7 @@ body{
     border-radius: 5px;
 }
 
-#Delete_DeleteAccount{
+#Delete_DeleteAccount {
     position: relative;
     font-family: Helvetica;
     color: rgb(255, 255, 255);
@@ -974,11 +1180,11 @@ body{
 }
 
 
-#Delete_DeleteAccount:hover{
+#Delete_DeleteAccount:hover {
     background-color: rgb(255, 48, 48);
 }
 
-#Confirm_Delete{
+#Confirm_Delete {
     position: relative;
     width: 200px;
     height: 150px;
@@ -992,17 +1198,17 @@ body{
     box-shadow: 7px 7px 10px #888888;
 }
 
-#Confrim_Text{
+#Confrim_Text {
     position: relative;
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 16px;
     font-weight: bold;
     left: 45px;
-   
+
 }
 
-#Delete_Text_Note{
+#Delete_Text_Note {
     position: absolute;
     font-family: Helvetica;
     color: rgb(130, 130, 130);
@@ -1011,17 +1217,17 @@ body{
     left: 5px;
 }
 
-#Delete_Button_Actual{
+#Delete_Button_Actual {
     top: 40px;
     left: 21px;
     border: 0px solid rgb(255, 66, 6);
     color: white;
     background-color: rgb(255, 66, 66);
     cursor: pointer;
-   
+
 }
 
-#Cancel_Button_Actual{
+#Cancel_Button_Actual {
     left: 14px;
     top: 40px;
     border: 1px solid rgb(255, 66, 6);
@@ -1030,7 +1236,7 @@ body{
     cursor: pointer;
 }
 
-.Delete_Buttons{
+.Delete_Buttons {
     position: relative;
     width: 80px;
     height: 30px;
@@ -1040,7 +1246,7 @@ body{
     transition: .1s ease;
 }
 
-.Delete_Buttons:active{
+.Delete_Buttons:active {
     transform: scale(.95);
 }
 
@@ -1049,29 +1255,29 @@ body{
 
 /*Footer*/
 
-#BottomContainer{
+#BottomContainer {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     border-top: 1px solid rgb(180, 180, 180);
     top: 1100px;
- 
+
 }
 
-.FooterContainers{
+.FooterContainers {
     margin-top: 12%;
     margin-left: 33%;
 }
 
-.FooterHeaders{
+.FooterHeaders {
     font-family: Helvetica;
     font-size: 17px;
     font-weight: bold;
     color: rgb(90, 90, 90);
 }
 
-.FooterItem{
+.FooterItem {
     font-family: Helvetica;
     font-size: 12px;
     color: rgb(90, 90, 90);
@@ -1079,19 +1285,19 @@ body{
     transition: .1s;
 }
 
-.FooterItem:hover{
+.FooterItem:hover {
     text-decoration: underline;
 }
 
-#RightsContainer{
+#RightsContainer {
     position: relative;
     top: 1200px;
-    
+
     margin-left: 5%;
     padding-bottom: 5%;
 }
 
-#RightsItem{
+#RightsItem {
     font-family: Helvetica;
     font-size: 12px;
     color: rgb(40, 40, 40);
@@ -1100,62 +1306,64 @@ body{
 
 
 /*Footer*/
-@media (max-width: 1000px){
-    #Account_Container{
+@media (max-width: 1000px) {
+    #Account_Container {
         position: relative;
-        display: grid;  
-        grid-template-columns: repeat(1, 1fr); /* Define the number of columns */
-        grid-template-rows: repeat(1, 1fr); 
-        scroll-behavior: smooth;  
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        /* Define the number of columns */
+        grid-template-rows: repeat(1, 1fr);
+        scroll-behavior: smooth;
         width: 90%;
         height: 600px;
         top: 250px;
     }
 
-    #Side_Buttons{
+    #Side_Buttons {
         display: none;
     }
-    
-    .Account_Tab_Container{
+
+    .Account_Tab_Container {
         border: 1px solid rgb(220, 220, 220);
         background-color: rgb(255, 255, 255);
         height: 700px;
         width: 100%;
     }
 
-    
-    
-    #Side_Buttons_Mobile{
+
+
+    #Side_Buttons_Mobile {
         display: block;
         position: absolute;
         z-index: 7;
         top: 250px;
-        left: -200px; /*-150px*/
+        left: -200px;
+        /*-150px*/
         background-color: rgb(255, 255, 255);
         height: 700px;
         width: 180px;
         border: 1px solid rgb(220, 220, 220)
     }
-    
-    #Mobile_Menu_Container{
+
+    #Mobile_Menu_Container {
         display: block;
         position: absolute;
         top: 200px;
         margin-left: 5%;
     }
 
-    #Mobile_Menu_Img{
+    #Mobile_Menu_Img {
         filter: invert(50%);
         transform: scale(.7);
         cursor: pointer;
         transition: .1s ease;
     }
 
-    #Mobile_Menu_Img:active{
+    #Mobile_Menu_Img:active {
         transform: scale(.65);
     }
-    
-    .Side_Buttons_Style_Mobile{
+
+    .Side_Buttons_Style_Mobile {
         display: block;
         font-family: Helvetica;
         color: rgb(50, 50, 50);
@@ -1174,9 +1382,9 @@ body{
         margin-top: 30px;
     }
 
-    
 
-    #Close_Img_Mobile{
+
+    #Close_Img_Mobile {
         transform: scale(.5);
         filter: invert(50%);
         margin-top: 5px;
@@ -1185,208 +1393,209 @@ body{
         transition: .1s ease;
     }
 
-    #Close_Img_Mobile:active{
+    #Close_Img_Mobile:active {
         transform: scale(.45);
     }
 
-    
-    #Manage_Acc_Top{
+
+    #Manage_Acc_Top {
         left: 5%;
     }
 
-    #Manage_Acc_Top_Title{
+    #Manage_Acc_Top_Title {
         left: 5%;
     }
 
-    #Manage_Info{
+    #Manage_Info {
         left: 5%;
     }
 
-    #Manage_Acc_Title{
+    #Manage_Acc_Title {
         left: 5%;
     }
 
-    #Personal{
+    #Personal {
         left: 50%;
         transform: translate(-50%, 0%);
     }
-    #History{
+
+    #History {
         top: 80px;
         left: 50%;
         transform: translate(-50%, 0%);
     }
 
-    #Forgot_Password{
+    #Forgot_Password {
         position: relative;
         left: 50%;
         transform: translate(-50%, 0%);
         top: 120px;
     }
-    
-    #WatchList_Title_Top{
-     
-        left: 5%;
-        top: 20px;
-      
-    }
-    
-    
-    #Newsletter_Main_Title_Top{
-     
-        left: 5%;
-        top: 20px;
-        
-    }
-    
-    #Newsletter_Note{
-        
-        left: 5%;
-        top: 20px;
-       
-    }
-    
-    
-    #Newsletter_Secondary_Title{
-     
-        left: 5%;
-        top: 20px;
-        
-    }
 
-    #Newsletter_Title_Top{
-     
+    #WatchList_Title_Top {
+
         left: 5%;
         top: 20px;
-      
-    }
-    
-    
-    #Newsletter_Main_Title_Top{
-     
-        left: 5%;
-        top: 20px;
-        
-    }
-    
-    #Newsletter_Note{
-        
-        left: 5%;
-        top: 20px;
-       
-    }
-    
-    
-    #Newsletter_Secondary_Title{
-     
-        left: 5%;
-        top: 20px;
-        
+
     }
 
 
+    #Newsletter_Main_Title_Top {
 
-
-    #HelpAndContact_Title_Top{
-     
         left: 5%;
         top: 20px;
-      
+
     }
-    
-    
-    #HelpAndContact_Main_Title_Top{
-     
+
+    #Newsletter_Note {
+
         left: 5%;
         top: 20px;
-        
+
     }
-    
-    #HelpAndContact_Note{
-        
+
+
+    #Newsletter_Secondary_Title {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+    #Newsletter_Title_Top {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+
+    #Newsletter_Main_Title_Top {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+    #Newsletter_Note {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+
+    #Newsletter_Secondary_Title {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+
+
+
+    #HelpAndContact_Title_Top {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+
+    #HelpAndContact_Main_Title_Top {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+    #HelpAndContact_Note {
+
         left: 5%;
         top: 20px;
         width: 90%;
     }
-    
-    
-    #HelpAndContact_Secondary_Title{
-     
+
+
+    #HelpAndContact_Secondary_Title {
+
         left: 5%;
         top: 20px;
-        
+
     }
-    
-    .Input_Feild_Style{
-       
+
+    .Input_Feild_Style {
+
         width: 70%;
-      
+
     }
-    
-    #Problem_Text{
+
+    #Problem_Text {
         width: 70%;
-        
+
     }
 
 
 
 
-    #WatchList_Main_Title_Top{
-     
+    #WatchList_Main_Title_Top {
+
         left: 5%;
         top: 20px;
-        
-    }
-    
-    #WatchList_Note{
-        
-        left: 5%;
-        top: 20px;
-       
-    }
-    
-    
-    #DeleteAccount_Secondary_Title{
-     
-        left: 5%;
-        top: 20px;
-        
-    }
-    
-    #DeleteAccount_Secondary_Title{
-     
-        left: 5%;
-        top: 20px;
-        
+
     }
 
-    #DeleteAccount_Title_Top{
-     
+    #WatchList_Note {
+
         left: 5%;
         top: 20px;
-      
+
     }
-    
-    
-    #DeleteAccount_Main_Title_Top{
-     
+
+
+    #DeleteAccount_Secondary_Title {
+
         left: 5%;
         top: 20px;
-        
+
     }
-    
-    #DeleteAccount_Note{
-        
+
+    #DeleteAccount_Secondary_Title {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+    #DeleteAccount_Title_Top {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+
+    #DeleteAccount_Main_Title_Top {
+
+        left: 5%;
+        top: 20px;
+
+    }
+
+    #DeleteAccount_Note {
+
         left: 5%;
         top: 20px;
         width: 90%;
     }
-    
-    
-    #DeleteAccount_Secondary_Title{
-     
+
+
+    #DeleteAccount_Secondary_Title {
+
         left: 5%;
         top: 20px;
-        
+
     }
 
 
@@ -1394,23 +1603,23 @@ body{
 
 
 
-@media (max-width: 1100px){
+@media (max-width: 1100px) {
 
-    
 
-    #HelpContact{
+
+    #HelpContact {
         white-space: nowrap;
     }
 
-    #TopSignInItem{
+    #TopSignInItem {
         white-space: nowrap;
     }
 
-    #NavTitle{
+    #NavTitle {
         white-space: nowrap;
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 25px;
         font-family: Helvetica;
@@ -1418,17 +1627,17 @@ body{
         width: 40%;
         height: 45px;
         padding: 10px;
-    } 
-    
-    #SearchImageButton{
+    }
+
+    #SearchImageButton {
         margin-top: 25px;
         height: 45px;
         margin-left: 10%;
-      
+
     }
-    
-    
-    #NavSearchButton{
+
+
+    #NavSearchButton {
         margin-left: 1%;
         background-color: rgb(255, 66, 66);
         height: 45px;
@@ -1443,33 +1652,36 @@ body{
         letter-spacing: 1px;
         border-radius: 10px;
         transition: .1s;
-        
+
     }
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
 
 
-    #NavigationBarMain{
+    #NavigationBarMain {
         padding-bottom: 20px;
-       
+
     }
 
-    #NavTitle{
-       font-size: 22px;
-       margin-top: 35px;
+    #NavTitle {
+        font-size: 22px;
+        margin-top: 35px;
     }
-    #Bottom4{
-        display: none;
-    }
-    #Bottom5{
-        display: none;
-    }
-    #Bottom6{
+
+    #Bottom4 {
         display: none;
     }
 
-   #NavSearchButton{
+    #Bottom5 {
+        display: none;
+    }
+
+    #Bottom6 {
+        display: none;
+    }
+
+    #NavSearchButton {
         margin-left: 1%;
         background-color: rgb(255, 66, 66);
         height: 40px;
@@ -1484,16 +1696,17 @@ body{
         letter-spacing: 1px;
         border-radius: 10px;
         transition: .1s;
-    
+
     }
-    #SearchImageButton{
+
+    #SearchImageButton {
         margin-top: 30px;
         height: 40px;
         margin-left: 8%;
-      
+
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 30px;
         font-family: Helvetica;
@@ -1501,26 +1714,27 @@ body{
         width: 40%;
         height: 40px;
         padding: 10px;
-    } 
-    
-   
+    }
+
+
 }
 
-@media (max-width: 650px){
+@media (max-width: 650px) {
 
 
-    #NavSearchButton{
+    #NavSearchButton {
         display: none;
-    
+
     }
-    #SearchImageButton{
+
+    #SearchImageButton {
         margin-top: 30px;
         height: 40px;
         margin-left: 3%;
-      
+
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 30px;
         font-family: Helvetica;
@@ -1528,5 +1742,5 @@ body{
         width: 45%;
         height: 40px;
         padding: 10px;
-    } 
+    }
 }

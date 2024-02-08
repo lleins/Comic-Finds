@@ -12,15 +12,35 @@
 
 <body>
 
+    <div id="Logout_Loader" class="loader-container">
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+    </div>
+
+    <div id="Search_Loader" class="loader-container">
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+    </div>
+    <!--Notifs-->
+
+    <div id="Logout_1" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Succesfully logged out!</p>
+        <img onclick="Logout_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <!--Notifs-->
+
     <div class="loading-container">
         <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
     </div>
 
     <!--Top Navigation Bar-->
     <div id="NavigationBarTop">
-        <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
-                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
-        <p class="TopNavItem" id="HelpContact" onlcick="GoToContactPage()">Help & Contact</p>
+        <p id="TopLogoutItem" onclick="Logout_Account_Watch()" class="TopNavSign">Logout</p>
+        <p class="TopNavItem" id="HelpContact" onclick="GoToContactPage()">Help & Contact</p>
         <img id="WatchList2" class="TopImages" src="Images/WatchList.png">
         <img id="Account2" class="TopImages" onclick="GoToAccountPage()" src="Images/Account2.png">
     </div>
@@ -31,25 +51,28 @@
     <div id="NavigationBarMain">
         <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
 
-        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
-        <input id="SearchBar" type="text" placeholder="Search for anything">
+        <button id="SearchImageButton" onclick="SearchBar()"><img id="SearchIcon"
+                src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" onkeydown="handleKeyPress(event)" placeholder="Search for anything">
 
-        <button id="NavSearchButton">Search</button>
+        <button id="NavSearchButton" onclick="SearchBar()">Search</button>
 
     </div>
     <!--Main Navigation Bar-->
 
     <!--Bottom Navigation Bar-->
     <div id="NavigationBarBottom">
-        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
-        <p class="BottomNavItem">Watchlist</p>
-        <p class="BottomNavItem">Daily Deals</p>
-        <p class="BottomNavItem" id="Bottom1">Avengers</p>
-        <p class="BottomNavItem" id="Bottom2">Batman</p>
-        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
-        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
-        <p class="BottomNavItem" id="Bottom5">Superman</p>
-        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+        <p class="BottomNavItem" onclick="location.href='Home.html', delete_current_search()">Home</p>
+        <p class="BottomNavItem" onclick="GoToWatchListPage()">Watchlist</p>
+        <p class="BottomNavItem" onclick="Daily_Deals_go()">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1" onclick="(SearchBar_Bottom('Avengers'))">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2" onclick="(SearchBar_Bottom('Batman'))">Batman</p>
+        <p class="BottomNavItem" id="Bottom3" onclick="(SearchBar_Bottom('Spiderman'))">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4" onclick="(SearchBar_Bottom('Star Wars'))">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5" onclick="(SearchBar_Bottom('Superman'))">Superman</p>
+        <p class="BottomNavItem" id="Bottom6" onclick="(SearchBar_Bottom('X-Men'))">X-Men</p>
+
+
     </div>
     <!--Bottom Navigation Bar-->
 
@@ -73,8 +96,14 @@
     <!--Watchlist Container-->
 
     <div id="Top_Title">
-        <p id="Watchlist_Number_Text">Items in watchlist: <span id="Watchlist_Number_Actual">0/30</span></p>
+        <p id="Watchlist_Number_Text">Comics in watchlist: <span id="Watchlist_Number_Actual">00</span>/30</p>
     </div>
+
+    <div id="Top_Title_2">
+        <p id="Watchlist_Page">Page 1 of 1</p>
+    </div>
+
+
 
     <div id="Top_Second_Title">
         <p id="Title">Watchlist</p>
@@ -82,309 +111,8 @@
 
     <div id="SearchResults_Grid_Container">
         <div id="SearchResults_Grid">
-            <div id="Item1" class="Item_Grid">
-                <img id="FeaturedImg1" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv1"></p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue1"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice1"></p>
-                <button class="AddWatchList" id="Watchlist_Button_1"
-                    onclick='Remove_Watchlist_Item("FeaturedImg1", "FeatUniv1", "FeatIssue1", "FeatPrice1", "Watchlist_Button_1")'>REMOVE</button>
-            </div>
 
 
-            <div id="Item2" class="Item_Grid">
-
-                <img id="FeaturedImg2" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv2"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue2"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice2"></p>
-                <button class="AddWatchList" id="Watchlist_Button_2"
-                    onclick='Remove_Watchlist_Item("FeaturedImg2", "FeatUniv2", "FeatIssue2", "FeatPrice2", "Watchlist_Button_2")'>Remove</button>
-            </div>
-
-
-
-            <div id="Item3" class="Item_Grid">
-
-                <img id="FeaturedImg3" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv3"></p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue3"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice3"></p>
-                <button class="AddWatchList" id="Watchlist_Button_3"
-                    onclick='Remove_Watchlist_Item("FeaturedImg3", "FeatUniv3", "FeatIssue3", "FeatPrice3", "Watchlist_Button_3")'>Remove</button>
-            </div>
-
-
-
-            <div id="Item4" class="Item_Grid">
-
-                <img id="FeaturedImg4" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv4"></p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue4"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice4"></p>
-                <button class="AddWatchList" id="Watchlist_Button_4"
-                    onclick='Remove_Watchlist_Item("FeaturedImg4", "FeatUniv4", "FeatIssue4", "FeatPrice4", "Watchlist_Button_4")'>Remove</button>
-            </div>
-
-            <div id="Item5" class="Item_Grid">
-
-                <img id="FeaturedImg5" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv5"></p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue5"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice5"></p>
-                <button class="AddWatchList" id="Watchlist_Button_5"
-                    onclick='Remove_Watchlist_Item("FeaturedImg5", "FeatUniv5", "FeatIssue5", "FeatPrice5", "Watchlist_Button_5")'>Remove</button>
-            </div>
-
-            <div id="Item6" class="Item_Grid">
-
-                <img id="FeaturedImg6" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv6"></p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue6"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice6"></p>
-                <button class="AddWatchList" id="Watchlist_Button_6"
-                    onclick='Remove_Watchlist_Item("FeaturedImg6", "FeatUniv6", "FeatIssue6", "FeatPrice6", "Watchlist_Button_6")'>Remove</button>
-            </div>
-
-            <div id="Item7" class="Item_Grid">
-
-                <img id="FeaturedImg7" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv7"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
-                <button class="AddWatchList" id="Watchlist_Button_7"
-                    onclick='Remove_Watchlist_Item("FeaturedImg7", "FeatUniv7", "FeatIssue7", "FeatPrice7", "Watchlist_Button_7")'>Remove</button>
-            </div>
-
-            <div id="Item8" class="Item_Grid">
-
-                <img id="FeaturedImg8" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv8"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
-                <button class="AddWatchList" id="Watchlist_Button_8"
-                    onclick='Remove_Watchlist_Item("FeaturedImg8", "FeatUniv8", "FeatIssue8", "FeatPrice8", "Watchlist_Button_8")'>Remove</button>
-            </div>
-
-            <div id="Item9" class="Item_Grid">
-
-                <img id="FeaturedImg9" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv9"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue9"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice9"></p>
-                <button class="AddWatchList" id="Watchlist_Button_9"
-                    onclick='Remove_Watchlist_Item("FeaturedImg9", "FeatUniv9", "FeatIssue9", "FeatPrice9", "Watchlist_Button_9")'>Remove</button>
-            </div>
-
-            <div id="Item10" class="Item_Grid">
-
-                <img id="FeaturedImg10" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv10"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue10"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice10"></p>
-                <button class="AddWatchList" id="Watchlist_Button_10"
-                    onclick='Remove_Watchlist_Item("FeaturedImg10", "FeatUniv10", "FeatIssue10", "FeatPrice10", "Watchlist_Button_10")'>Remove</button>
-            </div>
-
-            <div id="Item11" class="Item_Grid">
-
-                <img id="FeaturedImg11" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv11"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue11"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice11"></p>
-                <button class="AddWatchList" id="Watchlist_Button_11"
-                    onclick='Remove_Watchlist_Item("FeaturedImg11", "FeatUniv11", "FeatIssue11", "FeatPrice11", "Watchlist_Button_11")'>Remove</button>
-            </div>
-
-            <div id="Item12" class="Item_Grid">
-
-                <img id="FeaturedImg12" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv12"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue12"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice12"></p>
-                <button class="AddWatchList" id="Watchlist_Button_12"
-                    onclick='Remove_Watchlist_Item("FeaturedImg12", "FeatUniv12", "FeatIssue12", "FeatPrice12", "Watchlist_Button_12")'>Remove</button>
-            </div>
-
-            <div id="Item13" class="Item_Grid">
-
-                <img id="FeaturedImg13" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv13"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue13"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice13"></p>
-                <button class="AddWatchList" id="Watchlist_Button_13"
-                    onclick='Remove_Watchlist_Item("FeaturedImg13", "FeatUniv13", "FeatIssue13", "FeatPrice13", "Watchlist_Button_13")'>Remove</button>
-            </div>
-
-            <div id="Item14" class="Item_Grid">
-
-                <img id="FeaturedImg14" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv14"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue14"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice14"></p>
-                <button class="AddWatchList" id="Watchlist_Button_14"
-                    onclick='Remove_Watchlist_Item("FeaturedImg14", "FeatUniv14", "FeatIssue14", "FeatPrice14", "Watchlist_Button_14")'>Remove</button>
-            </div>
-
-            <div id="Item15" class="Item_Grid">
-
-                <img id="FeaturedImg15" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv15"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue15"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice15"></p>
-                <button class="AddWatchList" id="Watchlist_Button_15"
-                    onclick='Remove_Watchlist_Item("FeaturedImg15", "FeatUniv15", "FeatIssue15", "FeatPrice15", "Watchlist_Button_15")'>Remove</button>
-            </div>
-
-            <div id="Item16" class="Item_Grid">
-
-                <img id="FeaturedImg16" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv16"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue16"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice16"></p>
-                <button class="AddWatchList" id="Watchlist_Button_16"
-                    onclick='Remove_Watchlist_Item("FeaturedImg16", "FeatUniv16", "FeatIssue16", "FeatPrice16", "Watchlist_Button_16")'>Remove</button>
-            </div>
-
-            <div id="Item17" class="Item_Grid">
-
-                <img id="FeaturedImg17" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv17"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue17"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice17"></p>
-                <button class="AddWatchList" id="Watchlist_Button_17"
-                    onclick='Remove_Watchlist_Item("FeaturedImg17", "FeatUniv17", "FeatIssue17", "FeatPrice17", "Watchlist_Button_17")'>Remove</button>
-            </div>
-
-            <div id="Item18" class="Item_Grid">
-
-                <img id="FeaturedImg18" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv18"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue18"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice18"></p>
-                <button class="AddWatchList" id="Watchlist_Button_18"
-                    onclick='Remove_Watchlist_Item("FeaturedImg18", "FeatUniv18", "FeatIssue18", "FeatPrice18", "Watchlist_Button_18")'>Remove</button>
-            </div>
-
-            <div id="Item19" class="Item_Grid">
-
-                <img id="FeaturedImg19" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv19"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue19"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice19"></p>
-                <button class="AddWatchList" id="Watchlist_Button_19"
-                    onclick='Remove_Watchlist_Item("FeaturedImg19", "FeatUniv19", "FeatIssue19", "FeatPrice19", "Watchlist_Button_19")'>Remove</button>
-            </div>
-
-            <div id="Item20" class="Item_Grid">
-
-                <img id="FeaturedImg20" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv20"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue20"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice20"></p>
-                <button class="AddWatchList" id="Watchlist_Button_20"
-                    onclick='Remove_Watchlist_Item("FeaturedImg20", "FeatUniv20", "FeatIssue20", "FeatPrice20", "Watchlist_Button_20")'>Remove</button>
-            </div>
-
-            <div id="Item21" class="Item_Grid">
-
-                <img id="FeaturedImg21" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv21"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue21"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice21"></p>
-                <button class="AddWatchList" id="Watchlist_Button_21"
-                    onclick='Remove_Watchlist_Item("FeaturedImg21", "FeatUniv21", "FeatIssue21", "FeatPrice21", "Watchlist_Button_21")'>Remove</button>
-            </div>
-
-            <div id="Item22" class="Item_Grid">
-
-                <img id="FeaturedImg22" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv22"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue22"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice22"></p>
-                <button class="AddWatchList" id="Watchlist_Button_22"
-                    onclick='Remove_Watchlist_Item("FeaturedImg22", "FeatUniv22", "FeatIssue22", "FeatPrice22", "Watchlist_Button_22")'>Remove</button>
-            </div>
-
-            <div id="Item23" class="Item_Grid">
-
-                <img id="FeaturedImg23" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv23"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue23"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice23"></p>
-                <button class="AddWatchList" id="Watchlist_Button_23"
-                    onclick='Remove_Watchlist_Item("FeaturedImg23", "FeatUniv23", "FeatIssue23", "FeatPrice23", "Watchlist_Button_23")'>Remove</button>
-            </div>
-
-            <div id="Item24" class="Item_Grid">
-
-                <img id="FeaturedImg24" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv24"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue24"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice24"></p>
-                <button class="AddWatchList" id="Watchlist_Button_24"
-                    onclick='Remove_Watchlist_Item("FeaturedImg24", "FeatUniv24", "FeatIssue24", "FeatPrice24", "Watchlist_Button_24")'>Remove</button>
-            </div>
-
-            <div id="Item25" class="Item_Grid">
-
-                <img id="FeaturedImg25" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv25"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue25"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice25"></p>
-                <button class="AddWatchList" id="Watchlist_Button_25"
-                    onclick='Remove_Watchlist_Item("FeaturedImg25", "FeatUniv25", "FeatIssue25", "FeatPrice25", "Watchlist_Button_25")'>Remove</button>
-            </div>
-
-            <div id="Item26" class="Item_Grid">
-
-                <img id="FeaturedImg26" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv26"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue26"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice26"></p>
-                <button class="AddWatchList" id="Watchlist_Button_26"
-                    onclick='Remove_Watchlist_Item("FeaturedImg26", "FeatUniv26", "FeatIssue26", "FeatPrice26", "Watchlist_Button_26")'>Remove</button>
-            </div>
-
-            <div id="Item27" class="Item_Grid">
-
-                <img id="FeaturedImg27" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv27"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue27"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice27"></p>
-                <button class="AddWatchList" id="Watchlist_Button_27"
-                    onclick='Remove_Watchlist_Item("FeaturedImg27", "FeatUniv27", "FeatIssue27", "FeatPrice27", "Watchlist_Button_27")'>Remove</button>
-            </div>
-
-            <div id="Item28" class="Item_Grid">
-
-                <img id="FeaturedImg28" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv28"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue28"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice28"></p>
-                <button class="AddWatchList" id="Watchlist_Button_28"
-                    onclick='Remove_Watchlist_Item("FeaturedImg28", "FeatUniv28", "FeatIssue28", "FeatPrice28", "Watchlist_Button_28")'>Remove</button>
-            </div>
-
-            <div id="Item29" class="Item_Grid">
-
-                <img id="FeaturedImg29" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv29"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue29"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice29"></p>
-                <button class="AddWatchList" id="Watchlist_Button_29"
-                    onclick='Remove_Watchlist_Item("FeaturedImg29", "FeatUniv29", "FeatIssue29", "FeatPrice29", "Watchlist_Button_29")'>Remove</button>
-            </div>
-
-            <div id="Item30" class="Item_Grid">
-
-                <img id="FeaturedImg30" class="GridItem_Img" src="">
-                <p class="FeaturedItem_Text_Universe" id="FeatUniv30"> </p>
-                <p class="FeaturedItem_Text_Issue" id="FeatIssue30"></p>
-                <p class="FeaturedItem_Text_Price" id="FeatPrice30"></p>
-                <button class="AddWatchList" id="Watchlist_Button_30"
-                    onclick='Remove_Watchlist_Item("FeaturedImg30", "FeatUniv30", "FeatIssue30", "FeatPrice30", "Watchlist_Button_30")'>Remove</button>
-            </div>
 
         </div>
     </div>
@@ -414,7 +142,7 @@
             <p class="FooterItem">Spiderman</p>
             <p class="FooterItem">Star Wars</p>
             <p class="FooterItem">Superman</p>
-            <p class="FooterItem">X-Mean</p>
+            <p class="FooterItem">X-Men</p>
             <p class="FooterItem">Etc....</p>
         </div>
 

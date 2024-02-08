@@ -1,10 +1,10 @@
-body{
+body {
     background-color: rgb(240, 240, 240);
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    
+
 }
 
 
@@ -18,7 +18,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 7; /* Ensure the loading container is on top */
+    z-index: 7;
+    /* Ensure the loading container is on top */
     color: rgb(70, 70, 70);
     font-family: Helvetica;
     letter-spacing: 1px;
@@ -27,7 +28,7 @@ body{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-#LoadingText{
+#LoadingText {
     justify-content: center;
     align-items: center;
     animation: scaleAnimation .4s ease;
@@ -35,22 +36,310 @@ body{
 
 @keyframes scaleAnimation {
     0% {
-        transform: scale(.5); /* Initial scale */
+        transform: scale(.5);
+        /* Initial scale */
     }
+
     100% {
-        transform: scale(1.5); /* Final scale */
+        transform: scale(1.5);
+        /* Final scale */
     }
 }
 
-#LoadingSecondary{
+#LoadingSecondary {
     color: rgb(255, 66, 66);
 }
 
 
+/*Notifs*/
+
+.Notif_Sign_Pos {
+    top: 200px;
+}
+
+#Logout_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Logout_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -355px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Login_prompt {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -355px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Saved_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -355px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Saved_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Saved_3 {
+    position: fixed;
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Remove_0 {
+    position: fixed;
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Remove_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+.Error_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Error_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+.Close_Error_Notif_Watch {
+    transform: scale(.6);
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 17px;
+}
+
+.Confirm_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Success_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+#TopLogoutItem {
+    position: relative;
+    color: rgb(255, 66, 66);
+    font-size: 12px;
+    font-family: Helvetica;
+    left: 3%;
+    margin-top: 17px;
+    display: none;
+}
+
+
+/*Notifs*/
+
+/*Loaders*/
+
+#Logout_Loader {
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 20%;
+    margin-top: 250px;
+    transform: translate(-50%, -20%);
+    display: none;
+}
+
+.loader-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.dot-loader {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255, 66, 66);
+    border-radius: 50%;
+    animation: bounce 1s ease-in-out infinite;
+    margin: 0 2px;
+}
+
+.dot-loader:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.dot-loader:nth-child(3) {
+    animation-delay: .2s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-15px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-15px);
+    }
+}
+
+/*Loaders*/
+
 
 /*Top Navigation Bar*/
 
-#NavigationBarTop{
+#NavigationBarTop {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -62,10 +351,10 @@ body{
     z-index: 6;
     background-color: rgba(255, 255, 255);
     border-bottom: 2px solid rgb(240, 240, 240);
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-.TopNavItem{
+.TopNavItem {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 12px;
@@ -73,12 +362,12 @@ body{
     transition: .1s;
 }
 
-.TopNavItem:hover{
+.TopNavItem:hover {
     text-decoration: underline;
     transform: scale(1.02);
 }
 
-#Language{
+#Language {
     margin-left: 0%;
     margin-top: 17px;
 }
@@ -87,7 +376,7 @@ body{
 
 
 
-.TopNavSign{
+.TopNavSign {
     font-family: Helvetica;
     color: rgb(255, 66, 66);
     font-size: 12px;
@@ -96,11 +385,11 @@ body{
     text-decoration: underline;
 }
 
-.TopNavSign:hover{
+.TopNavSign:hover {
     transform: scale(1.05);
 }
 
-#TopSignInItem{
+#TopSignInItem {
     color: rgb(70, 70, 70);
     font-size: 12px;
     font-family: Helvetica;
@@ -108,62 +397,67 @@ body{
     margin-top: 17px;
 }
 
-#HelpContact{
-    margin-left: 3%;
+#HelpContact {
+    margin-left: 6%;
     margin-top: 17px;
 }
 
-#WatchList2{
-    
+#WatchList2 {
+
     position: fixed;
     right: 30px;
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     top: 8px;
     opacity: .7;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
 }
-#Account2{
-   
+
+#Account2 {
+
     position: fixed;
     right: 90px;
     top: 8px;
-    height: 24px;
-    width: 24px;
-    opacity: .7;
+    height: 26px;
+    width: 26px;
+    opacity: .65;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
 }
 
-#WatchList2:hover{
+#WatchList2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
 
-#Account2:hover{
+#Account2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
-#Account2:active{
-    transform: scale(.95);
-}
-#WatchList2:active{
+
+#Account2:active {
     transform: scale(.95);
 }
 
-.LanguageFlags{
+#WatchList2:active {
+    transform: scale(.95);
+}
+
+.LanguageFlags {
     height: 24px;
     width: 24px;
     transform: scale(1);
 }
 
-#CanadaFlag{
+#CanadaFlag {
     margin-top: 12px;
     margin-left: 55%;
 }
 
-#LanguageSwitch{
+#LanguageSwitch {
     position: fixed;
     width: 120px;
     height: 45px;
@@ -175,12 +469,12 @@ body{
     display: none;
 }
 
-#FrenchLanguage{
+#FrenchLanguage {
     margin-left: 53px;
     margin-top: 14px;
 }
 
-#FrenchFlagImg{
+#FrenchFlagImg {
     margin-left: 27px;
     margin-top: -31px;
 }
@@ -193,7 +487,7 @@ body{
 
 /*Main Navigation Bar*/
 
-#NavigationBarMain{
+#NavigationBarMain {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -204,13 +498,13 @@ body{
     /*color: #8c8c8c;*/
     z-index: 6;
     background-color: rgba(255, 255, 255, 1);
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-#NavTitle{
+#NavTitle {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
-    font-size: 30px; 
+    font-size: 30px;
     font-weight: bold;
     font-variant: small-caps;
     margin-left: 3%;
@@ -218,14 +512,14 @@ body{
     cursor: pointer;
 }
 
-#NavTitleSecond{
+#NavTitleSecond {
     color: rgb(255, 66, 66);
 }
 
 
 
 
-#SearchBar{
+#SearchBar {
     color: rgb(40, 40, 40);
     margin-top: 25px;
     font-family: Helvetica;
@@ -239,9 +533,9 @@ body{
     border-top: 2px solid rgb(170, 170, 170);
     border-bottom: 2px solid rgb(170, 170, 170);
     border-left: 0px solid rgb(170, 170, 170);
-} 
+}
 
-#SearchImageButton{
+#SearchImageButton {
     margin-top: 25px;
     height: 45px;
     border-radius: 10px 0 0 10px;
@@ -258,14 +552,14 @@ body{
     outline: none;
 }
 
-#SearchIcon{
+#SearchIcon {
     transform: scale(.7);
     margin-left: 5px;
 }
 
 
 
-#NavSearchButton{
+#NavSearchButton {
     margin-left: 1%;
     background-color: rgb(255, 66, 66);
     height: 45px;
@@ -280,7 +574,7 @@ body{
     letter-spacing: 1px;
     border-radius: 10px;
     transition: .1s;
-    
+
 }
 
 #NavSearchButton:active {
@@ -296,7 +590,7 @@ body{
 /*Main Navigation Bar*/
 
 /*Bottom Navigation Bar*/
-#NavigationBarBottom{
+#NavigationBarBottom {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -309,10 +603,10 @@ body{
     background-color: rgba(255, 255, 255, 1);
     border-top: 2px solid rgb(240, 240, 240);
     justify-content: space-around;
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-.BottomNavItem{
+.BottomNavItem {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 12px;
@@ -320,8 +614,8 @@ body{
     transition: .1s;
 }
 
-.BottomNavItem:hover{
-    color: rgb(255, 66, 66); 
+.BottomNavItem:hover {
+    color: rgb(255, 66, 66);
     text-decoration: underline;
     transform: scale(1.05);
 }
@@ -335,121 +629,85 @@ body{
 /*View*/
 
 
-#Item_View_Container{
+#Item_View_Container {
     position: absolute;
     top: 250px;
-    left: 8%;
+    left: 10%;
     overflow: hidden;
-    width: 40%;
-    
+    width: 25%;
+
 }
 
-#Item_View_Container_Text{
+#Item_View_Container_Text {
     position: absolute;
     top: 250px;
-    left: 50%;
+    left: 37%;
     width: 80%;
 }
 
 
-.View_Text_Style{
+.View_Text_Style {
     font-family: Helvetica;
     color: rgb(40, 40, 40);
     font-size: 18px;
-    white-space: pre-wrap;
-   
+    line-height: 18px;
+    letter-spacing: .2px;
 }
 
-#View_Img{
-    width: 100%; /*500px*/
-    height: 100%;  /*750px*/
+#View_Img {
+    width: 100%;
+    /*500px*/
+    height: 100%;
+    /*750px*/
     overflow: hidden;
-    transition: transform 0.1s ease; 
+    transition: transform 0.1s ease;
     position: flex;
+
 }
 
 
 
-#View_Issue{
-    position: absolute;
+#View_Issue {
+    position: relative;
     top: -20px;
-    width: 60%
+    width: 70%
 }
 
-#View_Vendor{
-    position: absolute;
-    top: 50px;
-
-   
+#View_Vendor {
+    position: relative;
+    top: -20px;
     font-size: 15px;
     color: rgb(70, 70, 70);
 }
 
-#Vendor_Name{
-    cursor: pointer;
+#Vendor_Name {
     color: rgb(40, 40, 40);
     transform: .1s;
     transition: .1s;
 }
 
-#Vendor_Name:hover{
-    color: rgb(255, 66, 66);
-    text-decoration: underline;
-}
 
-#View_Price{
-    position: absolute;
-    top: 100px;
-    
-   
+
+#View_Price {
+    position: relative;
+    top: -10px;
     font-size: 30px;
     font-weight: bold;
 }
 
-#View_Written{
-    position: absolute;
-    top: 200px;
 
-    
+#View_Description_Text {
+    position: relative;
+    top: -10px;
+    width: 70%;
     font-size: 15px;
-    font-weight: bold;
+
 }
 
-#View_Artist{
-    position: absolute;
-    top: 235px;
-   
-   
-    font-size: 15px;
-    font-weight: bold;
-}
 
-#View_Description{
-    position: absolute;
-    top: 270px;
-  
-    
-    font-size: 15px;
-    font-weight: bold;
-}
-
-#View_Description_Text{
-    position: absolute;
-    top: 320px;
-    width: 60%;
-    font-size: 13px;
-}
-
-#WatchList_Container{
-    position: absolute;
-    top: 800px;
-    left: 50%;
-    border-bottom: 2px solid rgb(220, 220, 220);
-    width: 80%;
-}
-
-#View_AddWishList{
-    margin-left: 10px;
+#View_AddWishList {
+    position: relative;
+    top: 100px;
     font-family: helvetica;
     border: 2px solid rgb(255, 66, 66);
     width: 146px;
@@ -464,45 +722,80 @@ body{
     cursor: pointer;
     transition: .2s;
     border-radius: 2px;
-    
+    display: none;
+
 }
 
-#View_AddWishList:hover{
+#View_AddWishList:hover {
     background-color: rgb(255, 66, 66);
-    color: rgb(240, 240, 240);
+    color: white;
 }
+
 
 #View_AddWishList:active {
     transition: .1s;
     transform: scale(0.97);
 }
 
-#Share_Container{
-    position: absolute;
-    top: 900px;
-    left: 51%;
+#View_Remove {
+    position: relative;
+    top: 100px;
+    font-family: helvetica;
+    border: 2px solid rgb(255, 66, 66);
+    width: 146px;
+    color: rgb(255, 66, 66);
+    text-transform: uppercase;
+    font-size: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+    transition: .2s;
+    border-radius: 2px;
+
 }
 
-#View_Share{
+#View_Remove:hover {
+    background-color: rgb(255, 66, 66);
+    color: white;
+}
+
+
+#View_Remove:active {
+    transition: .1s;
+    transform: scale(0.97);
+}
+
+#View_Share {
+    position: relative;
     color: rgb(70, 70, 70);
+    top: 52px;
+    left: 280px
 }
 
-#ShareImg{
+#ShareImg {
+    position: relative;
+    top: 7px;
     opacity: .7;
     transition: opacity .1s;
     cursor: pointer;
     transform: .1s;
-    margin-top: -45px;
-    margin-left: 60px;
-    transform: scale(.8);
+
+    left: 340px;
+    transform: scale(.7);
 }
-#ShareImg:hover{
+
+#ShareImg:hover {
     opacity: .9;
 }
 
-#ShareImg:active{
-   transform: scale(.75);
+#ShareImg:active {
+    transform: scale(.65);
 }
+
 /*View*/
 
 
@@ -513,29 +806,29 @@ body{
 
 /*Footer*/
 
-#BottomContainer{
+#BottomContainer {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     border-top: 1px solid rgb(180, 180, 180);
     top: 1100px;
- 
+
 }
 
-.FooterContainers{
+.FooterContainers {
     margin-top: 12%;
     margin-left: 33%;
 }
 
-.FooterHeaders{
+.FooterHeaders {
     font-family: Helvetica;
     font-size: 17px;
     font-weight: bold;
     color: rgb(90, 90, 90);
 }
 
-.FooterItem{
+.FooterItem {
     font-family: Helvetica;
     font-size: 12px;
     color: rgb(90, 90, 90);
@@ -543,19 +836,19 @@ body{
     transition: .1s;
 }
 
-.FooterItem:hover{
+.FooterItem:hover {
     text-decoration: underline;
 }
 
-#RightsContainer{
+#RightsContainer {
     position: relative;
     top: 1200px;
-    
+
     margin-left: 5%;
     padding-bottom: 5%;
 }
 
-#RightsItem{
+#RightsItem {
     font-family: Helvetica;
     font-size: 12px;
     color: rgb(40, 40, 40);
@@ -574,17 +867,14 @@ body{
     meta[name="viewport"] {
         content: width=device-width, initial-scale=1;
     }
-    
-    #View_Issue{
-        color: blue;
-        
-    }
 
-    #RightsContainer{
+
+
+    #RightsContainer {
         top: 90vw;
     }
 
-    #BottomContainer{
+    #BottomContainer {
         top: 80vw;
     }
 
@@ -597,7 +887,7 @@ body{
         content: width=device-width, initial-scale=1;
     }
 
-    #WatchList_Container{
+    #WatchList_Container {
         position: absolute;
         top: 800px;
         left: 8%;
@@ -605,13 +895,13 @@ body{
         width: 80%;
     }
 
-    #Share_Container{
+    #Share_Container {
         position: absolute;
         top: 900px;
         left: 9%;
     }
-    
-    
+
+
 }
 
 
@@ -621,65 +911,108 @@ body{
         content: width=device-width, initial-scale=1;
     }
 
-    #View_Issue{
-        color: red;
-        
-    }
-    #View_Description_Text{
-        position: absolute;
-        margin-top: 60px;
-        width: 120%;
+
+
+    #View_Description_Text {
+        position: relative;
         font-size: 13px;
-        left: -50%;
+        width: 80%;
     }
 
-    #View_Description{
-        position: absolute;
-        margin-top: 80px;
-        left: -50%;
+    #View_Description {
+        position: relative;
+
         font-size: 15px;
         font-weight: bold;
+        width: 80%;
     }
 
 
-    #View_Issue{
-        position: absolute;
+    #View_Issue {
+        position: relative;
         top: -20px;
         font-size: 14px;
-        width: 60%
+        width: 80%;
     }
-    
-    #View_Vendor{
-        position: absolute;
-        top: 50px;
+
+    #View_Vendor {
+        position: relative;
         font-size: 15px;
         color: rgb(70, 70, 70);
     }
-   
-    
-    #View_Price{
-        position: absolute;
-        top: 80px;
+
+
+    #View_Price {
+        position: relative;
         font-size: 25px;
         font-weight: bold;
     }
-    
-    #View_Written{
-        position: absolute;
-        top: 140px;
-    
-        
-        font-size: 15px;
-        font-weight: bold;
+
+    #View_Share {
+        position: relative;
+        color: rgb(70, 70, 70);
+        top: 0px;
+        left: 0px
     }
-    
-    #View_Artist{
-        position: absolute;
-        top: 175px;
-    
-        font-size: 15px;
-        font-weight: bold;
+
+    #ShareImg {
+        position: relative;
+        top: -45px;
+        opacity: .7;
+        transition: opacity .1s;
+        cursor: pointer;
+        transform: .1s;
+        left: 55px;
+        transform: scale(.7);
     }
+
+
+    #View_AddWishList {
+        position: relative;
+        left: -12px;
+        top: 0px;
+        font-family: helvetica;
+        border: 2px solid rgb(255, 66, 66);
+        width: 146px;
+        color: rgb(255, 66, 66);
+        text-transform: uppercase;
+        font-size: 15px;
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: rgb(240, 240, 240);
+        cursor: pointer;
+        transition: .2s;
+        border-radius: 2px;
+        transform: scale(.9);
+    }
+
+    #Item_View_Container_Text {
+        position: relative;
+        top: 300px;
+        left: 10%;
+        width: 90%;
+
+    }
+
+    #BottomContainer {
+        top: 700px;
+
+    }
+
+    #Item_View_Container {
+        position: relative;
+        top: 250px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        overflow: hidden;
+        width: 250px;
+        height: 365px;
+
+    }
+
+
 
 }
 
@@ -690,40 +1023,36 @@ body{
     }
 
 
-    #View_Description_Text{
-        position: absolute;
-        margin-top: -20px;
-        width: 120%;
-        font-size: 13px;
-        left: -50%;
+    #View_Description_Text {
+        position: relative;
+
+        font-size: 12px;
     }
 
-    #View_Description{
-        position: absolute;
-        margin-top: 0px;
-        left: -50%;
+    #View_Description {
+        position: relative;
         font-size: 15px;
         font-weight: bold;
     }
 }
 
-@media (max-width: 1100px){
+@media (max-width: 1100px) {
 
- 
 
-    #HelpContact{
+
+    #HelpContact {
         white-space: nowrap;
     }
 
-    #TopSignInItem{
+    #TopSignInItem {
         white-space: nowrap;
     }
 
-    #NavTitle{
+    #NavTitle {
         white-space: nowrap;
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 25px;
         font-family: Helvetica;
@@ -731,17 +1060,17 @@ body{
         width: 40%;
         height: 45px;
         padding: 10px;
-    } 
-    
-    #SearchImageButton{
+    }
+
+    #SearchImageButton {
         margin-top: 25px;
         height: 45px;
         margin-left: 10%;
-      
+
     }
-    
-    
-    #NavSearchButton{
+
+
+    #NavSearchButton {
         margin-left: 1%;
         background-color: rgb(255, 66, 66);
         height: 45px;
@@ -756,33 +1085,36 @@ body{
         letter-spacing: 1px;
         border-radius: 10px;
         transition: .1s;
-        
+
     }
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
 
 
-    #NavigationBarMain{
+    #NavigationBarMain {
         padding-bottom: 20px;
-       
+
     }
 
-    #NavTitle{
-       font-size: 22px;
-       margin-top: 35px;
+    #NavTitle {
+        font-size: 22px;
+        margin-top: 35px;
     }
-    #Bottom4{
-        display: none;
-    }
-    #Bottom5{
-        display: none;
-    }
-    #Bottom6{
+
+    #Bottom4 {
         display: none;
     }
 
-   #NavSearchButton{
+    #Bottom5 {
+        display: none;
+    }
+
+    #Bottom6 {
+        display: none;
+    }
+
+    #NavSearchButton {
         margin-left: 1%;
         background-color: rgb(255, 66, 66);
         height: 40px;
@@ -797,16 +1129,17 @@ body{
         letter-spacing: 1px;
         border-radius: 10px;
         transition: .1s;
-    
+
     }
-    #SearchImageButton{
+
+    #SearchImageButton {
         margin-top: 30px;
         height: 40px;
         margin-left: 8%;
-      
+
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 30px;
         font-family: Helvetica;
@@ -814,26 +1147,27 @@ body{
         width: 40%;
         height: 40px;
         padding: 10px;
-    } 
-    
-   
+    }
+
+
 }
 
-@media (max-width: 650px){
+@media (max-width: 650px) {
 
 
-    #NavSearchButton{
+    #NavSearchButton {
         display: none;
-    
+
     }
-    #SearchImageButton{
+
+    #SearchImageButton {
         margin-top: 30px;
         height: 40px;
         margin-left: 3%;
-      
+
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 30px;
         font-family: Helvetica;
@@ -841,5 +1175,5 @@ body{
         width: 45%;
         height: 40px;
         padding: 10px;
-    } 
+    }
 }

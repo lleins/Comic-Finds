@@ -121,8 +121,8 @@ body {
 
     position: fixed;
     right: 30px;
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     top: 8px;
     opacity: .7;
     transition: .1s;
@@ -135,9 +135,9 @@ body {
     position: fixed;
     right: 90px;
     top: 8px;
-    height: 24px;
-    width: 24px;
-    opacity: .7;
+    height: 26px;
+    width: 26px;
+    opacity: .6;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
@@ -380,8 +380,231 @@ body {
     color: rgb(255, 66, 66);
 }
 
-
 /*Sign Image*/
+
+
+/*Loader*/
+
+#Sign_Loader_Container {
+    width: 700px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    transform: translate(-98%, 0%);
+    z-index: 5;
+    display: none;
+}
+
+#Sign_In_Loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.loader-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.dot-loader {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255, 66, 66);
+    border-radius: 50%;
+    animation: bounce 1s ease-in-out infinite;
+    margin: 0 2px;
+}
+
+.dot-loader:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.dot-loader:nth-child(3) {
+    animation-delay: .2s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-15px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/*Loader*/
+
+
+/*Notifs*/
+
+.Notif_Sign_Pos {
+    top: 200px;
+}
+
+#Account_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Account_3 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+
+#Account_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Login_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Login_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+.Error_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Error_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+.Close_Error_Notif_Watch {
+    transform: scale(.6);
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 17px;
+}
+
+.Confirm_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Success_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+/*Notifs*/
 
 
 
@@ -659,6 +882,15 @@ body {
         transform: translate(-50%, 0%);
     }
 
+    #Sign_Loader_Container {
+        width: 80%;
+        height: 500px;
+        position: absolute;
+        top: 250px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
     #SignInContainerSecondary {
         position: relative;
         width: 93%;
@@ -851,7 +1083,17 @@ body {
         top: 50px;
     }
 
+    .Notif_Sign_Pos {
+        top: 10px;
+    }
+
     #SignInContainer {
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    #Sign_Loader_Container {
         top: 50px;
         left: 50%;
         transform: translate(-50%, 0%);

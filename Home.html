@@ -4,13 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="Home_L/Home.js" defer></script>
+    <script src="Home_L/Home.js" type="text/javascript" defer></script>
     <link href="Home_L/Home.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="ICO/CFLogo_A.ico" type="image/x-icon">
     <title>Comic Finds - Home Page</title>
 </head>
 
 <body>
+
+
+
+    <!--Notifs-->
+    <div id="Logout_1" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Succesfully logged out!</p>
+        <img onclick="Logout_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Logout_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Logout failed.</p>
+        <img onclick="Logout_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Login_prompt" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Please Login.</p>
+        <img onclick="Logout_prompt_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Logout_Loader" class="loader-container">
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+    </div>
+
+    <div id="Search_Loader" class="loader-container">
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+    </div>
+
+    <!--Notifs-->
+
+
 
     <div class="loading-container">
         <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
@@ -20,20 +57,14 @@
     <div id="NavigationBarTop">
         <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
                 class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+        <p id="TopLogoutItem" onclick="Logout_Account()" class="TopNavSign">Logout</p>
         <p class="TopNavItem" id="HelpContact" onclick="GoToContactPage()">Help & Contact</p>
-        <!--
-    <img class="LanguageFlags" id="CanadaFlag" src="Images/CanadianFlag.png">
-    <p class="TopNavItem" id="Language">English</p>
-    -->
+
         <img id="WatchList2" class="TopImages" src="Images/WatchList.png" onclick="GoToWatchListPage()">
         <img id="Account2" class="TopImages" src="Images/Account2.png" onclick="GoToAccountPage()">
+
+
     </div>
-    <!--
-<div id="LanguageSwitch">
-    <img id="FrenchFlagImg" class="LanguageFlags" src="Images/FrenchFlag.png">
-    <p id="FrenchLanguage" class="TopNavItem">Français</p>
-</div>
--->
 
     <!--Top Navigation Bar-->
 
@@ -42,25 +73,26 @@
     <div id="NavigationBarMain">
         <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
 
-        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
-        <input id="SearchBar" type="text" placeholder="Search for anything">
+        <button id="SearchImageButton" onclick="SearchBar()"><img id="SearchIcon"
+                src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" onkeydown="handleKeyPress(event)" placeholder="Search for anything">
 
-        <button id="NavSearchButton">Search</button>
+        <button id="NavSearchButton" onclick="SearchBar()">Search</button>
 
     </div>
     <!--Main Navigation Bar-->
 
     <!--Bottom Navigation Bar-->
     <div id="NavigationBarBottom">
-        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
-        <p class="BottomNavItem">Watchlist</p>
-        <p class="BottomNavItem">Daily Deals</p>
-        <p class="BottomNavItem" id="Bottom1">Avengers</p>
-        <p class="BottomNavItem" id="Bottom2">Batman</p>
-        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
-        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
-        <p class="BottomNavItem" id="Bottom5">Superman</p>
-        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+        <p class="BottomNavItem" onclick="location.href='Home.html', delete_current_search()">Home</p>
+        <p class="BottomNavItem" onclick="GoToWatchListPage()">Watchlist</p>
+        <p class="BottomNavItem" onclick="Daily_Deals()">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1" onclick="(SearchBar_Bottom('Avengers'))">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2" onclick="(SearchBar_Bottom('Batman'))">Batman</p>
+        <p class="BottomNavItem" id="Bottom3" onclick="(SearchBar_Bottom('Spiderman'))">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4" onclick="(SearchBar_Bottom('Star Wars'))">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5" onclick="(SearchBar_Bottom('Superman'))">Superman</p>
+        <p class="BottomNavItem" id="Bottom6" onclick="(SearchBar_Bottom('X-Men'))">X-Men</p>
 
 
     </div>
@@ -171,7 +203,7 @@
 
 
     <div id="FeaturedHeading">
-        <p class="Univ_Heading">Featured Comics Today</p>
+        <p class="Univ_Heading">Daily Deals</p>
     </div>
 
     <div id="FeaturedToday">
@@ -183,79 +215,80 @@
         </div>
 
         <div id="Item1" class="FeaturedItem">
-            <img id="FeaturedImg1" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg1" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv1">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue1"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice1"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button onclick="AddToWatchlist('Featured_Saved_1', '', '', '', '', '')" id="Featured_Saved_1"
+                class="AddWatchList">Add to WatchList</button>
         </div>
 
 
         <div id="Item2" class="FeaturedItem">
 
-            <img id="FeaturedImg2" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg2" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv2">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue2"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice2"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_2" class="AddWatchList">Add to WatchList</button>
         </div>
 
 
 
         <div id="Item3" class="FeaturedItem">
 
-            <img id="FeaturedImg3" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg3" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv3">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue3"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice3"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_3" class="AddWatchList">Add to WatchList</button>
         </div>
 
 
 
         <div id="Item4" class="FeaturedItem">
 
-            <img id="FeaturedImg4" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg4" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv4">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue4"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice4"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_4" class="AddWatchList">Add to WatchList</button>
         </div>
 
         <div id="Item5" class="FeaturedItem">
 
-            <img id="FeaturedImg5" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg5" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv5">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue5"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice5"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_5" class="AddWatchList">Add to WatchList</button>
         </div>
 
         <div id="Item6" class="FeaturedItem">
 
-            <img id="FeaturedImg6" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg6" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv6">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue6"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice6"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_6" class="AddWatchList">Add to WatchList</button>
         </div>
 
         <div id="Item7" class="FeaturedItem">
 
-            <img id="FeaturedImg7" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg7" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv7">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue7"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice7"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_7" class="AddWatchList">Add to WatchList</button>
         </div>
 
         <div id="Item8" class="FeaturedItem">
 
-            <img id="FeaturedImg8" class="FeaturedItem_Img" src="">
+            <img id="FeaturedImg8" class="FeaturedItem_Img">
             <p class="FeaturedItem_Text_Universe" id="FeatUniv8">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue8"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice8"></p>
-            <button class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_8" class="AddWatchList">Add to WatchList</button>
         </div>
 
     </div>
@@ -347,7 +380,7 @@
         <div id="MarvelComicContainer">
 
             <div id="Marvel_Univ_Item1" class="Univ_ItemStyle">
-                <img id="Marvel_Univ_Img1" class="Univ_Img_Item" src="">
+                <img id="Marvel_Univ_Img1" class="Univ_Img_Item">
                 <p class="FeaturedSource_Text" id="FeatSource_Marvel1">Dynamic Forces</p>
                 <p id="Marvel_Univ_Issue1" class="Univ_Issue_Item"></p>
                 <p id="Marvel_Univ_Price1" class="Univ_Price_Item"></p>
@@ -355,7 +388,7 @@
             </div>
 
             <div id="Marvel_Univ_Item2" class="Univ_ItemStyle">
-                <img id="Marvel_Univ_Img2" class="Univ_Img_Item" src="">
+                <img id="Marvel_Univ_Img2" class="Univ_Img_Item">
                 <p class="FeaturedSource_Text" id="FeatSource_Marvel2">Dynamic Forces</p>
                 <p id="Marvel_Univ_Issue2" class="Univ_Issue_Item"></p>
                 <p id="Marvel_Univ_Price2" class="Univ_Price_Item"></p>
@@ -714,7 +747,7 @@
 
 
     <div id="WalkingDead_Heading">
-        <p class="Univ_Heading">Walking Dead Comics</p>
+        <p class="Univ_Heading">X-Men Comics</p>
     </div>
 
     <div id="WalkingDead_Arrows">
@@ -811,29 +844,29 @@
     <div id="BottomContainer">
         <div id="AccountFooter" class="FooterContainers">
             <p class="FooterHeaders">Account</p>
-            <p class="FooterItem">Manage Account</p>
-            <p class="FooterItem">WatchList</p>
+            <p class="FooterItem" onclick="GoToAccountPage()">Manage Account</p>
+            <p class="FooterItem" onclick="GoToWatchListPage()">WatchList</p>
         </div>
 
 
         <div id="QuickLinks" class="FooterContainers">
             <p class="FooterHeaders">Quick Links</p>
             <p class="FooterItem">Home</p>
-            <p class="FooterItem">Watchlist</p>
-            <p class="FooterItem">Daily Deals</p>
-            <p class="FooterItem">Avengers</p>
-            <p class="FooterItem">Batman</p>
-            <p class="FooterItem">Spiderman</p>
-            <p class="FooterItem">Star Wars</p>
-            <p class="FooterItem">Superman</p>
-            <p class="FooterItem">X-Mean</p>
+            <p class="FooterItem" onclick="GoToWatchListPage()">Watchlist</p>
+            <p class="FooterItem" onclick="Daily_Deals()">Daily Deals</p>
+            <p class="FooterItem" onclick="SearchBar_Bottom('Avengers')">Avengers</p>
+            <p class="FooterItem" onclick="SearchBar_Bottom('Batman')">Batman</p>
+            <p class="FooterItem" onclick="SearchBar_Bottom('Spiderman')">Spiderman</p>
+            <p class="FooterItem" onclick="SearchBar_Bottom('Star Wars')">Star Wars</p>
+            <p class="FooterItem" onclick="SearchBar_Bottom('Superman')">Superman</p>
+            <p class="FooterItem" onclick="SearchBar_Bottom('X-Men')">X-Men</p>
             <p class="FooterItem">Etc....</p>
         </div>
 
 
         <div id="Contact" class="FooterContainers">
             <p class="FooterHeaders">Contact</p>
-            <p class="FooterItem">Contact us</p>
+            <p class="FooterItem" onclick="GoToContactPage()">Contact us</p>
             <p class="FooterItem">Learn about us</p>
             <p class="FooterItem">More Information</p>
         </div>
@@ -841,11 +874,9 @@
     </div>
 
     <div id="RightsContainer">
-        <p id="RightsItem">Copyright © 2023 Comic Finds. All Rights Reserved. User Agreement, Privacy, Payments
-            Terms of
+        <p id="RightsItem">Copyright © 2023 Comic Finds. All Rights Reserved. User Agreement, Privacy, Payments Terms of
             Use, Cookies and AdChoice</p>
     </div>
-
 </body>
 
 

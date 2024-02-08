@@ -54,6 +54,116 @@ p {
     user-select: none !important;
 }
 
+/*Notifs*/
+.Notif_Sign_Pos {
+    top: 200px;
+}
+
+#Logout_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Logout_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Login_prompt {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+.Error_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Error_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+.Close_Error_Notif_Watch {
+    transform: scale(.6);
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 17px;
+}
+
+.Confirm_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Success_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+/*Notifs*/
+
+
 /*Top Navigation Bar*/
 
 #NavigationBarTop {
@@ -111,6 +221,17 @@ p {
     font-family: Helvetica;
     left: 3%;
     margin-top: 17px;
+    display: block;
+}
+
+#TopLogoutItem {
+    position: relative;
+    color: rgb(255, 66, 66);
+    font-size: 12px;
+    font-family: Helvetica;
+    left: 3%;
+    margin-top: 17px;
+    display: none;
 }
 
 #HelpContact {
@@ -131,8 +252,8 @@ p {
 
     position: fixed;
     right: 30px;
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     top: 8px;
     opacity: .7;
     transition: .1s;
@@ -145,9 +266,9 @@ p {
     position: fixed;
     right: 90px;
     top: 8px;
-    height: 24px;
-    width: 24px;
-    opacity: .7;
+    height: 26px;
+    width: 26px;
+    opacity: .65;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
@@ -155,10 +276,12 @@ p {
 
 #WatchList2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
 
 #Account2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
 
 #Account2:active {
@@ -168,7 +291,6 @@ p {
 #WatchList2:active {
     transform: scale(.95);
 }
-
 
 
 
@@ -353,6 +475,54 @@ p {
 
 
 /*Loading Bar*/
+
+.loading-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-border::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    /* Adjust the height of the loader */
+    background: linear-gradient(to right, transparent, rgb(255, 66, 66), transparent);
+    /* Adjust the gradient as needed */
+    animation: loading 1s linear infinite;
+    /* Adjust the animation duration as needed */
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+#Logout_Loader {
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 20%;
+    margin-top: 250px;
+    transform: translate(-50%, -20%);
+    display: none;
+}
+
+#Search_Loader {
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    margin-top: 87px;
+    transform: translate(-50%, 0%) scale(.8);
+    display: none;
+}
 
 #Featured_Loader {
     position: absolute;
@@ -704,29 +874,29 @@ p {
 
 
 #AutoScroll_1 {
-    background-image: url('Images/Spiderman.jpg');
+    background-image: url('../Images/Spiderman.jpg');
 }
 
 #AutoScroll_2 {
-    background-image: url('Images/Batman.jpg');
+    background-image: url('../Images/Batman.jpg');
 
 }
 
 #AutoScroll_3 {
-    background-image: url('Images/Flash.jpg');
+    background-image: url('../Images/Flash.jpg');
 
 }
 
 #AutoScroll_4 {
-    background-image: url('Images/Spiderman2.jpg');
+    background-image: url('../Images/Spiderman2.jpg');
 }
 
 #AutoScroll_5 {
-    background-image: url('Images/DC.jpg');
+    background-image: url('../Images/DC.jpg');
 }
 
 #AutoScroll_6 {
-    background-image: url('Images/MarvelDC.jpg');
+    background-image: url('../Images/MarvelDC.jpg');
 }
 
 
@@ -928,11 +1098,12 @@ p {
     border-radius: 2px;
 }
 
+/*
 .AddWatchList:hover {
     background-color: rgb(255, 66, 66);
     color: white;
 }
-
+*/
 .AddWatchList:active {
     transition: .1s;
     transform: scale(0.97);

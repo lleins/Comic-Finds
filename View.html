@@ -16,13 +16,72 @@
         <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
     </div>
 
+
+    <!--Notifs-->
+    <div id="Logout_1" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Succesfully logged out!</p>
+        <img onclick="Logout_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Logout_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Logout failed.</p>
+        <img onclick="Logout_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Login_prompt" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Please Login.</p>
+        <img onclick="Logout_prompt_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Saved_1" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Comic Saved.</p>
+        <img onclick="Saved_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Saved_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Confirm_Text">Cannot be saved at this time.</p>
+        <img onclick="Saved_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Saved_3" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Confirm_Text">Comic already saved.</p>
+        <img onclick="Saved_3_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Remove_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Confirm_Text">Cannot be removed at this time.</p>
+        <img onclick="Remove_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Remove_1" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Confirm_Text">Comic removed.</p>
+        <img onclick="Remove_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Logout_Loader" class="loader-container">
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+    </div>
+    <!--Notifs-->
+
+
     <!--Top Navigation Bar-->
     <div id="NavigationBarTop">
         <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
                 class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+        <p id="TopLogoutItem" onclick="Logout_Account()" class="TopNavSign">Logout</p>
         <p class="TopNavItem" id="HelpContact">Help & Contact</p>
-        <img id="WatchList2" class="TopImages" src="Images/WatchList.png">
-        <img id="Account2" class="TopImages" src="Images/Account2.png">
+        <img id="WatchList2" class="TopImages" onclick="GoToWatchListPage()" src="Images/WatchList.png">
+        <img id="Account2" class="TopImages" onclick="GoToAccountPage()" src="Images/Account2.png">
     </div>
     <!--Top Navigation Bar-->
 
@@ -31,25 +90,27 @@
     <div id="NavigationBarMain">
         <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
 
-        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
-        <input id="SearchBar" type="text" placeholder="Search for anything">
+        <button id="SearchImageButton" onclick="SearchBar()"><img id="SearchIcon"
+                src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" onkeydown="handleKeyPress(event)" placeholder="Search for anything">
 
-        <button id="NavSearchButton">Search</button>
+        <button id="NavSearchButton" onclick="SearchBar()">Search</button>
 
     </div>
     <!--Main Navigation Bar-->
 
     <!--Bottom Navigation Bar-->
     <div id="NavigationBarBottom">
-        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
-        <p class="BottomNavItem">Watchlist</p>
-        <p class="BottomNavItem">Daily Deals</p>
-        <p class="BottomNavItem" id="Bottom1">Avengers</p>
-        <p class="BottomNavItem" id="Bottom2">Batman</p>
-        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
-        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
-        <p class="BottomNavItem" id="Bottom5">Superman</p>
-        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+        <p class="BottomNavItem" onclick="location.href='Home.html', delete_current_search()">Home</p>
+        <p class="BottomNavItem" onclick="GoToWatchListPage()">Watchlist</p>
+        <p class="BottomNavItem" onclick="Daily_Deals_go()">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1" onclick="SearchBar_Bottom('Avengers')">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2" onclick="SearchBar_Bottom('Batman')">Batman</p>
+        <p class="BottomNavItem" id="Bottom3" onclick="SearchBar_Bottom('Spiderman')">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4" onclick="SearchBar_Bottom('Star Wars')">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5" onclick="SearchBar_Bottom('Superman')">Superman</p>
+        <p class="BottomNavItem" id="Bottom6" onclick="SearchBar_Bottom('X-Men')">X-Men</p>
+
     </div>
     <!--Bottom Navigation Bar-->
 
@@ -62,31 +123,23 @@
 
 
     <div id="Item_View_Container_Text">
-        <p id="View_Issue" class="View_Text_Style">DF AMAZING SPIDERMAN #20 DODSON SGN (C: 0-1-2)</p>
-        <p id="View_Vendor" class="View_Text_Style">Vendor: <span id="Vendor_Name">Dynamic Forces</span></p>
-        <p id="View_Price" class="View_Text_Style">$32.56</p>
+        <p id="View_Issue" class="View_Text_Style">SPIDER-MAN HOMAGE COMMISSIONED COVER ART FOUR PIECE BLANK VARIANT
+            CONNECTING SET SIGNED AND REMARKED BY KEN HAESER WITH AN AMAZING FANTASY #15 HOMAGE SKETCH</p>
+        <p id="View_Vendor" class="View_Text_Style"><span id="Vendor_Name">Dynamic Forces</span></p>
+        <p id="View_Description_Text" class="View_Text_Style">UPC: 725130330680 Classic Amazing Fantasy #15 homage art
+            across 4 Marvel blank covers by Ken Haeser! NOTE: TITLES MAY VARY.</p>
 
-        <p id="View_Written" class="View_Text_Style">Written by: <span id="Written_Name"></span></p>
-        <p id="View_Artist" class="View_Text_Style">Artist by: <span id="Artist_Name"></span></p>
-        <p id="View_Description" class="View_Text_Style">Description: </p>
-        <p id="View_Description_Text" class="View_Text_Style"> Jaime Reyes is back home, but just when he thought he had
-            a grasp on this alter-ego, the Blue Beetle, he discovers everything he believed about his scarab is a lie
-            according to the mysterious Doctor Fate. With dire warnings about the symbiote that is fused to Reyes'
-            spine, Kent Nelson, the original wielder of Doctor Fate's power, seemingly on verge of insanity, has he come
-            to save Jaime as he claims...or will he try to eliminate the Blue Beetle, no matter the cost? Event priced
-            in honor of the first appearance of the original Blue Beetle in Mystery Men Comics #1 (August 1939). FINAL
-            COVER MAY VARY! ALLOCATIONS MAY OCCUR!</p>
+        <p id="View_Price" class="View_Text_Style">$799.99</p>
 
-    </div>
 
-    <div id="WatchList_Container">
         <p id="View_AddWishList">Add to watchlist</p>
-    </div>
-
-    <div id="Share_Container">
+        <p id="View_Remove">Remove</p>
         <p id="View_Share" class="View_Text_Style">Share:</p>
         <img src="Images/ShareImg.png" id="ShareImg">
     </div>
+
+
+
 
     <!--View Item-->
 

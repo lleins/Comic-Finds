@@ -1,10 +1,10 @@
-body{
+body {
     background-color: rgb(240, 240, 240);
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 
-    
+
 }
 
 
@@ -18,7 +18,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 7; /* Ensure the loading container is on top */
+    z-index: 7;
+    /* Ensure the loading container is on top */
     color: rgb(70, 70, 70);
     font-family: Helvetica;
     letter-spacing: 1px;
@@ -27,7 +28,7 @@ body{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-#LoadingText{
+#LoadingText {
     justify-content: center;
     align-items: center;
     animation: scaleAnimation .4s ease;
@@ -35,22 +36,282 @@ body{
 
 @keyframes scaleAnimation {
     0% {
-        transform: scale(.5); /* Initial scale */
+        transform: scale(.5);
+        /* Initial scale */
     }
+
     100% {
-        transform: scale(1.5); /* Final scale */
+        transform: scale(1.5);
+        /* Final scale */
     }
 }
 
-#LoadingSecondary{
+#LoadingSecondary {
     color: rgb(255, 66, 66);
 }
+
+
+/*Notifs*/
+
+.Notif_Sign_Pos {
+    top: 200px;
+}
+
+#Logout_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Logout_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -355px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 9;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Login_prompt {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -355px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+#Saved_1 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -355px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(24, 248, 80);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Saved_0 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Saved_3 {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+
+#Saved_3_a {
+    position: fixed;
+
+    left: -355px;
+    /*to show 20px*/
+    /*to hide -340px*/
+    width: 310px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    z-index: 999;
+    border-radius: 20px;
+    border-top: 1px solid rgb(220, 220, 220);
+    border-right: 1px solid rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(220, 220, 220);
+    border-left: 40px solid rgb(255, 83, 83);
+    opacity: .9;
+    display: block;
+    transition: .3s;
+    transform: .3s;
+}
+
+.Error_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Error_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+.Close_Error_Notif_Watch {
+    transform: scale(.6);
+    cursor: pointer;
+    position: absolute;
+    left: 275px;
+    top: 17px;
+}
+
+.Confirm_Text {
+    color: rgb(70, 70, 70);
+    top: 8px;
+    font-family: Helvetica;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+}
+
+.Success_Img {
+    transform: scale(.6);
+    position: absolute;
+    top: 18px;
+    left: 10px;
+}
+
+/*Notifs*/
+
+/*Loaders*/
+
+#Logout_Loader {
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    top: 20%;
+    margin-top: 250px;
+    transform: translate(-50%, -20%);
+    display: none;
+}
+
+.loader-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.dot-loader {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255, 66, 66);
+    border-radius: 50%;
+    animation: bounce 1s ease-in-out infinite;
+    margin: 0 2px;
+}
+
+.dot-loader:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.dot-loader:nth-child(3) {
+    animation-delay: .2s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-15px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-15px);
+    }
+}
+
+/*Loaders*/
+
 
 
 
 /*Top Navigation Bar*/
 
-#NavigationBarTop{
+#NavigationBarTop {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -62,10 +323,10 @@ body{
     z-index: 6;
     background-color: rgba(255, 255, 255);
     border-bottom: 2px solid rgb(240, 240, 240);
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-.TopNavItem{
+.TopNavItem {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 12px;
@@ -73,20 +334,28 @@ body{
     transition: .1s;
 }
 
-.TopNavItem:hover{
+.TopNavItem:hover {
     text-decoration: underline;
     transform: scale(1.02);
 }
 
-#Language{
+#Language {
     margin-left: 0%;
     margin-top: 17px;
 }
 
 
+#TopLogoutItem {
+    position: relative;
+    color: rgb(255, 66, 66);
+    font-size: 12px;
+    font-family: Helvetica;
+    left: 3%;
+    margin-top: 17px;
+    display: none;
+}
 
-
-.TopNavSign{
+.TopNavSign {
     font-family: Helvetica;
     color: rgb(255, 66, 66);
     font-size: 12px;
@@ -95,11 +364,11 @@ body{
     text-decoration: underline;
 }
 
-.TopNavSign:hover{
+.TopNavSign:hover {
     transform: scale(1.05);
 }
 
-#TopSignInItem{
+#TopSignInItem {
     color: rgb(70, 70, 70);
     font-size: 12px;
     font-family: Helvetica;
@@ -107,61 +376,97 @@ body{
     margin-top: 17px;
 }
 
-#HelpContact{
-    margin-left: 3%;
+#HelpContact {
+    margin-left: 6%;
     margin-top: 17px;
 }
 
-#WatchList2{
-    
+#WatchList2 {
+
     position: fixed;
     right: 30px;
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     top: 8px;
     opacity: .7;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
 }
-#Account2{
-   
+
+.loading-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-border::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    /* Adjust the height of the loader */
+    background: linear-gradient(to right, transparent, rgb(255, 66, 66), transparent);
+    /* Adjust the gradient as needed */
+    animation: loading 1s linear infinite;
+    /* Adjust the animation duration as needed */
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+#Account2 {
+
     position: fixed;
     right: 90px;
     top: 8px;
-    height: 24px;
-    width: 24px;
-    opacity: .7;
+    height: 26px;
+    width: 26px;
+    opacity: .65;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
 }
 
-#WatchList2:hover{
+#WatchList2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
 
-#Account2:hover{
+#Account2:hover {
     opacity: 1;
+    transform: scale(1.03);
 }
-#Account2:active{
+
+#Account2:active {
     transform: scale(.95);
 }
-#WatchList2:active{
+
+#WatchList2:active {
     transform: scale(.95);
 }
-.LanguageFlags{
+
+.LanguageFlags {
     height: 24px;
     width: 24px;
     transform: scale(1);
 }
 
-#CanadaFlag{
+#CanadaFlag {
     margin-top: 12px;
     margin-left: 55%;
 }
 
-#LanguageSwitch{
+#LanguageSwitch {
     position: fixed;
     width: 120px;
     height: 45px;
@@ -173,12 +478,12 @@ body{
     display: none;
 }
 
-#FrenchLanguage{
+#FrenchLanguage {
     margin-left: 53px;
     margin-top: 14px;
 }
 
-#FrenchFlagImg{
+#FrenchFlagImg {
     margin-left: 27px;
     margin-top: -31px;
 }
@@ -191,7 +496,7 @@ body{
 
 /*Main Navigation Bar*/
 
-#NavigationBarMain{
+#NavigationBarMain {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -202,13 +507,13 @@ body{
     /*color: #8c8c8c;*/
     z-index: 6;
     background-color: rgba(255, 255, 255, 1);
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-#NavTitle{
+#NavTitle {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
-    font-size: 30px; 
+    font-size: 30px;
     font-weight: bold;
     font-variant: small-caps;
     margin-left: 3%;
@@ -216,14 +521,14 @@ body{
     cursor: pointer;
 }
 
-#NavTitleSecond{
+#NavTitleSecond {
     color: rgb(255, 66, 66);
 }
 
 
 
 
-#SearchBar{
+#SearchBar {
     color: rgb(40, 40, 40);
     margin-top: 25px;
     font-family: Helvetica;
@@ -237,9 +542,9 @@ body{
     border-top: 2px solid rgb(170, 170, 170);
     border-bottom: 2px solid rgb(170, 170, 170);
     border-left: 0px solid rgb(170, 170, 170);
-} 
+}
 
-#SearchImageButton{
+#SearchImageButton {
     margin-top: 25px;
     height: 45px;
     border-radius: 10px 0 0 10px;
@@ -256,14 +561,14 @@ body{
     outline: none;
 }
 
-#SearchIcon{
+#SearchIcon {
     transform: scale(.7);
     margin-left: 5px;
 }
 
 
 
-#NavSearchButton{
+#NavSearchButton {
     margin-left: 1%;
     background-color: rgb(255, 66, 66);
     height: 45px;
@@ -278,7 +583,7 @@ body{
     letter-spacing: 1px;
     border-radius: 10px;
     transition: .1s;
-    
+
 }
 
 #NavSearchButton:active {
@@ -294,7 +599,7 @@ body{
 /*Main Navigation Bar*/
 
 /*Bottom Navigation Bar*/
-#NavigationBarBottom{
+#NavigationBarBottom {
     position: fixed;
     left: 0px;
     right: 0px;
@@ -307,10 +612,10 @@ body{
     background-color: rgba(255, 255, 255, 1);
     border-top: 2px solid rgb(240, 240, 240);
     justify-content: space-around;
-    transition: top 0.3s ease; 
+    transition: top 0.3s ease;
 }
 
-.BottomNavItem{
+.BottomNavItem {
     font-family: Helvetica;
     color: rgb(70, 70, 70);
     font-size: 12px;
@@ -318,8 +623,8 @@ body{
     transition: .1s;
 }
 
-.BottomNavItem:hover{
-    color: rgb(255, 66, 66); 
+.BottomNavItem:hover {
+    color: rgb(255, 66, 66);
     text-decoration: underline;
     transform: scale(1.05);
 }
@@ -333,15 +638,15 @@ body{
 
 /*Search Result Title*/
 
-#GridViewImg{
+#GridViewImg {
     display: none;
 }
 
-#ListViewImg{
+#ListViewImg {
     display: block;
 }
 
-.ChangeViewImgs{
+.ChangeViewImgs {
     width: 24px;
     height: 24px;
     opacity: .5;
@@ -350,36 +655,57 @@ body{
     cursor: pointer;
 }
 
-.ChangeViewImgs:active{
+.ChangeViewImgs:active {
     transform: scale(.95);
 }
 
-.ChangeViewImgs:hover{
+.ChangeViewImgs:hover {
     opacity: .7;
 }
 
-#ChangeViewContainer{
+#ChangeViewContainer {
     position: absolute;
     right: 60px;
-    top: 210px; 
+    top: 210px;
 }
 
-#SearchResult_NumberTitle{
+#SearchResult_NumberTitle {
     font-family: Helvetica;
     font-size: 13px;
-    color: rgb(70, 70, 70); 
+    color: rgb(70, 70, 70);
     margin-left: 60px;
-    font-weight: bold;                 
+    font-weight: bold;
+}
+
+#top_page_count_text {
+    position: absolute;
+    right: 60px;
+    font-family: Helvetica;
+    font-size: 13px;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    top: -14px;
+}
+
+#None_Found_Search {
+    position: flex;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid rgb(220, 220, 220);
+    padding-top: 50px;
+    display: none;
 }
 
 
-
-#SearchResult_Title{
+#SearchResult_Title {
     position: relative;
     top: 200px;
 }
 
-.SearchResultTitle{
+.SearchResultTitle {
     position: flex;
     font-family: Helvetica;
     font-size: 28px;
@@ -388,18 +714,19 @@ body{
     text-align: center;
     border-top: 1px solid rgb(220, 220, 220);
     padding-top: 50px;
+    display: block;
 }
 
-#ResultArrow{
+#ResultArrow {
     font-weight: lighter;
     font-family: monospace;
     font-size: 18px;
 }
 
-#ResultBackTrack:hover{
+#ResultBackTrack:hover {
     cursor: pointer;
     color: rgb(255, 66, 66);
-    
+
 }
 
 
@@ -414,30 +741,32 @@ body{
 
 /*Search Result Grid*/
 
-#SearchResults_Grid_Container{
-    justify-content: center; /* Center horizontally */
+#SearchResults_Grid_Container {
+    justify-content: center;
+    /* Center horizontally */
     align-items: center;
     margin-left: 2%;
     display: flex;
+
 }
 
-#SearchResults_Grid{
-    
-    display: grid;  
-    grid-template-columns: repeat(4, 1fr); /* Define the number of columns */
-    grid-template-rows: repeat(6, 1fr); 
+#SearchResults_Grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Define the number of columns */
+    grid-template-rows: repeat(6, 1fr);
     width: 1130px;
     height: 2500px;
-    scroll-behavior: smooth;  
-    margin-top: 250px; 
+    scroll-behavior: smooth;
+    margin-top: 250px;
     border-radius: 2px;
-    
 
 }
 
 
-.Item_Grid{
-    
+.Item_Grid {
+
     position: relative;
     background-color: white;
     padding: 80px;
@@ -447,12 +776,12 @@ body{
     width: 100px;
     height: 365px;
     cursor: pointer;
-    transition: 0.5s ease; 
+    transition: 0.5s ease;
     margin-bottom: 15px;
-   
+
 }
 
-.GridItem_Img{
+.GridItem_Img {
     height: 330px;
     width: 250px;
     border-radius: 2px;
@@ -460,37 +789,37 @@ body{
     margin-top: -75%;
 }
 
-.FeaturedItem_Text{
+.FeaturedItem_Text {
     font-family: helvetica;
     font-size: 20px;
     color: rgb(70, 70, 70);
     margin-top: -34%;
     width: 260px;
-}   
+}
 
-.FeaturedItem_Text_Issue{
+.FeaturedItem_Text_Issue {
     font-family: helvetica;
     font-size: 12px;
     color: rgb(70, 70, 70);
     transition: .1s;
-    cursor: pointer;
+
     margin-top: -10px;
     margin-left: -50px;
     text-transform: uppercase;
-    
+
     white-space: pre-wrap;
     width: 210px;
 }
 
-.FeaturedItem_Text_Issue:hover{
-    color: rgb(255, 66, 66); 
+.FeaturedItem_Text_Issue:hover {
+    color: rgb(255, 66, 66);
     text-decoration: underline;
     transform: scale(1.01);
 }
 
 
 
-.FeaturedItem_Text_Price{
+.FeaturedItem_Text_Price {
     font-family: helvetica;
     font-size: 15px;
     color: rgb(40, 40, 40);
@@ -500,7 +829,7 @@ body{
     margin-left: -50px;
 }
 
-.FeaturedItem_Text_Universe{
+.FeaturedItem_Text_Universe {
     position: flex;
     font-family: helvetica;
     font-size: 13px;
@@ -509,17 +838,17 @@ body{
     transition: .1s;
     cursor: pointer;
     margin-left: -50px;
-    
+
 }
 
 
-.FeaturedItem_Text_Universe:hover{
-    color: rgb(70, 70, 70); 
+.FeaturedItem_Text_Universe:hover {
+    color: rgb(70, 70, 70);
     text-decoration: underline;
     transform: scale(1.02);
 }
 
-.AddWatchList{
+.AddWatchList {
     position: absolute;
     font-family: helvetica;
     border: 2px solid rgb(255, 66, 66);
@@ -538,9 +867,10 @@ body{
     cursor: pointer;
     transition: .2s;
     border-radius: 2px;
+
 }
 
-.AddWatchList:hover{
+.AddWatchList:hover {
     background-color: rgb(255, 66, 66);
     color: white;
 }
@@ -549,6 +879,35 @@ body{
     transition: .1s;
     transform: scale(0.97);
 }
+
+
+.AddedWatchList {
+    position: absolute;
+    font-family: helvetica;
+    border: 2px solid rgb(255, 66, 66);
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding-left: 34px;
+    padding-right: 34px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    bottom: 10px;
+    margin-left: -65px;
+    margin-left: -69px;
+    text-align: center;
+    background-color: rgb(255, 66, 66);
+    cursor: pointer;
+    transition: .2s;
+    border-radius: 2px;
+    white-space: nowrap;
+}
+
+.AddedWatchList:active {
+    transition: .1s;
+    transform: scale(0.97);
+}
+
 /*Search Result Grid*/
 
 
@@ -558,33 +917,35 @@ body{
 
 /*Search Result List*/
 
-#SearchResults_List_Container{
-    
-    justify-content: center; /* Center horizontally */
+#SearchResults_List_Container {
+
+    justify-content: center;
+    /* Center horizontally */
     align-items: center;
     margin-left: 0%;
     display: none;
 }
 
-#SearchResults_List{
-    
-    display: grid;  
-    grid-template-columns: repeat(1, 1fr); /* Define the number of columns */
-    grid-template-rows: repeat(20, 1fr); 
+#SearchResults_List {
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* Define the number of columns */
+    grid-template-rows: repeat(20, 1fr);
     width: 90%;
     height: 2500px;
-    scroll-behavior: smooth;  
-    margin-top: 250px; 
+    scroll-behavior: smooth;
+    margin-top: 250px;
     border-radius: 2px;
-    
+
 
 }
 
-#Item1List{
+#Item1List {
     border-top: 2px solid rgb(220, 220, 220);
 }
 
-.Item_List{
+.Item_List {
     position: relative;
     background-color: rgb(240, 240, 240);
     padding-bottom: 0px;
@@ -598,11 +959,11 @@ body{
     border-bottom: 2px solid rgb(220, 220, 220);
     width: 100%;
     height: 365px;
-    transition: 0.5s ease; 
+    transition: 0.5s ease;
     margin-bottom: 0px;
 }
 
-.ListItem_Img{
+.ListItem_Img {
     height: 350px;
     width: 280px;
     border-radius: 2px;
@@ -610,15 +971,15 @@ body{
     margin-top: -2%;
 }
 
-.FeaturedItem_Text{
+.FeaturedItem_Text {
     font-family: helvetica;
     font-size: 20px;
     color: rgb(70, 70, 70);
     margin-top: -34%;
     width: 260px;
-}   
+}
 
-.List_Text_Issue{
+.List_Text_Issue {
     font-family: helvetica;
     font-size: 17px;
     color: rgb(70, 70, 70);
@@ -632,27 +993,27 @@ body{
     margin-top: -350px;
 }
 
-.List_Text_Issue:hover{
-    color: rgb(255, 66, 66); 
+.List_Text_Issue:hover {
+    color: rgb(255, 66, 66);
     text-decoration: underline;
     transform: scale(1.01);
 }
 
 
 
-.List_Text_Price{
+.List_Text_Price {
     font-family: helvetica;
     font-size: 27px;
     color: rgb(40, 40, 40);
-   
+
     font-weight: bold;
     margin-left: 250px;
     position: relative;
     margin-top: 0px;
 }
 
-.List_Text_Universe{
-   
+.List_Text_Universe {
+
     font-family: helvetica;
     font-size: 14px;
     color: rgb(150, 150, 150);
@@ -661,17 +1022,17 @@ body{
     margin-left: 250px;
     position: relative;
     margin-top: 0px;
-    
+
 }
 
 
-.List_Text_Universe:hover{
-    color: rgb(70, 70, 70); 
+.List_Text_Universe:hover {
+    color: rgb(70, 70, 70);
     text-decoration: underline;
     transform: scale(1.02);
 }
 
-.AddWatchList_List{
+.AddWatchList_List {
     position: absolute;
     font-family: Verdana;
     border: 0px solid rgb(255, 66, 66);
@@ -691,16 +1052,16 @@ body{
 
 }
 
-.AddWatchList_List:active{
+.AddWatchList_List:active {
     transform: scale(.9);
 }
 
-.AddWatchList_List:hover{
+.AddWatchList_List:hover {
     transform: scale(1.1);
 }
 
 
-.AddWatchList_List2{
+.AddWatchList_List2 {
     position: absolute;
     font-family: Verdana;
     color: rgb(255, 66, 66);
@@ -719,13 +1080,14 @@ body{
 
 }
 
-.AddWatchList_List2:active{
+.AddWatchList_List2:active {
     transform: scale(.9);
 }
 
-.AddWatchList_List2:hover{
+.AddWatchList_List2:hover {
     transform: scale(1.1);
 }
+
 /*Search Result List*/
 
 
@@ -736,14 +1098,14 @@ body{
 
 /*Next Page/Prev Page*/
 
-#PageCounter{
+#PageCounter {
     position: relative;
     top: 350px;
     text-align: center;
 }
 
-.Next_PrevPage{
-    
+.Next_PrevPage {
+
     font-family: helvetica;
     color: rgb(100, 100, 100);
     font-size: 17px;
@@ -752,49 +1114,94 @@ body{
     transform: .1s;
     transition: .1s;
     letter-spacing: 2px;
-  
+
+
 }
 
-.Next_PrevPage:hover{
-    
+.Next_PrevPage:hover {
+
     color: rgb(255, 66, 66);
 
 }
 
+#PrevPage {
+
+    background-color: rgb(255, 66, 66);
+    height: 65px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: Helvetica;
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    border-radius: 10px;
+    transition: .1s;
+}
+
+#NextPage {
+    background-color: rgb(255, 66, 66);
+    height: 35px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 15px;
+    border: none;
+    cursor: pointer;
+    font-family: Helvetica;
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    border-radius: 10px;
+    transition: .1s;
+}
+
+#CurrentPage {
+    margin-left: 10px;
+    margin-right: 7px;
+}
 
 /*Next Page/Prev Page*/
 
 
 
 
-
+#Loader {
+    position: relative;
+    background-color: rgb(10, 10, 10, .5);
+    filter: brightness(50%);
+    height: 500%;
+}
 
 
 /*Footer*/
 
-#BottomContainer{
+#BottomContainer {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     border-top: 1px solid rgb(180, 180, 180);
     top: 500px;
- 
+
 }
 
-.FooterContainers{
+.FooterContainers {
     margin-top: 12%;
     margin-left: 33%;
 }
 
-.FooterHeaders{
+.FooterHeaders {
     font-family: Helvetica;
     font-size: 17px;
     font-weight: bold;
     color: rgb(90, 90, 90);
 }
 
-.FooterItem{
+.FooterItem {
     font-family: Helvetica;
     font-size: 12px;
     color: rgb(90, 90, 90);
@@ -802,24 +1209,24 @@ body{
     transition: .1s;
 }
 
-.FooterItem:hover{
+.FooterItem:hover {
     text-decoration: underline;
 }
 
-#RightsContainer{
+#RightsContainer {
     position: relative;
     top: 600px;
     margin-left: 5%;
     padding-bottom: 5%;
 }
 
-#RightsItem{
+#RightsItem {
     font-family: Helvetica;
     font-size: 12px;
     color: rgb(40, 40, 40);
     transition: .1s;
 }
-                        
+
 /*Footer*/
 
 
@@ -831,66 +1238,67 @@ body{
         content: width=device-width, initial-scale=1;
     }
 
-    #SearchResults_Grid{
-    
-        display: grid;  
-        grid-template-columns: repeat(3, 1fr); /* Define the number of columns */
-        grid-template-rows: repeat(6, 1fr); 
+    #SearchResults_Grid {
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Define the number of columns */
+        grid-template-rows: repeat(6, 1fr);
         width: 850px;
         height: 2500px;
-        scroll-behavior: smooth;  
-        margin-top: 250px; 
+        scroll-behavior: smooth;
+        margin-top: 250px;
         border-radius: 2px;
-        
-    
+
+
     }
 
-    #BottomContainer{
+    #BottomContainer {
         top: 1600px;
-     
-    }
-    
-    #RightsContainer{
-        top: 1700px;
-        
+
     }
 
-    #PageCounter{
+    #RightsContainer {
+        top: 1700px;
+
+    }
+
+    #PageCounter {
         top: 1450px;
     }
 
 
-    .List_Text_Issue{
+    .List_Text_Issue {
         color: rgb(70, 70, 70);
-     
+
         margin-left: 270px;
         margin-top: -350px;
     }
 
-    .List_Text_Universe{
-       
+    .List_Text_Universe {
+
         margin-top: 15px;
         margin-left: 270px;
         margin-top: 0px;
-        
+
     }
 
-    .List_Text_Price{
-        
+    .List_Text_Price {
+
         margin-left: 270px;
         margin-top: 0px;
     }
 
-    .AddWatchList_List{
+    .AddWatchList_List {
         margin-left: 270px;
-    
+
     }
 
-    .AddWatchList_List2{
-        
+    .AddWatchList_List2 {
+
         margin-left: 270px;
-        
-    
+
+
     }
 
 }
@@ -901,40 +1309,41 @@ body{
         content: width=device-width, initial-scale=1;
     }
 
-    #SearchResults_Grid{
-    
-        display: grid;  
-        grid-template-columns: repeat(2, 1fr); /* Define the number of columns */
-        grid-template-rows: repeat(10, 1fr); 
+    #SearchResults_Grid {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* Define the number of columns */
+        grid-template-rows: repeat(10, 1fr);
         width: 560px;
         height: 2500px;
-        scroll-behavior: smooth;  
-        margin-top: 250px; 
+        scroll-behavior: smooth;
+        margin-top: 250px;
         border-radius: 2px;
-        
-    
+
+
     }
 
-    #BottomContainer{
+    #BottomContainer {
         top: 3200px;
-     
-    }
-    
-    #RightsContainer{
-        top: 3300px;
-        
+
     }
 
-    #PageCounter{
+    #RightsContainer {
+        top: 3300px;
+
+    }
+
+    #PageCounter {
         top: 3050px;
     }
 
-    .ListItem_Img{
+    .ListItem_Img {
         height: 300px;
         width: 230px;
     }
 
-    .List_Text_Issue{
+    .List_Text_Issue {
         color: rgb(70, 70, 70);
         width: 40vw;
         white-space: normal;
@@ -944,29 +1353,30 @@ body{
         font-size: 13px;
     }
 
-    .List_Text_Universe{
+    .List_Text_Universe {
         margin-left: 220px;
         position: relative;
         margin-top: 0px;
-        
+
     }
 
-    .List_Text_Price{
+    .List_Text_Price {
         margin-left: 220px;
         position: relative;
         margin-top: 0px;
         font-size: 20px;
     }
-    .AddWatchList_List{
+
+    .AddWatchList_List {
         margin-left: 220px;
         bottom: 85px;
     }
 
-    .AddWatchList_List2{
-        
+    .AddWatchList_List2 {
+
         margin-left: 220px;
         bottom: 85px;
-    
+
     }
 }
 
@@ -976,33 +1386,35 @@ body{
         content: width=device-width, initial-scale=1;
     }
 
-    #SearchResults_Grid{ 
-        grid-template-columns: repeat(1, 1fr); /* Define the number of columns */
-        grid-template-rows: repeat(20, 1fr); 
+    #SearchResults_Grid {
+        grid-template-columns: repeat(1, 1fr);
+        /* Define the number of columns */
+        grid-template-rows: repeat(20, 1fr);
         width: 250px;
         height: 2500px;
     }
 
-    #BottomContainer{
+    #BottomContainer {
         top: 8600px;
-     
-    }
-    
-    #RightsContainer{
-        top: 8600px;
-        
+
     }
 
-    #PageCounter{
+    #RightsContainer {
+        top: 8600px;
+
+    }
+
+    #PageCounter {
         top: 8450px;
+        margin-left: 25px;
     }
 
-    .ListItem_Img{
+    .ListItem_Img {
         height: 280px;
         width: 175px;
     }
 
-    .List_Text_Issue{
+    .List_Text_Issue {
         font-size: 10px;
         color: rgb(70, 70, 70);
         width: 60vw;
@@ -1010,52 +1422,54 @@ body{
         margin-top: -280px;
     }
 
-    .List_Text_Universe{
+    .List_Text_Universe {
         font-size: 12px;
         margin-top: 15px;
         margin-left: 180px;
         margin-top: -0px;
-        
+
     }
 
-    .List_Text_Price{
+    .List_Text_Price {
         margin-left: 180px;
         margin-top: 0px;
         font-size: 17px;
     }
-    .AddWatchList_List{
+
+    .AddWatchList_List {
         margin-left: 180px;
         bottom: 85px;
     }
 
-    .AddWatchList_List2{
-        
+    .AddWatchList_List2 {
+
         margin-left: 180px;
         bottom: 85px;
-    
+
     }
-    body{
+
+    body {
         overflow-x: hidden;
     }
-}  
+}
 
-@media (max-width: 1100px){
+@media (max-width: 1100px) {
 
- 
 
-    #HelpContact{
+
+    #HelpContact {
         white-space: nowrap;
     }
 
-    #TopSignInItem{
+    #TopSignInItem {
         white-space: nowrap;
     }
 
-    #NavTitle{
+    #NavTitle {
         white-space: nowrap;
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 25px;
         font-family: Helvetica;
@@ -1063,17 +1477,17 @@ body{
         width: 40%;
         height: 45px;
         padding: 10px;
-    } 
-    
-    #SearchImageButton{
+    }
+
+    #SearchImageButton {
         margin-top: 25px;
         height: 45px;
         margin-left: 10%;
-      
+
     }
-    
-    
-    #NavSearchButton{
+
+
+    #NavSearchButton {
         margin-left: 1%;
         background-color: rgb(255, 66, 66);
         height: 45px;
@@ -1088,33 +1502,36 @@ body{
         letter-spacing: 1px;
         border-radius: 10px;
         transition: .1s;
-        
+
     }
 }
 
-@media (max-width: 900px){
+@media (max-width: 900px) {
 
 
-    #NavigationBarMain{
+    #NavigationBarMain {
         padding-bottom: 20px;
-       
+
     }
 
-    #NavTitle{
-       font-size: 22px;
-       margin-top: 35px;
+    #NavTitle {
+        font-size: 22px;
+        margin-top: 35px;
     }
-    #Bottom4{
-        display: none;
-    }
-    #Bottom5{
-        display: none;
-    }
-    #Bottom6{
+
+    #Bottom4 {
         display: none;
     }
 
-   #NavSearchButton{
+    #Bottom5 {
+        display: none;
+    }
+
+    #Bottom6 {
+        display: none;
+    }
+
+    #NavSearchButton {
         margin-left: 1%;
         background-color: rgb(255, 66, 66);
         height: 40px;
@@ -1129,16 +1546,17 @@ body{
         letter-spacing: 1px;
         border-radius: 10px;
         transition: .1s;
-    
+
     }
-    #SearchImageButton{
+
+    #SearchImageButton {
         margin-top: 30px;
         height: 40px;
         margin-left: 8%;
-      
+
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 30px;
         font-family: Helvetica;
@@ -1146,26 +1564,27 @@ body{
         width: 40%;
         height: 40px;
         padding: 10px;
-    } 
-    
-   
+    }
+
+
 }
 
-@media (max-width: 650px){
+@media (max-width: 650px) {
 
 
-    #NavSearchButton{
+    #NavSearchButton {
         display: none;
-    
+
     }
-    #SearchImageButton{
+
+    #SearchImageButton {
         margin-top: 30px;
         height: 40px;
         margin-left: 3%;
-      
+
     }
 
-    #SearchBar{
+    #SearchBar {
         color: rgb(40, 40, 40);
         margin-top: 30px;
         font-family: Helvetica;
@@ -1173,8 +1592,7 @@ body{
         width: 45%;
         height: 40px;
         padding: 10px;
-    } 
+    }
 }
+
 /*Footer*/
-
-

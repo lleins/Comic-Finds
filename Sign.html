@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="Sign_L/Sign.js" defer></script>
+    <script src="Sign_L/Sign.js" type="text/javascript" defer></script>
     <link href="Sign_L/Sign.css" type="text/css" rel="stylesheet">
     <link rel="icon" href="ICO/CFLogo_A.ico" type="image/x-icon">
     <title>Comic Finds - Sign In</title>
@@ -57,6 +57,53 @@
 
 
 
+    <!--Loader-->
+    <div id="Sign_Loader_Container">
+        <div id="Sign_In_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+    </div>
+    <!--Loader-->
+
+
+    <!--Notifs-->
+    <div id="Account_1" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Account successfully created!</p>
+        <img onclick="Account_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Account_3" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Account with that email already exists.</p>
+        <img onclick="Account_3_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Account_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Account creation failed.</p>
+        <img onclick="Account_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+
+
+    <div id="Login_1" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Succesfully logged in!</p>
+        <img onclick="Login_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Login_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Login failed.</p>
+        <img onclick="Login_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+    <!--Notifs-->
+
+
+
 
     <!--Image Beside Login/Register-->
 
@@ -91,7 +138,7 @@
             <p id="EmailTextCreate" class="SignText">Your email address *</p>
             <input id="InputEmailCreate" class="SignInput" type="text" placeholder="">
             <p id="PassTextCreate" class="SignText">Password *</p>
-            <input id="InputPassSign" class="SignInput" type="password" placeholder="">
+            <input id="InputPassSign_Create" class="SignInput" type="password" placeholder="">
             <input type="checkbox" id="SubscribeBox" class="CheckBoxSign">
             <p id="SubscribeText" class="CreateText">Subscribe to stay updated with new products and offers!</p>
             <button id="CreateButton" class="SignButtons">Create account&nbsp;&nbsp;<span

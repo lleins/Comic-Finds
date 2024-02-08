@@ -2,10 +2,10 @@ import mongoose from 'mongoose';
 
 const SavedSchema = new mongoose.Schema({
     email: String,
-    src: String,
-    title: String,
     url: String,
-    price: String
+    description: String,
+    price: String,
+    write: String
 }, {
     collection: 'Saved-Comics' // Specify the collection name
 });

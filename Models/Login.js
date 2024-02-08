@@ -2,7 +2,9 @@ import mongoose from 'mongoose';
 
 const LoginSchema = new mongoose.Schema({
     email: String,
-    password: String
+    password: String,
+    date: String,
+    newsletter: String
 }, {
     collection: 'Login-Information' // Specify the collection name
 });

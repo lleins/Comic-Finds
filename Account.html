@@ -12,17 +12,43 @@
 
 <body>
 
+
+    <!--Notifs-->
+    <div id="Logout_1" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Succesfully logged out!</p>
+        <img onclick="Logout_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Logout_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Logout failed.</p>
+        <img onclick="Logout_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Login_prompt" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Please Login.</p>
+        <img onclick="Logout_prompt_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Logout_Loader" class="loader-container">
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+        <div class="dot-loader"></div>
+    </div>
+    <!--Notifs-->
+
     <div class="loading-container">
         <h1 id="LoadingText">Comic <span id="LoadingSecondary">Finds</span></h1>
     </div>
 
     <!--Top Navigation Bar-->
     <div id="NavigationBarTop">
-        <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
-                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
-        <p class="TopNavItem" id="HelpContact">Help & Contact</p>
-        <img id="WatchList2" class="TopImages" src="Images/WatchList.png">
-        <img id="Account2" class="TopImages" src="Images/Account2.png">
+        <p id="TopLogoutItem" onclick="Logout_Account()" class="TopNavSign">Logout</p>
+        <p class="TopNavItem" id="HelpContact" onclick="GoToContactPage()">Help & Contact</p>
+        <img id="WatchList2" class="TopImages" onclick="GoToWatchListPage()" src="Images/WatchList.png">
+        <img id="Account2" class="TopImages" onclick="GoToAccountPage()" src="Images/Account2.png">
     </div>
     <!--Top Navigation Bar-->
 
@@ -42,7 +68,7 @@
     <!--Bottom Navigation Bar-->
     <div id="NavigationBarBottom">
         <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
-        <p class="BottomNavItem">Watchlist</p>
+        <p class="BottomNavItem" onclick="GoToWatchListPage()">Watchlist</p>
         <p class="BottomNavItem">Daily Deals</p>
         <p class="BottomNavItem" id="Bottom1">Avengers</p>
         <p class="BottomNavItem" id="Bottom2">Batman</p>
@@ -119,7 +145,7 @@
                 <p id="Email" class="Acc_Text">EMAIL:&nbsp;&nbsp;&nbsp;&nbsp;<span
                         id="Actual_Email">TestEmail@gmail.com</span></p>
                 <p id="Password" class="Acc_Text">PASSWORD:&nbsp;&nbsp;&nbsp;&nbsp;<span
-                        id="Actual_Pass">**************</span></p>
+                        id="Actual_Pass">********</span></p>
             </div>
 
             <div id="History">
@@ -127,7 +153,7 @@
                 <p id="Date_Created" class="Acc_Text">DATE CREATED:&nbsp;&nbsp;&nbsp;&nbsp;<span
                         id="Actual_Date">0/0/0</span></p>
                 <p id="Comic_Watched" class="Acc_Text">COMICS WATCHLISTED:&nbsp;&nbsp;&nbsp;&nbsp;<span
-                        id="Actual_Comic_Watch">000</span></p>
+                        id="Actual_Comic_Watch">0</span></p>
             </div>
             <button id="Forgot_Password">Forgot Password?</button>
         </div>
@@ -136,44 +162,36 @@
         <div id="WatchList" class="Account_Tab_Container">
             <p id="WatchList_Title_Top" class="WatchList_Small_Text">Manage your watchlist</p>
             <p id="WatchList_Main_Title_Top">Your watchlist details</p>
-            <p id="WatchList_Note">*Note* all watchlisted items will be cleared after 60 days...</p>
+            <p id="WatchList_Note">*Note* 30 is the maximum number of comics you can save.</p>
             <p id="WatchList_Secondary_Title">Watchlist details</p>
             <div id="Watclist_Info_Container">
                 <p id="Personal_Title">Info</p>
                 <p id="Password" class="Acc_Text">COMICS WATCHLISTED:&nbsp;&nbsp;&nbsp;&nbsp;<span
-                        id="Actual_Comics_Watchlisted">000</span></p>
+                        id="Actual_Comics_Watchlisted">0</span></p>
 
             </div>
-            <button id="Edit_Watchlist">Edit Watchlist</button>
+            <button id="Edit_Watchlist" onclick="GoToWatchListPage()">Edit Watchlist</button>
         </div>
 
 
         <div id="NewsLetter" class="Account_Tab_Container">
             <p id="Newsletter_Title_Top">Manage your Newsletter</p>
             <p id="Newsletter_Main_Title_Top">Your Newsletter details</p>
-            <p id="Newsletter_Note">You can unsubscribe from Newletter below</p>
+            <p id="Newsletter_Note">You can subscribe or unsubscribe from our Newsletter below</p>
             <p id="Newsletter_Secondary_Title">Newsletter details</p>
-            <div id="Newsletter_Info_Container">
-                <p id="Personal_Title">Info</p>
-                <p id="Date_Sub" class="Acc_Text">Date Subscribed:&nbsp;&nbsp;&nbsp;&nbsp;<span
-                        id="Date_Sub_Actual">0/0/0</span></p>
-                <p id="News_Rec" class="Acc_Text">Newsletters Received:&nbsp;&nbsp;&nbsp;&nbsp;<span
-                        id="News_Rec_Actual">000</span></p>
-            </div>
+
             <button id="Edit_Newsletter">Unsubscribe</button>
         </div>
 
 
 
         <div id="HelpAndContact" class="Account_Tab_Container">
-            <p id="HelpAndContact_Title_Top">Help and Conact</p>
+            <p id="HelpAndContact_Title_Top">Help and Contact</p>
             <p id="HelpAndContact_Main_Title_Top">Contact us!</p>
-            <p id="HelpAndContact_Note">Fill out the contact form below and we will get back to you</p>
-            <p id="HelpAndContact_Secondary_Title">Contact Form</p>
-            <input id="Name_Input" class="Input_Feild_Style" type="text" placeholder="Name">
-            <input id="Email_Input" class="Input_Feild_Style" type="text" placeholder="Email">
-            <textarea id="Problem_Text" placeholder="Question"></textarea>
-            <button id="Submit_HelpAndContact">Submit</button>
+            <p id="HelpAndContact_Note">Click the button below to go to our contact page.</p>
+            <p id="HelpAndContact_Secondary_Title">Contact us below</p>
+            <button id="Submit_HelpAndContact" onclick="GoToContactPage()">Contact us</button>
+
         </div>
 
 

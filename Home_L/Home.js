@@ -62,19 +62,100 @@ window.addEventListener("scroll", () => {
 //Navigation Bar Scroll Effect---------------------------------------------------------
 
 
-//Cookies Container---------------------------------------------------------
-function Cookies() { //Scroll Left Function
+//Notif----------------------------------------------------------------------------
 
-    setTimeout(MoveContainer, 1000);
-    function MoveContainer() {
-        const Cookie_Container = document.getElementById("Cookies_Container");
-        Cookie_Container.style.transition = "1.3s ease";
-        Cookie_Container.style.opacity = "1";
-        Cookie_Container.style.bottom = "100px";
+function Logout_1_Call() {
+    const success = document.getElementById("Logout_1");
+    success.style.left = "20px";
+
+
+}
+function Logout_1_Close() {
+    const success = document.getElementById("Logout_1");
+    success.style.left = "-355px";
+}
+
+
+
+function Logout_0_Call() {
+    const success = document.getElementById("Logout_0");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Logout_0_Close() {
+    const success = document.getElementById("Logout_0");
+    success.style.left = "-355px";
+}
+
+
+
+
+function Logout_prompt_Call() {
+    const success = document.getElementById("Login_prompt");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Logout_prompt_Close() {
+    const success = document.getElementById("Login_prompt");
+    success.style.left = "-355px";
+}
+//Notif--------------------------------------------------------------------------
+
+
+
+//Cookies Container---------------------------------------------------------
+
+function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+}
+
+function setJwtCookie(name, jwt, daysToExpire) {
+    const date = new Date();
+    date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    console.log("Setting cookie:", name, jwt, expires);
+    document.cookie = `${name}=${jwt}; ${expires}; path=/; SameSite=None; Secure`;
+}
+
+// Get a cookie value by name
+function getJwtCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (const cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
+        if (cookieName === name) {
+            return cookieValue;
+        }
+    }
+    return null;
+}
+
+
+
+function Cookies() {
+    const Check_Cookie = getJwtCookie("Accept_Cookie"); //Accept Cookie
+    const Cookie_Container = document.getElementById("Cookies_Container");
+    if (Check_Cookie !== null) { //checks cookie value
+        Cookie_Container.style.bottom = "-250px";
+    } else if (Check_Cookie === null) { //checks cookie value
+        setTimeout(MoveContainer, 1000);
+        function MoveContainer() {
+            Cookie_Container.style.transition = "1.3s ease";
+            Cookie_Container.style.opacity = "1";
+            Cookie_Container.style.bottom = "100px";
+        }
     }
 }
 
 function AcceptCookies() {
+
+    setJwtCookie("Accept_Cookie", "yes", 7);
+    console.log("Cookie from home: ", getJwtCookie("Accept_Cookie"))
     const Cookie_Container = document.getElementById("Cookies_Container");
     Cookie_Container.style.transition = ".5s ease";
     Cookie_Container.style.opacity = "0";
@@ -83,6 +164,52 @@ function AcceptCookies() {
 //Cookies Container---------------------------------------------------------
 
 Cookies();
+
+
+
+
+//Change NavBar after Login--------------------------------------------------
+
+
+function ChangeNavBar_Login() {
+    const Login_Cookie = getJwtCookie("Login_Token");
+
+    const Sign_Reg = document.getElementById("TopSignInItem");
+    const Logout = document.getElementById("TopLogoutItem");
+
+
+    if (Login_Cookie === null) {
+        Sign_Reg.style.display = "block";
+        Logout.style.display = "none";
+    } else if (Login_Cookie !== null) {
+        Sign_Reg.style.display = "none";
+        Logout.style.display = "block";
+
+    }
+}
+ChangeNavBar_Login();
+//Change NavBar after Login--------------------------------------------------
+
+
+//Logout----------------------------------------------------------------------
+
+function Logout_Account() {
+
+    const Logout_Loader = document.getElementById("Logout_Loader");
+
+    deleteCookie("Login_Token");
+    Logout_1_Call();
+    Logout_Loader.style.display = "block";
+    setTimeout(function () {
+        Logout_Loader.style.display = "none";
+        window.location.href = 'Home.html';
+    }, 4000);
+
+
+}
+
+//Logout--------------------------------------------------------------------
+
 
 //AutoScroll Scroll Effect---------------------------------------------------------
 
@@ -333,6 +460,46 @@ HoverArrows("WalkingDead_Arrows", "WalkingDead_Arrows");
 
 
 
+
+
+//Added to watchlist------------------------------------------------------------------------
+
+function AddToWatchlist(watch, src, title, url, price) {
+    const watch_c = document.getElementById(watch);
+
+    if (!watch_c) {
+        console.error("Element with ID '" + watch + "' not found.");
+        return;
+    }
+
+    const watch_style = window.getComputedStyle(watch_c);
+
+    console.log("Background Color:", watch_style.backgroundColor);
+
+    if (watch_style.backgroundColor === "rgb(255, 255, 255)") {
+        console.log("Setting to Added state");
+        watch_c.style.backgroundColor = "rgb(255, 66, 66)";
+        watch_c.style.color = "rgb(255, 255, 255)";
+        watch_c.textContent = "Added to WatchList";
+        watch_c.style.paddingLeft = "50px";
+        watch_c.style.paddingRight = "50px";
+    } else if (watch_style.backgroundColor === "rgb(255, 66, 66)") {
+        console.log("Setting to Add state");
+        watch_c.style.backgroundColor = "rgb(255, 255, 255)";
+        watch_c.style.color = "rgb(255, 66, 66)";
+        watch_c.textContent = "Add to WatchList";
+        watch_c.style.paddingLeft = "60px";
+        watch_c.style.paddingRight = "60px";
+    }
+}
+//Added to watchlist------------------------------------------------------------------------
+
+
+
+
+
+
+
 //NewsLetter button-----------------------------------------------------------------------
 const NewsLetter_Container = document.getElementById("NewsLetterContainer");
 
@@ -393,20 +560,125 @@ function GoToSignInPage() {
 //Function to go to Sign In Page/Cookie------------------------------------------------------
 
 
+
+
+
+
+//Search Bar---------------------------------------------------------------------------------
+
+function SearchBar() {
+
+    const bottom_border = document.getElementById("NavigationBarBottom");
+    bottom_border.classList.add("loading-border");
+    const Search_Bar = document.getElementById("SearchBar");
+    const Search_Bar_Value = Search_Bar.value;
+
+
+    if (Search_Bar_Value === "") {
+        bottom_border.classList.remove("loading-border");
+    } else if (Search_Bar_Value !== "") {
+        setTimeout(() => {
+            setJwtCookie("Out_Search", Search_Bar_Value, 1);
+            bottom_border.classList.remove("loading-border");
+            window.location.href = "Result.html";
+        }, 3000);
+
+
+    }
+}
+
+function SearchBar_Bottom(text) {
+
+    const bottom_border = document.getElementById("NavigationBarBottom");
+    bottom_border.classList.add("loading-border");
+
+    if (text === "") {
+        bottom_border.classList.remove("loading-border");
+    } else if (text !== "") {
+        setTimeout(() => {
+            setJwtCookie("Out_Search", text, 1);
+            bottom_border.classList.remove("loading-border");
+            window.location.href = "Result.html";
+        }, 3000);
+
+
+    }
+}
+
+
+function delete_current_search() {
+    deleteCookie("Current_Search");
+}
+
+//Search Bar---------------------------------------------------------------------------------
+
+
+
+//Search for comic---------------------------------------------------------------------------------
+
+
+function handleKeyPress(event) {
+
+    if (event.key === 'Enter') {
+
+        document.getElementById('NavSearchButton').click();
+    }
+}
+
+
+
+//Search for comic---------------------------------------------------------------------------------
+
+
+
+
+//Daily Deals---------------------------------------------------------------------------------
+
+const check_daily_cookie = getJwtCookie("Daily_Deal");
+
+if (check_daily_cookie === null) {
+
+} else if (check_daily_cookie !== null) {
+    Daily_Deals();
+    deleteCookie("Daily_Deal");
+}
+
+function Daily_Deals() {
+    const daily_deals_marker = document.getElementById("FeaturedHeading");
+    daily_deals_marker.scrollIntoView({ behavior: 'instant', block: 'start' });
+}
+
+//Daily Deals---------------------------------------------------------------------------------
+
+
 //Go To AccountPage/Cookie------------------------------------------------------
 
 
 
 function GoToAccountPage() {
-    window.location.href = "Account.html";
+    const Logn_cookie = getJwtCookie("Login_Token");
+
+    if (Logn_cookie === null) {
+        Logout_prompt_Call();
+    } else if (Logn_cookie !== null) {
+        window.location.href = "Account.html";
+    }
 }
 
 function GoToContactPage() {
     window.location.href = "HelpContact.html";
+
 }
 
 function GoToWatchListPage() {
-    window.location.href = "Watchlist.html";
+    const Logn_cookie = getJwtCookie("Login_Token");
+
+    if (Logn_cookie === null) {
+        Logout_prompt_Call();
+    } else if (Logn_cookie !== null) {
+        window.location.href = "Watchlist.html";
+    }
+
 }
 
 //Go To AccountPage/Cookie------------------------------------------------------

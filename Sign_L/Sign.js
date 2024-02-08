@@ -170,3 +170,364 @@ function deleteCookie(name) {
 }
 
 //Clear cookies---------------------------------------------------
+
+
+//import Cookies from "js-cookie";
+//import Login from "./Models/Login";
+
+
+function setJwtCookie(name, jwt, daysToExpire) {
+    const date = new Date();
+    date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    console.log("Setting cookie:", name, jwt, expires);
+    document.cookie = `${name}=${jwt}; ${expires}; path=/; SameSite=None; Secure`;
+}
+
+// Get a cookie value by name
+function getJwtCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (const cookie of cookies) {
+        const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
+        if (cookieName === name) {
+            return cookieValue;
+        }
+    }
+    return null;
+}
+function formatDateAsZeroes() {
+    const today = new Date();
+    const day = today.getDate().toString().padStart(2, '0'); // Get day with leading zero
+    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Get month with leading zero
+    const year = today.getFullYear().toString(); // Get full year
+
+    const formattedDate = `${month}/${day}/${year}`;
+    return formattedDate;
+}
+
+//Usage
+//setJwtCookie('username', 'john_doe', 1);
+//const cookieName = getJwtCookie('john_doe');
+//console.log('Cookie Name:', cookieName);
+
+//deleteCookie('username');
+
+function Create_Account_Server() {
+
+    const success_Notif = document.getElementById("");
+    const fail_Notif = document.getElementById("");
+
+    const emailFeild = document.getElementById("InputEmailCreate");
+    const emailData_c = emailFeild.value;
+
+    const passFeild = document.getElementById("InputPassSign_Create");
+    const passData_c = passFeild.value;
+
+    const checkBox = document.getElementById("TermsBox");
+    const checkBox_Value = checkBox.checked;
+
+    const checkBox_newsletter = document.getElementById("SubscribeBox");
+    const checkBox_newsletter_Value = checkBox_newsletter.checked;
+
+    const TermsText = document.getElementById("Terms");
+
+    const Sign_In_Container = document.getElementById("SignInContainer");
+    const Loader_Container = document.getElementById("Sign_Loader_Container");
+
+    if (emailData_c === "" && passData_c === "" && checkBox_Value === false) { //All feilds empty
+        emailFeild.style.border = "2px solid rgb(255, 66, 66)";
+        passFeild.style.border = "2px solid rgb(255, 66, 66)";
+        TermsText.style.color = "rgb(255, 66, 66)";
+        setTimeout(function () {
+            emailFeild.style.border = "2px solid rgb(230, 230, 230)";
+            passFeild.style.border = "2px solid rgb(230, 230, 230)";
+            TermsText.style.color = "rgb(120, 120, 120)";
+        }, 4000);
+    } else if (emailData_c !== "" && passData_c === "" && checkBox_Value === false) { //pasword and terms feilds empty
+        passFeild.style.border = "2px solid rgb(255, 66, 66)";
+        TermsText.style.color = "rgb(255, 66, 66)";
+        setTimeout(function () {
+            passFeild.style.border = "2px solid rgb(230, 230, 230)";
+            TermsText.style.color = "rgb(120, 120, 120)";
+        }, 4000);
+    } else if (emailData_c === "" && passData_c !== "" && checkBox_Value === false) { //email and terms feilds empty
+        emailFeild.style.border = "2px solid rgb(255, 66, 66)";
+        TermsText.style.color = "rgb(255, 66, 66)";
+        setTimeout(function () {
+            emailFeild.style.border = "2px solid rgb(230, 230, 230)";
+            TermsText.style.color = "rgb(120, 120, 120)";
+        }, 4000);
+    } else if (emailData_c === "" && passData_c === "" && checkBox_Value === true) { //pasword and email feilds empty
+        emailFeild.style.border = "2px solid rgb(255, 66, 66)";
+        passFeild.style.border = "2px solid rgb(255, 66, 66)";
+        setTimeout(function () {
+            emailFeild.style.border = "2px solid rgb(230, 230, 230)";
+            passFeild.style.border = "2px solid rgb(230, 230, 230)";
+        }, 4000);
+    } else if (emailData_c !== "" && passData_c !== "" && checkBox_Value === false) { //terms feild empty
+        TermsText.style.color = "rgb(255, 66, 66)";
+        setTimeout(function () {
+            TermsText.style.color = "rgb(120, 120, 120)";
+        }, 4000);
+    } else if (emailData_c !== "" && passData_c === "" && checkBox_Value === true) { //pasword feild empty
+        passFeild.style.border = "2px solid rgb(255, 66, 66)";
+        setTimeout(function () {
+            passFeild.style.border = "2px solid rgb(230, 230, 230)";
+        }, 4000);
+    } else if (emailData_c === "" && passData_c !== "" && checkBox_Value === true) { //email feild empty
+        emailFeild.style.border = "2px solid rgb(255, 66, 66)";
+        setTimeout(function () {
+            emailFeild.style.border = "2px solid rgb(230, 230, 230)";
+        }, 4000);
+    } else if (emailData_c !== "" && passData_c !== "" && checkBox_Value === true) { //All feild filled
+        const formattedDate = formatDateAsZeroes();
+        Sign_In_Container.style.filter = "brightness(50%)";
+        Loader_Container.style.display = "block";
+        fetch('http://localhost:4000/api/create_account', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email_create: emailData_c, password_create: passData_c, date_create: formattedDate, news_create: checkBox_newsletter_Value.toString() }),
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log("From Sign React: Request sent"); //Sent to express server
+                    return response.json();
+                } else {
+                    console.log("From Sign React: Request failed"); //Failed to send
+                    Sign_In_Container.style.filter = "brightness(100%)";
+                    Loader_Container.style.display = "none";
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .then(data => {
+                if (data.message === 1) { //Created account successful
+                    console.log("account created from sign.js");
+                    Sign_In_Container.style.filter = "brightness(100%)";
+                    Loader_Container.style.display = "none";
+                    //console.log("Login Token before cookie: ", data.token);
+                    Account_1_Call();
+                    const login_token_data = data.token;
+                    setJwtCookie("Login_Token", login_token_data, 1);
+                    //console.log("All cookies:", document.cookie);
+                    //console.log("Retrieved Test_Cookie:", getJwtCookie("Test_Cookie"));
+                    Sign_In_Container.style.filter = "brightness(50%)";
+                    Loader_Container.style.display = "block";
+                    setTimeout(function () {
+                        Sign_In_Container.style.filter = "brightness(100%)";
+                        Loader_Container.style.display = "none";
+                        window.location.href = 'Home.html';
+                    }, 4000);
+                } else if (data.message === 0) { //Create account failed
+                    Sign_In_Container.style.filter = "brightness(100%)";
+                    Loader_Container.style.display = "none";
+                    Account_0_Call();
+                    console.log("account created -failed- from sign.js");
+                } else if (data.message === 3) { //Create account failed - Email already associated with another account
+                    Sign_In_Container.style.filter = "brightness(100%)";
+                    Loader_Container.style.display = "none";
+                    Account_3_Call();
+                    console.log("account created -failed 2- from sign.js");
+                }
+            })
+            .catch(error => { //catch error with response
+                Account_0_Call();
+                Sign_In_Container.style.filter = "brightness(100%)";
+                Loader_Container.style.display = "none";
+            });
+    }
+}
+
+
+function Login_Server() {
+
+    const success_Notif = document.getElementById("");
+    const fail_Notif = document.getElementById("");
+
+    const emailFeild = document.getElementById("InputEmailSign");
+    const emailData = emailFeild.value;
+
+    const passFeild = document.getElementById("InputPassSign");
+    const passData = passFeild.value;
+
+    const Sign_In_Container = document.getElementById("SignInContainer");
+    const Loader_Container = document.getElementById("Sign_Loader_Container");
+
+    if (emailData === "" && passData === "") { //both feilds empty
+        emailFeild.style.border = "2px solid rgb(255, 66, 66)";
+        passFeild.style.border = "2px solid rgb(255, 66, 66)";
+        setTimeout(function () {
+            emailFeild.style.border = "2px solid rgb(230, 230, 230)";
+            passFeild.style.border = "2px solid rgb(230, 230, 230)";
+        }, 4000);
+    } else if (emailData !== "" && passData === "") { //pass feild empty
+        passFeild.style.border = "2px solid rgb(255, 66, 66)";
+        setTimeout(function () {
+            passFeild.style.border = "2px solid rgb(230, 230, 230)";
+        }, 4000);
+    } else if (emailData === "" && passData !== "") { //email feild empty
+        emailFeild.style.border = "2px solid rgb(255, 66, 66)";
+        setTimeout(function () {
+            emailFeild.style.border = "2px solid rgb(230, 230, 230)";
+        }, 4000);
+    } else if (emailData !== "" && passData !== "") { //both feilds filled
+        Sign_In_Container.style.filter = "brightness(50%)";
+        Loader_Container.style.display = "block";
+        fetch('http://localhost:4000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: emailData, password: passData }),
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log("From Sign: Request sent"); //Sent to server
+                    return response.json();
+                } else {
+                    console.log("From Sign: Request failed"); //Failed to send server
+                    Sign_In_Container.style.filter = "brightness(100%)";
+                    Loader_Container.style.display = "none";
+                    Login_0_Call();
+                    return response.json();
+                }
+            })
+            .then(data => {
+                if (data.success === 1) { //Login successful
+                    const login_token = data.token;
+                    Login_1_Call();
+                    setJwtCookie("Login_Token", login_token, 1);
+                    console.log("Retrieved Login_Token Login:", getJwtCookie("Login_Token"));
+                    Sign_In_Container.style.filter = "brightness(100%)";
+                    Loader_Container.style.display = "none";
+                    Sign_In_Container.style.filter = "brightness(50%)";
+                    Loader_Container.style.display = "block";
+                    setTimeout(function () {
+                        Sign_In_Container.style.filter = "brightness(100%)";
+                        Loader_Container.style.display = "none";
+                        window.location.href = 'Home.html';
+                    }, 4000);
+                } else if (data.success === 0) { //Login failed
+                    Sign_In_Container.style.filter = "brightness(100%)";
+                    Loader_Container.style.display = "none";
+                }
+            })
+            .catch(error => { //catch error with response
+                Login_0_Call();
+                Sign_In_Container.style.filter = "brightness(100%)";
+                Loader_Container.style.display = "none";
+            });
+    }
+
+
+
+}
+
+
+
+const Create_Acc_Btn = document.getElementById("CreateButton");
+if (Create_Acc_Btn) {
+    Create_Acc_Btn.addEventListener("click", () => {  //Listens for Create Account Button click
+        Create_Account_Server();
+    });
+}
+
+const Sign_Btn = document.getElementById("SignInButton");
+if (Sign_Btn) {
+    Sign_Btn.addEventListener("click", () => {  //Listens for Sign In Button click
+        Login_Server();
+    });
+}
+
+
+
+function Account_1_Call() {
+    const success = document.getElementById("Account_1");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Account_1_Close() {
+    const success = document.getElementById("Account_1");
+    success.style.left = "-355px";
+}
+
+
+
+
+function Account_0_Call() {
+    const fail = document.getElementById("Account_0");
+    fail.style.left = "20px";
+    setTimeout(function () {
+        fail.style.left = "-355px";
+    }, 4000);
+}
+
+function Account_0_Close() {
+    const fail = document.getElementById("Account_0");
+    fail.style.left = "-355px";
+}
+
+
+
+
+
+function Account_3_Call() {
+    const fail = document.getElementById("Account_3");
+    fail.style.left = "20px";
+    setTimeout(function () {
+        fail.style.left = "-355px";
+    }, 4000);
+}
+
+
+function Account_3_Close() {
+    const fail = document.getElementById("Account_3");
+    fail.style.left = "-355px";
+}
+
+
+
+
+
+
+
+
+function Login_1_Call() {
+    const success = document.getElementById("Login_1");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Login_1_Close() {
+    const success = document.getElementById("Login_1");
+    success.style.left = "-355px";
+}
+
+
+
+function Login_0_Call() {
+    const success = document.getElementById("Login_0");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Login_0_Close() {
+    const success = document.getElementById("Login_0");
+    success.style.left = "-355px";
+}
+
+
+
+
+
+
+
+
