@@ -198,6 +198,9 @@ function Daily_Deals_go() {
     window.location.href = 'Home.html';
 }
 
+function delete_current_search() {
+    deleteCookie("Current_Search");
+}
 //Daily Deals--------------------------------------------------------------------------------------
 
 
@@ -255,6 +258,7 @@ function SearchBar() {
         bottom_border.classList.remove("loading-border");
     } else if (Search_Bar_Value !== "") {
         setTimeout(() => {
+            deleteCookie("Out_Search");
             setJwtCookie("Out_Search", Search_Bar_Value, 1);
             bottom_border.classList.remove("loading-border");
             window.location.href = "Result.html";
@@ -282,13 +286,6 @@ function SearchBar_Bottom(text) {
     }
 }
 
-function handleKeyPress(event) {
-
-    if (event.key === 'Enter') {
-
-        document.getElementById('NavSearchButton').click();
-    }
-}
 
 //Search from main--------------------------------------------------------------------------------------
 
@@ -396,27 +393,19 @@ function resetImage() {
 //Cookies----------------------------------------------------------------------------------
 
 function deleteCookie(name) {
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    localStorage.removeItem(name);
 }
 
 function setJwtCookie(name, jwt, daysToExpire) {
     const date = new Date();
     date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
+    const expires = date.toUTCString();
     console.log("Setting cookie:", name, jwt, expires);
-    document.cookie = `${name}=${jwt}; ${expires}; path=/; SameSite=None; Secure`;
+    localStorage.setItem(name, jwt);
 }
 
-// Get a cookie value by name
 function getJwtCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (const cookie of cookies) {
-        const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
-        if (cookieName === name) {
-            return cookieValue;
-        }
-    }
-    return null;
+    return localStorage.getItem(name);
 }
 
 
@@ -520,14 +509,12 @@ function save_to_watchlist(img_src, description, price, write_up, watchlistid) {
 
 
 //View Comic---------------------------------------------------------------
-
 function View_Comic() {
     const img = document.getElementById("View_Img");
     const description = document.getElementById("View_Issue");
     const price = document.getElementById("View_Price");
     const write_up = document.getElementById("View_Description_Text");
     const add_watchlist_button = document.getElementById("View_AddWishList");
-
     const remove_button = document.getElementById("View_Remove");
 
     const check_cookie_main = getJwtCookie("View_Comic");
@@ -539,7 +526,9 @@ function View_Comic() {
         console.log("here 1");
         add_watchlist_button.style.display = "block";
         remove_button.style.display = "none";
-        const viewList = check_cookie_main.split(',');
+        const viewList = check_cookie_main.split('*').map(item => item.trim());
+
+        console.log(viewList);
         img.src = "";
         img.src = viewList[0];
 
@@ -551,13 +540,15 @@ function View_Comic() {
 
         write_up.textContent = "";
         write_up.textContent = viewList[3];
+        console.log(viewList[3]);
 
         add_watchlist_button.addEventListener('click', () => save_to_watchlist(viewList[0], viewList[1], viewList[2], viewList[3], add_watchlist_button));
     } else if ((check_cookie_main === null) && (check_cookie_watch !== null)) {
         console.log("here 2");
         add_watchlist_button.style.display = "none";
         remove_button.style.display = "block";
-        const viewList = check_cookie_watch.split(',');
+        const viewList = check_cookie_watch.split(',').map(item => item.trim());
+
         img.src = "";
         img.src = viewList[0];
 
@@ -572,7 +563,6 @@ function View_Comic() {
 
         remove_button.addEventListener('click', () => remove_comic(viewList[1]));
     }
-
 }
 View_Comic();
 
@@ -640,3 +630,274 @@ function remove_comic(description) {
 }
 
 //View Comic---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//NewsLetter button-----------------------------------------------------------------------
+const NewsLetter_Container = document.getElementById("NewsLetterContainer");
+
+const NewsLetterSignUp_Container = document.getElementById("NewsLetterSignUp");
+const NewsLetterSignUpSecondary_Container = document.getElementById("NewsLetterSignUpSecondary");
+
+const NewsLetter_Img = document.getElementById("NewsLetter_Image");
+const NewsLetter_Img_Style = getComputedStyle(NewsLetter_Img);
+
+const Exit_Img = document.getElementById("Exit_Image");
+const Exit_Img_Style = getComputedStyle(Exit_Img);
+
+function NewsLetter() {
+
+
+    if (NewsLetter_Img_Style.display == "flex") {
+        NewsLetter_Img.style.display = "none";
+        Exit_Img.style.display = "flex";
+        NewsLetterSignUp_Container.style.transition = "bottom .05s ease";
+        NewsLetterSignUp_Container.style.bottom = "80px";
+        NewsLetterSignUpSecondary_Container.style.transition = "bottom .05s ease";
+        NewsLetterSignUpSecondary_Container.style.bottom = "90px";
+
+    } else if (NewsLetter_Img_Style.display == "none") {
+        NewsLetter_Img.style.display = "flex";
+        Exit_Img.style.display = "none";
+        NewsLetterSignUp_Container.style.bottom = "-450px";
+        NewsLetterSignUp_Container.style.transition = " bottom .05s ease";
+        NewsLetterSignUpSecondary_Container.style.transition = "bottom .05s ease";
+        NewsLetterSignUpSecondary_Container.style.bottom = "-450px";
+
+    }
+
+
+}
+
+
+function check_login_newsletter() {
+    const check_cookie = getJwtCookie("Login_Token");
+
+    const title = document.getElementById("NewsLetter_Text_Title");
+    const write_up = document.getElementById("NewsLetter_Text_Description");
+    const login_text_bottom = document.getElementById("Sign_in_TextBottom");
+    const button_sub = document.getElementById("NewsLetter_Signup_Button");
+    const subbed_text = document.getElementById("subbed_text_news");
+    const not_subbed_text = document.getElementById("not_subbed_text_news");
+    if (check_cookie === null) {
+        write_up.textContent = "Sign up now and get access to exlusive offers, updates and more. Also a chance to register for our Newsletter.";
+        title.textContent = "Sign up";
+        login_text_bottom.style.display = "block";
+        button_sub.textContent = "Sign up";
+        subbed_text.style.display = "none";
+        not_subbed_text.style.display = "none";
+        button_sub.onclick = null;
+        button_sub.onclick = function () {
+            GoToSignInPageCreateAcc();
+        };
+    } else if (check_cookie !== null) {
+        login_text_bottom.style.display = "none";
+        const email_cookie = getJwtCookie("Login_Token");
+
+        fetch('http://localhost:4000/api/Account_Info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email_cookie, }),
+        })
+            .then(response => {
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+
+                    throw new Error('Failed to send request to Account_Info');
+                }
+            })
+            .then(accountData => {
+                if (accountData.success === 1) { //remove_comics-------------------------------------
+                    fetch('http://localhost:4000/api/check_newsletter_sub', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email: accountData.email })
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok.');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.message === 1) { //Subscribed to newsleter
+                                write_up.textContent = "Subscribe to our Newsletter now and get access to exlusive offers, updates and more!";
+                                title.textContent = "Newsletter";
+                                button_sub.textContent = "Unsubscribe";
+                                subbed_text.style.display = "block";
+                                not_subbed_text.style.display = "none";
+                                button_sub.onclick = null;
+                                button_sub.onclick = function () {
+                                    GoToAccountPage_newsletter();
+                                };
+                            } else if (data.message === 0) { //Not subscribed to newsleter
+                                write_up.textContent = "Subscribe to our Newsletter now and get access to exlusive offers, updates and more!";
+                                title.textContent = "Newsletter";
+                                button_sub.textContent = "Subscribe";
+                                subbed_text.style.display = "none";
+                                not_subbed_text.style.display = "block";
+                                button_sub.onclick = null;
+                                button_sub.onclick = function () {
+                                    GoToAccountPage_newsletter();
+                                };
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with your fetch operation:', error);
+                        });
+                } else if (accountData.success === 0) { //remove_comics---------------------------------
+                    console.log("Did not succeed");
+                }
+            })
+            .catch(error => { //catch error with response
+                console.error('Error sending request to Account_Info:', error.message);
+            });
+    }
+}
+check_login_newsletter();
+
+function GoToAccountPage_newsletter() {
+    const Logn_cookie = getJwtCookie("Login_Token");
+
+    if (Logn_cookie === null) {
+        Logout_prompt_Call();
+    } else if (Logn_cookie !== null) {
+        setJwtCookie("account_newsletter", "1", 1);
+        window.location.href = "Account.html";
+    }
+}
+//NewsLetter button-----------------------------------------------------------------------
+
+
+
+
+
+
+
+//Related Comics-----------------------------------------------------------------------
+
+async function fetch_Search_data() {
+    const Item_Container = document.getElementById("MarvelComicContainer");
+    const search_bar = document.getElementById("SearchBar");
+    const none_text = document.getElementById("None_comics_found");
+    const loader = document.getElementById("Marvel_Loader");
+    const search = getJwtCookie("Current_Search_related");
+    loader.style.display = "block";
+    search_bar.value = search;
+    console.log(search);
+    try {
+
+        const searchData = {
+            searchTerm: search,
+        };
+
+
+        const response = await fetch('http://127.0.0.1:5500/Search_Data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(searchData),
+        });
+
+        const data = await response.json();
+        console.log(data.Description)
+
+        if (data.Description.length === 0) {
+            Item_Container.innerHTML = "";
+            none_text.style.display = "block";
+            loader.style.display = "none";
+        } else if (data.Description.length !== 0) {
+
+
+            Item_Container.innerHTML = "";
+            // Loop through the data and create HTML elements, limited to 8 items
+            const maxItems = Math.min(data.Description.length, 15);
+            for (let i = 0; i < maxItems; i++) {
+                const div = document.createElement("div");
+                div.id = `Item${i + 1}`;
+                div.className = "Univ_ItemStyle";
+
+                const img = document.createElement("img");
+                img.id = `FeaturedImg${i + 1}`;
+                img.className = "Univ_Img_Item";
+                img.src = data.Image[i];
+                img.addEventListener('click', () => view_full_comic(data.Image[i], data.Description[i], data.Price[i], data.Writes[i]));
+
+                const pIssue = document.createElement("p");
+                pIssue.className = "Univ_Issue_Item";
+                pIssue.id = `FeatIssue${i + 1}`;
+                pIssue.textContent = data.Description[i];
+                pIssue.addEventListener('click', () => view_full_comic(data.Image[i], data.Description[i], data.Price[i], data.Writes[i]));
+
+                const pPrice = document.createElement("p");
+                pPrice.className = "Univ_Price_Item";
+                pPrice.id = `FeatPrice${i + 1}`;
+                pPrice.textContent = data.Price[i];
+
+                // Append elements to the div
+                div.appendChild(img);
+                div.appendChild(pIssue);
+                div.appendChild(pPrice);
+
+                // Append the div to the container
+                Item_Container.appendChild(div);
+                loader.style.display = "none";
+            }
+
+        }
+
+    } catch (error) {
+        deleteCookie("Current_Search_related");
+        loader.style.display = "none";
+        console.error('Error fetching data:', error);
+    }
+}
+
+
+fetch_Search_data();
+
+//Related Comics-----------------------------------------------------------------------
+
+
+function view_full_comic(img_src, description, price, write_up) {
+    const search_bar = document.getElementById("SearchBar");
+    deleteCookie("Current_Search_related");
+    deleteCookie("View_Comic");
+    deleteCookie("View_Comic_Watch");
+    const view_list = []
+    img_src = img_src + "*";
+    description = description + "*";
+    price = price + "*";
+
+    view_list.push(img_src + description + price + write_up);
+
+
+
+    setJwtCookie("View_Comic", view_list, 1);
+    setJwtCookie("Current_Search_related", search_bar.value, 1);
+    window.location.href = "View.html";
+
+}

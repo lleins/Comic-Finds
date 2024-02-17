@@ -91,13 +91,13 @@
 
     <div id="Login_1" class="Notif_Sign_Pos">
         <img class="Success_Img" src="Images/SuccessImg2.png">
-        <p class="Confirm_Text">Succesfully logged in!</p>
+        <p class="Confirm_Text">Succesfully signed in!</p>
         <img onclick="Login_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
 
     <div id="Login_0" class="Notif_Sign_Pos">
         <img class="Error_Img" src="Images/FailImg.png">
-        <p class="Error_Text">Login failed.</p>
+        <p class="Error_Text">Sign in failed.</p>
         <img onclick="Login_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
     <!--Notifs-->
@@ -128,7 +128,8 @@
             <p id="EmailTextSignIn" class="SignText">Email address *</p>
             <input id="InputEmailSign" class="SignInput" type="text" placeholder="">
             <p id="PassTextSignIn" class="SignText">Password *</p>
-            <input id="InputPassSign" class="SignInput" type="password" placeholder="">
+            <input id="InputPassSign" onkeydown="handleKeyPress_sign(event)" class="SignInput" type="password"
+                placeholder="">
             <button id="SignInButton" class="SignButtons">Sign in&nbsp;&nbsp;<span
                     style="font-size: 20px;">&rarr;</span></button>
             <p id="ForgotPassText">Forgot your password?</p>
@@ -138,7 +139,8 @@
             <p id="EmailTextCreate" class="SignText">Your email address *</p>
             <input id="InputEmailCreate" class="SignInput" type="text" placeholder="">
             <p id="PassTextCreate" class="SignText">Password *</p>
-            <input id="InputPassSign_Create" class="SignInput" type="password" placeholder="">
+            <input id="InputPassSign_Create" onkeydown="handleKeyPress_createAccount(event)" class="SignInput"
+                type="password" placeholder="">
             <input type="checkbox" id="SubscribeBox" class="CheckBoxSign">
             <p id="SubscribeText" class="CreateText">Subscribe to stay updated with new products and offers!</p>
             <button id="CreateButton" class="SignButtons">Create account&nbsp;&nbsp;<span

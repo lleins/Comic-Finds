@@ -32,13 +32,13 @@
 
     <div id="Login_prompt" class="Notif_Sign_Pos">
         <img class="Error_Img" src="Images/FailImg.png">
-        <p class="Error_Text">Please Login.</p>
+        <p class="Error_Text">Please sign in or create an account.</p>
         <img onclick="Logout_prompt_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
 
     <div id="Saved_1" class="Notif_Sign_Pos">
         <img class="Error_Img" src="Images/SuccessImg2.png">
-        <p class="Confirm_Text">Comic Saved.</p>
+        <p class="Confirm_Text">Comic saved.</p>
         <img onclick="Saved_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
 
@@ -77,7 +77,7 @@
     <!--Top Navigation Bar-->
     <div id="NavigationBarTop">
         <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
-                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Create account</span></p>
         <p id="TopLogoutItem" onclick="Logout_Account()" class="TopNavSign">Logout</p>
         <p class="TopNavItem" id="HelpContact">Help & Contact</p>
         <img id="WatchList2" class="TopImages" onclick="GoToWatchListPage()" src="Images/WatchList.png">
@@ -115,6 +115,37 @@
     <!--Bottom Navigation Bar-->
 
 
+
+    <!--News Letter Section-->
+
+    <div id="NewsLetterContainer">
+        <button id="NewsLetter" onclick="NewsLetter()"><img id="NewsLetter_Image" src="Images/NewsLetter.png"><img
+                id="Exit_Image" src="Images/CloseImg.png"></button>
+    </div>
+
+    <div id="NewsLetterSignUp">
+        <p class="NewsLetter_Text" id="Welcome_Text_NewsLetter">Welcome to</p>
+        <p class="NewsLetter_Text" id="ComicFinds_Text_NewsLetter"><span id="ComicTitle_NewsLetter">Comic</span> Finds
+        </p>
+        <div id="NewsLetterSignUpSecondary">
+            <p id="NewsLetter_Text_Title" class="NewsLetter_Text_Style">Sign up</p>
+            <p id="NewsLetter_Text_Description" class="NewsLetter_Text_Style">Sign up now and get access to exlusive
+                offers, updates and more. Also a chance to register for our Newsletter.</p>
+            <button id="NewsLetter_Signup_Button" onclick="GoToSignInPageCreateAcc()">Sign up</button>
+            <p id="Sign_in_TextBottom" class="NewsLetter_Text_Style">Already have an account? <span
+                    id="NewsLetter_SignIn_Text" onclick="GoToSignInPage()">Sign in</span></p>
+            <p id="subbed_text_news" class="NewsLetter_Text_Style">You are subsribed to our Newsletter! Unsubscribe
+                above. </p>
+            <p id="not_subbed_text_news" class="NewsLetter_Text_Style">You are not subsribed to our Newsletter.
+                Subscribe above.
+            </p>
+        </div>
+    </div>
+
+    <!--News Letter Section-->
+
+
+
     <!--View Item-->
 
     <div id="Item_View_Container" onmousemove="zoomImage(event)" onmouseleave="resetImage()">
@@ -140,9 +171,91 @@
 
 
 
-
+    <p id="Title_Related_Comics">Related Comics </p>
+    <img id="right_arrow_related" src="Images/RightArrow.png">
+    <p id="None_comics_found">No related comics found...</p>
     <!--View Item-->
+    <div id="MarvelUniverseContainer">
 
+        <div id="Marvel_Loader" class="loader-container">
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+            <div class="dot-loader"></div>
+        </div>
+
+        <div id="MarvelComicContainer">
+            <div id="Marvel_Univ_Item1" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img1" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue1" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price1" class="Univ_Price_Item"></p>
+
+            </div>
+
+            <div id="Marvel_Univ_Item2" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img2" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue2" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price2" class="Univ_Price_Item"></p>
+
+            </div>
+
+
+            <div id="Marvel_Univ_Item3" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img3" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue3" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price3" class="Univ_Price_Item"></p>
+
+            </div>
+
+
+            <div id="Marvel_Univ_Item4" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img4" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue4" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price4" class="Univ_Price_Item"></p>
+
+            </div>
+
+
+            <div id="Marvel_Univ_Item5" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img5" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue5" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price5" class="Univ_Price_Item"></p>
+
+            </div>
+
+
+            <div id="Marvel_Univ_Item6" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img6" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue6" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price6" class="Univ_Price_Item"></p>
+
+            </div>
+
+
+            <div id="Marvel_Univ_Item7" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img7" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue7" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price7" class="Univ_Price_Item"></p>
+
+            </div>
+
+            <div id="Marvel_Univ_Item8" class="Univ_ItemStyle">
+                <img id="Marvel_Univ_Img8" class="Univ_Img_Item">
+
+                <p id="Marvel_Univ_Issue8" class="Univ_Issue_Item"></p>
+                <p id="Marvel_Univ_Price8" class="Univ_Price_Item"></p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
     <!--Footer-->

@@ -199,12 +199,15 @@ def Desc_Position(element_list):
 def Description_Price(element_list):
     Index_List = Desc_Position(element_list)
     Info_List = []
+    write_list = []
     for i in Index_List:
 
         test = element_list[i + 1] #Description
+        write_up = element_list[i + 2]
         test_Reg = element_list[i + 3] #Price for Regular
         test_Sale = element_list[i + 4] #Price for on sale
         Info_List.append(test.get_text())
+        write_list.append(write_up.get_text())
         if len(test_Reg.get_text()) < 20:
             Price_Reg = test_Reg.get_text()
             Price_Reg_Strip = Price_Reg.replace(" ON SALE!", "")
@@ -218,7 +221,7 @@ def Description_Price(element_list):
             Price_Sale_Strip_Sec = Price_Sale_Strip.replace("Price: ", "")
 
             Info_List.append(Price_Sale_Strip_Sec)    #Items are saved in 2s. Description is 1 Price is 2, Description is 3 Price is 4.....
-    return Info_List
+    return Info_List, write_list
 
 
 
@@ -233,7 +236,7 @@ image_elements_img_Marvel = soup_Marvel.find_all("img")
 
 #Price/Description---------
 
-Marvel_Info = Description_Price(elements_fonts_Marvel)
+Marvel_Info, write_list_Marvel = Description_Price(elements_fonts_Marvel)
 
 Description_1_Marvel = Marvel_Info[0]
 Price_1_Marvel = Marvel_Info[1]
@@ -310,7 +313,7 @@ elements_fonts_Batman = soup_Batman.find_all("font")
 image_elements_img_Batman = soup_Batman.find_all("img")
 
 
-Batman_Info = Description_Price(elements_fonts_Batman)
+Batman_Info, write_list_Batman = Description_Price(elements_fonts_Batman)
 
 Description_1_Batman = Batman_Info[0]
 Price_1_Batman = Batman_Info[1]
@@ -384,7 +387,7 @@ elements_fonts_Spiderman = soup_Spiderman.find_all("font")
 image_elements_img_Spiderman = soup_Spiderman.find_all("img")
 
 
-Spiderman_Info = Description_Price(elements_fonts_Spiderman)
+Spiderman_Info, write_list_Spiderman = Description_Price(elements_fonts_Spiderman)
 
 Description_1_Spiderman = Spiderman_Info[0]
 Price_1_Spiderman = Spiderman_Info[1]
@@ -458,7 +461,7 @@ elements_fonts_Superman = soup_Superman.find_all("font")
 image_elements_img_Superman = soup_Superman.find_all("img")
 
 
-Superman_Info = Description_Price(elements_fonts_Superman)
+Superman_Info, write_list_Superman = Description_Price(elements_fonts_Superman)
 
 Description_1_Superman = Superman_Info[0]
 Price_1_Superman = Superman_Info[1]
@@ -529,7 +532,7 @@ elements_fonts_XMen = soup_XMen.find_all("font")
 image_elements_img_XMen = soup_XMen.find_all("img")
 
 
-XMen_Info = Description_Price(elements_fonts_XMen)
+XMen_Info, write_list_XMen = Description_Price(elements_fonts_XMen)
 
 Description_1_XMen= XMen_Info[0]
 Price_1_XMen = XMen_Info[1]
@@ -588,7 +591,7 @@ if len(image_elements_img_XMen) >= 1:
 else:
    print("Too Long")
 #Scraping for X-Men-------------------------------------
-
+print(write_list_Marvel[0])
 #Flask Communication------------------------------------------------------------------------------------------------------------
 
 #cd C:\Users\Big_T\OneDrive\Desktop\VsCode\Personal Project
@@ -654,7 +657,7 @@ def Send_Data():
             'Image_5_XMen': image_url5_XMen, "Desc_5_XMen" : Description_5_XMen  , "Price_5_XMen": Price_5_XMen,
             'Image_6_XMen': image_url6_XMen, "Desc_6_XMen" : Description_6_XMen  , "Price_6_XMen": Price_6_XMen,
             'Image_7_XMen': image_url7_XMen, "Desc_7_XMen" : Description_7_XMen  , "Price_7_XMen": Price_7_XMen,
-            'Image_8_XMen': image_url8_XMen, "Desc_8_XMen" : Description_8_XMen  , "Price_8_XMen": Price_8_XMen}  # Assuming your JavaScript sends data as JSON
+            'Image_8_XMen': image_url8_XMen, "Desc_8_XMen" : Description_8_XMen  , "Price_8_XMen": Price_8_XMen, "Marvel_Write": write_list_Marvel, "Batman_Write": write_list_Batman, "Spiderman_Write": write_list_Spiderman, "Superman_Write": write_list_Superman, "XMen_Write": write_list_XMen    }  # Assuming your JavaScript sends data as JSON
 
     return jsonify(data)
 

@@ -27,13 +27,13 @@
 
     <div id="Login_prompt" class="Notif_Sign_Pos">
         <img class="Error_Img" src="Images/FailImg.png">
-        <p class="Error_Text">Please Login.</p>
+        <p class="Error_Text">Please sign in or create an account.</p>
         <img onclick="Logout_prompt_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
 
     <div id="Saved_1" class="Notif_Sign_Pos">
         <img class="Error_Img" src="Images/SuccessImg2.png">
-        <p class="Confirm_Text">Comic Saved.</p>
+        <p class="Confirm_Text">Comic saved.</p>
         <img onclick="Saved_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
 
@@ -69,9 +69,9 @@
     <!--Top Navigation Bar-->
     <div id="NavigationBarTop">
         <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
-                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Create account</span></p>
         <p id="TopLogoutItem" onclick="Logout_Account()" class="TopNavSign">Logout</p>
-        <p class="TopNavItem" id="HelpContact">Help & Contact</p>
+        <p class="TopNavItem" id="HelpContact" onclick="GoToContactPage()">Help & Contact</p>
         <img id="WatchList2" class="TopImages" onclick="GoToWatchListPage()" src="Images/WatchList.png">
         <img id="Account2" class="TopImages" onclick="GoToAccountPage()" src="Images/Account2.png">
     </div>
@@ -105,6 +105,34 @@
     </div>
     <!--Bottom Navigation Bar-->
 
+
+    <!--News Letter Section-->
+
+    <div id="NewsLetterContainer">
+        <button id="NewsLetter" onclick="NewsLetter()"><img id="NewsLetter_Image" src="Images/NewsLetter.png"><img
+                id="Exit_Image" src="Images/CloseImg.png"></button>
+    </div>
+
+    <div id="NewsLetterSignUp">
+        <p class="NewsLetter_Text" id="Welcome_Text_NewsLetter">Welcome to</p>
+        <p class="NewsLetter_Text" id="ComicFinds_Text_NewsLetter"><span id="ComicTitle_NewsLetter">Comic</span> Finds
+        </p>
+        <div id="NewsLetterSignUpSecondary">
+            <p id="NewsLetter_Text_Title" class="NewsLetter_Text_Style">Sign up</p>
+            <p id="NewsLetter_Text_Description" class="NewsLetter_Text_Style">Sign up now and get access to exlusive
+                offers, updates and more. Also a chance to register for our Newsletter.</p>
+            <button id="NewsLetter_Signup_Button" onclick="GoToSignInPageCreateAcc()">Sign up</button>
+            <p id="Sign_in_TextBottom" class="NewsLetter_Text_Style">Already have an account? <span
+                    id="NewsLetter_SignIn_Text" onclick="GoToSignInPage()">Sign in</span></p>
+            <p id="subbed_text_news" class="NewsLetter_Text_Style">You are subsribed to our Newsletter! Unsubscribe
+                above. </p>
+            <p id="not_subbed_text_news" class="NewsLetter_Text_Style">You are not subsribed to our Newsletter.
+                Subscribe above.
+            </p>
+        </div>
+    </div>
+
+    <!--News Letter Section-->
 
 
     <div id="Loader">

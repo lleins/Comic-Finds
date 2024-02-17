@@ -18,6 +18,65 @@ window.onload = () => {
 
 
 
+//Logout Notifs----------------------------------------------------------------------------------
+
+function Logout_1_Call() {
+    const success = document.getElementById("Logout_1");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Logout_1_Close() {
+    const success = document.getElementById("Logout_1");
+    success.style.left = "-355px";
+}
+
+
+function Logout_0_Call() {
+    const success = document.getElementById("Logout_0");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Logout_0_Close() {
+    const success = document.getElementById("Logout_0");
+    success.style.left = "-355px";
+}
+
+
+function Logout_prompt_Call() {
+    const success = document.getElementById("Login_prompt");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Logout_prompt_Close() {
+    const success = document.getElementById("Login_prompt");
+    success.style.left = "-355px";
+}
+
+
+function Delete_Fail_Call() {
+    const success = document.getElementById("Delete_Failed");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Delete_Fail_Call_Close() {
+    const success = document.getElementById("Delete_Failed");
+    success.style.left = "-355px";
+}
+
+//Logout Notifs----------------------------------------------------------------------------------
+
 
 //Navigation Bar Scroll Effect---------------------------------------------------------
 
@@ -257,6 +316,33 @@ function Logout_0_Close() {
     const success = document.getElementById("Logout_0");
     success.style.left = "-355px";
 }
+
+
+function Newsletter_Unsubbed_Call() {
+    const success = document.getElementById("Newsletter_unsubbed");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Newsletter_Unsubbed_Call_Close() {
+    const success = document.getElementById("Newsletter_unsubbed");
+    success.style.left = "-355px";
+}
+
+function Newsletter_subbed_Call() {
+    const success = document.getElementById("Newsletter_subbed");
+    success.style.left = "20px";
+
+    setTimeout(function () {
+        success.style.left = "-355px";
+    }, 4000);
+}
+function Newsletter_subbed_Call_Close() {
+    const success = document.getElementById("Newsletter_subbed");
+    success.style.left = "-355px";
+}
 //Notifs--------------------------------------------------------------------------------
 
 
@@ -300,27 +386,19 @@ function GoToWatchListPage() {
 //Cookies--------------------------------------------------------------------------------
 
 function deleteCookie(name) {
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    localStorage.removeItem(name);
 }
 
 function setJwtCookie(name, jwt, daysToExpire) {
     const date = new Date();
     date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
+    const expires = date.toUTCString();
     console.log("Setting cookie:", name, jwt, expires);
-    document.cookie = `${name}=${jwt}; ${expires}; path=/; SameSite=None; Secure`;
+    localStorage.setItem(name, jwt);
 }
 
-// Get a cookie value by name
 function getJwtCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (const cookie of cookies) {
-        const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
-        if (cookieName === name) {
-            return cookieValue;
-        }
-    }
-    return null;
+    return localStorage.getItem(name);
 }
 //Cookies--------------------------------------------------------------------------------
 
@@ -442,5 +520,298 @@ check_watchlist();
 
 
 function check_newsletter_sub() {
+    const sub_true_btn = document.getElementById("Edit_Newsletter_True");
+    const sub_false_btn = document.getElementById("Edit_Newsletter_False");
+    const email_cookie = getJwtCookie("Login_Token");
 
+    fetch('http://localhost:4000/api/Account_Info', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email_cookie, }),
+    })
+        .then(response => {
+            if (response.ok) {
+
+                return response.json();
+            } else {
+
+                throw new Error('Failed to send request to Account_Info');
+            }
+        })
+        .then(accountData => {
+            if (accountData.success === 1) { //remove_comics-------------------------------------
+                fetch('http://localhost:4000/api/check_newsletter_sub', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: accountData.email })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.message === 1) { //Subscribed to newsleter
+                            sub_true_btn.style.display = "block";
+
+                        } else if (data.message === 0) { //Not subscribed to newsleter
+                            sub_false_btn.style.display = "block";
+                        }
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with your fetch operation:', error);
+                    });
+            } else if (accountData.success === 0) { //remove_comics---------------------------------
+                console.log("Did not succeed");
+            }
+        })
+        .catch(error => { //catch error with response
+            console.error('Error sending request to Account_Info:', error.message);
+        });
+
+}
+
+check_newsletter_sub();
+
+
+
+
+function unsub_sub_from_newsletter(value) {
+
+    const email_cookie = getJwtCookie("Login_Token");
+
+    fetch('http://localhost:4000/api/Account_Info', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email_cookie, }),
+    })
+        .then(response => {
+            if (response.ok) {
+
+                return response.json();
+            } else {
+
+                throw new Error('Failed to send request to Account_Info');
+            }
+        })
+        .then(accountData => {
+            if (accountData.success === 1) { //remove_comics-------------------------------------
+                fetch('http://localhost:4000/api/change_newsletter_sub', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: accountData.email, newValue: value })
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to update newsletter subscription');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.message === 1) {
+                            setJwtCookie("changed_newsletter", data.value, 1);
+                            setJwtCookie("account_newsletter");
+                            window.location.reload();
+                        } else if (data.message === 0) {
+
+                        } else if (data.message === 3) {
+
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error updating newsletter subscription:', error.message);
+                    });
+            } else if (accountData.success === 0) { //remove_comics---------------------------------
+                console.log("Did not succeed");
+            }
+        })
+        .catch(error => { //catch error with response
+            console.error('Error sending request to Account_Info:', error.message);
+        });
+}
+
+
+
+function check_changed_news_sub() {
+    const cookie_check = getJwtCookie("changed_newsletter");
+
+    if (cookie_check === null) {
+
+    } else if (cookie_check !== null) {
+        if (cookie_check === "false") {
+            Newsletter_Unsubbed_Call();
+            deleteCookie("changed_newsletter");
+
+        } else if (cookie_check === "true") {
+            Newsletter_subbed_Call();
+            deleteCookie("changed_newsletter");
+        }
+    }
+}
+check_changed_news_sub();
+
+
+
+function check_newsletter_redirect() {
+
+    const check_cookie = getJwtCookie("account_newsletter");
+    if (check_cookie === null) {
+
+    } else if (check_cookie !== null) {
+        Side_Button_Account_Mobile("News_Button_Mobile", "Help_Button_Mobile", "Delete_Button_Mobile", "Watch_Button_Mobile", "AccountDash_Button_Mobile", "NewsLetter", "WatchList", "AccountDashBoard", "HelpAndContact", "DeleteAccount", "NewsLetter_Img_Mobile", "Watchlist_Img_Mobile", "Account_Img_Mobile", "Help_Img_Mobile", "Delete_Img_Mobile");
+        Side_Button_Account("News_Button", "Help_Button", "Delete_Button", "Watch_Button", "AccountDashBoard_Button", "NewsLetter", "WatchList", "AccountDashBoard", "HelpAndContact", "DeleteAccount", "NewsLetter_Img", "Watchlist_Img", "Account_Img", "Help_Img", "Delete_Img");
+        deleteCookie("account_newsletter");
+    }
+}
+check_newsletter_redirect();
+
+
+
+function delete_account() {
+
+    const loader = document.getElementById("Delete_Account_Loader");
+    const confirm_delete = document.getElementById("Confirm_Delete");
+
+
+    const email_cookie = getJwtCookie("Login_Token");
+    loader.style.display = "block";
+    confirm_delete.style.display = "none";
+    fetch('http://localhost:4000/api/Account_Info', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email_cookie, }),
+    })
+        .then(response => {
+            if (response.ok) {
+
+                return response.json();
+            } else {
+                Delete_Fail_Call();
+                loader.style.display = "none";
+                confirm_delete.style.display = "block";
+                throw new Error('Failed to send request to Account_Info');
+            }
+        })
+        .then(accountData => {
+            if (accountData.success === 1) { //delete account-------------------------------------
+                fetch('http://localhost:4000/api/delete_accounts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: accountData.email }) // Assuming email is defined somewhere
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.message === 1) {
+                            deleteCookie("Login_Token");
+                            setJwtCookie("Account_Deleted", "1", 1);
+                            window.location.href = "Home.html";
+                        } else if (data.message === 0) {
+                            Delete_Fail_Call();
+                            confirm_delete.style.display = "block";
+                            loader.style.display = "none";
+                        } else if (data.message === 3) {
+                            Delete_Fail_Call();
+                            confirm_delete.style.display = "block";
+                            loader.style.display = "none";
+                        }
+                    })
+                    .catch(error => {
+                        Delete_Fail_Call();
+                        console.log(error)
+                    });
+            } else if (accountData.success === 0) { //delete account---------------------------------
+                console.log("Did not succeed");
+                Delete_Fail_Call();
+                loader.style.display = "none";
+                confirm_delete.style.display = "block";
+            }
+        })
+        .catch(error => { //catch error with response
+            console.error('Error sending request to Account_Info:', error.message);
+            Delete_Fail_Call();
+            loader.style.display = "none";
+            confirm_delete.style.display = "block";
+        });
+
+}
+
+
+
+
+
+
+
+
+
+
+function SearchBar() {
+
+    const bottom_border = document.getElementById("NavigationBarBottom");
+    bottom_border.classList.add("loading-border");
+    const Search_Bar = document.getElementById("SearchBar");
+    const Search_Bar_Value = Search_Bar.value;
+
+
+    if (Search_Bar_Value === "") {
+        bottom_border.classList.remove("loading-border");
+    } else if (Search_Bar_Value !== "") {
+        setTimeout(() => {
+            deleteCookie("Out_Search");
+            setJwtCookie("Out_Search", Search_Bar_Value, 1);
+            bottom_border.classList.remove("loading-border");
+            window.location.href = "Result.html";
+        }, 3000);
+
+
+    }
+}
+
+function SearchBar_Bottom(text) {
+
+    const bottom_border = document.getElementById("NavigationBarBottom");
+    bottom_border.classList.add("loading-border");
+
+    if (text === "") {
+        bottom_border.classList.remove("loading-border");
+    } else if (text !== "") {
+        setTimeout(() => {
+            setJwtCookie("Out_Search", text, 1);
+            bottom_border.classList.remove("loading-border");
+            window.location.href = "Result.html";
+        }, 3000);
+
+
+    }
+}
+function handleKeyPress(event) {
+
+    if (event.key === 'Enter') {
+
+        document.getElementById('NavSearchButton').click();
+    }
+}
+
+
+function Daily_Deals_go() {
+    deleteCookie("Current_Search");
+    setJwtCookie("Daily_Deal");
+    window.location.href = 'Home.html';
+}
+
+
+function delete_current_search() {
+    deleteCookie("Current_Search");
 }

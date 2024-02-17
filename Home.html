@@ -29,9 +29,40 @@
 
     <div id="Login_prompt" class="Notif_Sign_Pos">
         <img class="Error_Img" src="Images/FailImg.png">
-        <p class="Error_Text">Please Login.</p>
+        <p class="Error_Text">Please sign in or create an account.</p>
         <img onclick="Logout_prompt_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
+
+    <div id="Saved_1" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Comic saved.</p>
+        <img onclick="Saved_1_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Saved_0" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Confirm_Text">Cannot be saved at this time.</p>
+        <img onclick="Saved_0_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Saved_3" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Confirm_Text">Comic already saved.</p>
+        <img onclick="Saved_3_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Saved_3_a" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Confirm_Text">Max number of comics saved.</p>
+        <img onclick="Saved_3_a_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Account_Deleted" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Account deleted!</p>
+        <img onclick="Account_Delete_Call_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
 
     <div id="Logout_Loader" class="loader-container">
         <div class="dot-loader"></div>
@@ -56,7 +87,7 @@
     <!--Top Navigation Bar-->
     <div id="NavigationBarTop">
         <p id="TopSignInItem"><span class="TopNavSign" onclick="GoToSignInPage()">Sign in</span> or <span
-                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Register</span></p>
+                class="TopNavSign" onclick="GoToSignInPageCreateAcc()">Create account</span></p>
         <p id="TopLogoutItem" onclick="Logout_Account()" class="TopNavSign">Logout</p>
         <p class="TopNavItem" id="HelpContact" onclick="GoToContactPage()">Help & Contact</p>
 
@@ -138,6 +169,11 @@
             <button id="NewsLetter_Signup_Button" onclick="GoToSignInPageCreateAcc()">Sign up</button>
             <p id="Sign_in_TextBottom" class="NewsLetter_Text_Style">Already have an account? <span
                     id="NewsLetter_SignIn_Text" onclick="GoToSignInPage()">Sign in</span></p>
+            <p id="subbed_text_news" class="NewsLetter_Text_Style">You are subsribed to our Newsletter! Unsubscribe
+                above. </p>
+            <p id="not_subbed_text_news" class="NewsLetter_Text_Style">You are not subsribed to our Newsletter.
+                Subscribe above.
+            </p>
         </div>
     </div>
 
@@ -188,7 +224,39 @@
         <div id="RightSideBar" class="SideBars"></div>
     </div>
     <!--Shadow Bars for auto scroll container at top of page-->
+    <div id="Featured_universes">
+        <p class="featured_comics_text">Browse all comic universes!</p>
+        <p id="Top_Universe_text" class="featured_comics_text_secondary">Select your favorite and start discovering!</p>
+        <img id="Arrow_img_top_universe" src="Images/arrow_universe.png">
+        <div id="Universe_imgs_container">
+            <div>
+                <img id="Img_universe_1" onclick="SearchBar_Bottom('Marvel')" class="universe_imgs"
+                    src="Images/marvel_comics.jpg">
 
+            </div>
+
+
+            <div>
+                <img id="Img_universe_2" onclick="SearchBar_Bottom('DC')" class="universe_imgs"
+                    src="Images/dc_comics.jpg">
+
+            </div>
+
+
+            <div>
+                <img id="Img_universe_3" onclick="SearchBar_Bottom('Star Wars')" class="universe_imgs"
+                    src="Images/starwars_comics.jpg">
+            </div>
+
+
+            <div>
+                <img id="Img_universe_4" onclick="SearchBar_Bottom('Walking Dead')" class="universe_imgs"
+                    src="Images/walkingdead_comic.jpg">
+            </div>
+        </div>
+
+
+    </div>
 
 
     <div id="FeaturedTextTitle_Container">
@@ -219,8 +287,8 @@
             <p class="FeaturedItem_Text_Universe" id="FeatUniv1">Dynamic Forces</p>
             <p class="FeaturedItem_Text_Issue" id="FeatIssue1"></p>
             <p class="FeaturedItem_Text_Price" id="FeatPrice1"></p>
-            <button onclick="AddToWatchlist('Featured_Saved_1', '', '', '', '', '')" id="Featured_Saved_1"
-                class="AddWatchList">Add to WatchList</button>
+            <button id="Featured_Saved_1" class="AddWatchList">Add to WatchList</button>
+            <p></p>
         </div>
 
 
@@ -295,9 +363,20 @@
 
 
 
+
     <div id="UniverseTitle_Container">
-        <p id="UniverseTitle"><span id="UniverseTitle_Span">All Comics.</span> Browse featured comic book universes
+        <p id="UniverseTitle"><span id="UniverseTitle_Span">All Comics.</span> Browse featured comic book categories
             below.</p>
+    </div>
+
+    <div id="Featured_comics_1">
+        <p class="featured_comics_text">Find your favorite comic!</p>
+        <p id="Avenger_Featured_text" class="featured_comics_text_secondary">Browse 100s of Avengers comics here</p>
+        <button id="Featured_Comics_1_Button" onclick="(SearchBar_Bottom('Avengers'))">Browse now</button>
+        <img id="avengers_comic_1" class="featured_comic_imgs comic_positon_1" src="Images/avengers_1.jpg">
+        <img id="avengers_comic_2" class="featured_comic_imgs comic_positon_2" src="Images/avengers_2.jpg">
+        <img id="avengers_comic_3" class="featured_comic_imgs comic_positon_3" src="Images/avengers_3.jpg">
+
     </div>
 
     <!--
@@ -453,6 +532,16 @@
     </div>
 
 
+    <div id="Featured_comics_2">
+        <p class="featured_comics_text">Maybe you'll find your new favorite?</p>
+        <p id="Featured_Batman_Text" class="featured_comics_text_secondary">Check out 100s of Batman comics here</p>
+        <button id="Featured_Comics_2_Button" onclick="(SearchBar_Bottom('Batman'))">Browse now</button>
+        <img id="Batman_comic_1" class="featured_comic_imgs comic_positon_1" src="Images/batman_comic_1.jpg">
+        <img id="Batman_comic_2" class="featured_comic_imgs comic_positon_2" src="Images/batman_comic_2.jpg">
+        <img id="Batman_comic_3" class="featured_comic_imgs comic_positon_3" src="Images/batman_comic_3.jpg">
+    </div>
+
+
     <div id="DC_Heading">
         <p class="Univ_Heading">Batman Comics</p>
     </div>
@@ -549,6 +638,20 @@
         </div>
 
     </div>
+
+
+
+    <div id="Featured_comics_3">
+        <p class="featured_comics_text">You like Spiderman? We have plenty.</p>
+        <p id="Featured_Spiderman_Text" class="featured_comics_text_secondary">Check out 100s of Spiderman comics here
+        </p>
+        <button id="Featured_Comics_3_Button" onclick="(SearchBar_Bottom('Spiderman'))">Browse now</button>
+        <img id="Spiderman_comic_1" class="featured_comic_imgs comic_positon_1" src="Images/spiderman_1.jpg">
+        <img id="Spiderman_comic_2" class="featured_comic_imgs comic_positon_2" src="Images/spiderman_2.png">
+        <img id="Spiderman_comic_3" class="featured_comic_imgs comic_positon_3" src="Images/spiderman_3.jpg">
+    </div>
+
+
 
     <div id="StarWars_Heading">
         <p class="Univ_Heading">Spiderman Comics</p>
@@ -649,6 +752,17 @@
     </div>
 
 
+
+    <div id="Featured_comics_4">
+        <p class="featured_comics_text">Superman is pretty cool! Check him out!</p>
+        <p id="Featured_Superman_Text" class="featured_comics_text_secondary">Check out 100s of Superman comics here</p>
+        <button id="Featured_Comics_4_Button" onclick="(SearchBar_Bottom('Superman'))">Browse now</button>
+        <img id="Superman_comic_1" class="featured_comic_imgs comic_positon_1" src="Images/superman_1.jpg">
+        <img id="Superman_comic_2" class="featured_comic_imgs comic_positon_2" src="Images/superman_3.jpg">
+        <img id="Superman_comic_3" class="featured_comic_imgs comic_positon_3" src="Images/superman_2.jpg">
+    </div>
+
+
     <div id="StarTrek_Heading">
         <p class="Univ_Heading">Superman Comics</p>
     </div>
@@ -711,7 +825,7 @@
                 <p class="FeaturedSource_Text" id="FeatSource_StarTrek5">Dynamic Forces</p>
                 <p id="StarTrek_Univ_Issue5" class="Univ_Issue_Item"></p>
                 <p id="StarTrek_Univ_Price5" class="Univ_Price_Item"></p>
-                <button id="StaTrek_Univ_SaveButton5" class="UnivSaveButton">ADD TO WATCHLIST</button>
+                <button id="StarTrek_Univ_SaveButton5" class="UnivSaveButton">ADD TO WATCHLIST</button>
             </div>
 
 
@@ -744,7 +858,14 @@
 
     </div>
 
-
+    <div id="Featured_comics_5">
+        <p class="featured_comics_text">Theres no shortage of X-Men comics.</p>
+        <p id="Featured_XMen_Text" class="featured_comics_text_secondary">Check out 100s of X-Men comics here</p>
+        <button id="Featured_Comics_5_Button" onclick="(SearchBar_Bottom('X-Men'))">Browse now</button>
+        <img id="XMen_comic_1" class="featured_comic_imgs comic_positon_1" src="Images/Xmen_2.jpg">
+        <img id="XMen_comic_2" class="featured_comic_imgs comic_positon_2" src="Images/Xmen_3.jpg">
+        <img id="XMen_comic_3" class="featured_comic_imgs comic_positon_3" src="Images/Xmen_1.jpg">
+    </div>
 
     <div id="WalkingDead_Heading">
         <p class="Univ_Heading">X-Men Comics</p>

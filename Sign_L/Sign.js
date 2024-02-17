@@ -105,6 +105,12 @@ function SignInStyle() {
     const Sign = document.getElementById("SignIn");
     const Create = document.getElementById("CreateAccount");
 
+    const create_account_email = document.getElementById("InputEmailCreate");
+    const create_account_pass = document.getElementById("InputPassSign_Create");
+
+    create_account_email.value = "";
+    create_account_pass.value = "";
+
     const SignInContainer = document.getElementById("SignInContainerSecondary");
     const SignInContainer_Style = getComputedStyle(SignInContainer);
 
@@ -121,11 +127,18 @@ function CreateAccStyle() {
     const Sign = document.getElementById("SignIn");
     const Create = document.getElementById("CreateAccount");
 
+    const sign_account_email = document.getElementById("InputEmailSign");
+    const sign_account_pass = document.getElementById("InputPassSign");
+
     const SignInContainer = document.getElementById("SignInContainerSecondary");
     const SignInContainer_Style = getComputedStyle(SignInContainer);
 
     const CreateAccContainer = document.getElementById("CreateAccContainerSecondary");
     const CreateAccContainer_Style = getComputedStyle(CreateAccContainer);
+
+    sign_account_email.value = "";
+    sign_account_pass.value = "";
+
     SignInContainer.style.display = "none";
     CreateAccContainer.style.display = "block";
     Sign.style.borderBottom = "4px solid rgb(250, 250, 250)";
@@ -166,34 +179,19 @@ CreateAccountCookie();
 //Clear cookies---------------------------------------------------
 
 function deleteCookie(name) {
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    localStorage.removeItem(name);
 }
-
-//Clear cookies---------------------------------------------------
-
-
-//import Cookies from "js-cookie";
-//import Login from "./Models/Login";
-
 
 function setJwtCookie(name, jwt, daysToExpire) {
     const date = new Date();
     date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
+    const expires = date.toUTCString();
     console.log("Setting cookie:", name, jwt, expires);
-    document.cookie = `${name}=${jwt}; ${expires}; path=/; SameSite=None; Secure`;
+    localStorage.setItem(name, jwt);
 }
 
-// Get a cookie value by name
 function getJwtCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (const cookie of cookies) {
-        const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
-        if (cookieName === name) {
-            return cookieValue;
-        }
-    }
-    return null;
+    return localStorage.getItem(name);
 }
 function formatDateAsZeroes() {
     const today = new Date();
@@ -527,7 +525,17 @@ function Login_0_Close() {
 
 
 
+function handleKeyPress_sign(event) {
 
+    if (event.key === 'Enter') {
+        Login_Server();
+    }
+}
 
+function handleKeyPress_createAccount(event) {
 
+    if (event.key === 'Enter') {
+        Create_Account_Server();
+    }
+}
 

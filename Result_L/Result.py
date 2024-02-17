@@ -18,7 +18,6 @@ import json
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-
 def Desc_Position_Search(element_list):
     j = 0 #Item Count
     counter = 0 #Counts index position of description in scraped list
@@ -220,7 +219,7 @@ def change_page():
             soup_Search = BeautifulSoup(response_Search.content, "html.parser")
             elements_fonts_Search = soup_Search.find_all("font")
             image_elements_img_Search = soup_Search.find_all("img")
-
+            print(image_elements_img_Search)
 
             #Price/Description---------
             Search_Info, Write_up = Description_Price_Search(elements_fonts_Search)

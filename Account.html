@@ -28,8 +28,26 @@
 
     <div id="Login_prompt" class="Notif_Sign_Pos">
         <img class="Error_Img" src="Images/FailImg.png">
-        <p class="Error_Text">Please Login.</p>
+        <p class="Error_Text">Please sign in or create an account.</p>
         <img onclick="Logout_prompt_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Newsletter_unsubbed" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Unsubscribed from Newsletter</p>
+        <img onclick="Newsletter_Unsubbed_Call_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Newsletter_subbed" class="Notif_Sign_Pos">
+        <img class="Success_Img" src="Images/SuccessImg2.png">
+        <p class="Confirm_Text">Subscribed to Newsletter!</p>
+        <img onclick="Newsletter_subbed_Call_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
+    </div>
+
+    <div id="Delete_Failed" class="Notif_Sign_Pos">
+        <img class="Error_Img" src="Images/FailImg.png">
+        <p class="Error_Text">Account deletion failed.</p>
+        <img onclick="Delete_Fail_Call_Close()" class="Close_Error_Notif_Watch" src="Images/Exit_Img.png">
     </div>
 
     <div id="Logout_Loader" class="loader-container">
@@ -57,25 +75,28 @@
     <div id="NavigationBarMain">
         <p id="NavTitle" onclick="location.href='Home.html'">Comic <span id="NavTitleSecond">Finds</span></p>
 
-        <button id="SearchImageButton"><img id="SearchIcon" src="Images/Search_NavMain.png"></button>
-        <input id="SearchBar" type="text" placeholder="Search for anything">
+        <button id="SearchImageButton" onclick="SearchBar()"><img id="SearchIcon"
+                src="Images/Search_NavMain.png"></button>
+        <input id="SearchBar" type="text" onkeydown="handleKeyPress(event)" placeholder="Search for anything">
 
-        <button id="NavSearchButton">Search</button>
+        <button id="NavSearchButton" onclick="SearchBar()">Search</button>
 
     </div>
     <!--Main Navigation Bar-->
 
     <!--Bottom Navigation Bar-->
     <div id="NavigationBarBottom">
-        <p class="BottomNavItem" onclick="location.href='Home.html'">Home</p>
+        <p class="BottomNavItem" onclick="location.href='Home.html', delete_current_search()">Home</p>
         <p class="BottomNavItem" onclick="GoToWatchListPage()">Watchlist</p>
-        <p class="BottomNavItem">Daily Deals</p>
-        <p class="BottomNavItem" id="Bottom1">Avengers</p>
-        <p class="BottomNavItem" id="Bottom2">Batman</p>
-        <p class="BottomNavItem" id="Bottom3">Spiderman</p>
-        <p class="BottomNavItem" id="Bottom4">Star Wars</p>
-        <p class="BottomNavItem" id="Bottom5">Superman</p>
-        <p class="BottomNavItem" id="Bottom6">X-Men</p>
+        <p class="BottomNavItem" onclick="Daily_Deals_go()">Daily Deals</p>
+        <p class="BottomNavItem" id="Bottom1" onclick="(SearchBar_Bottom('Avengers'))">Avengers</p>
+        <p class="BottomNavItem" id="Bottom2" onclick="(SearchBar_Bottom('Batman'))">Batman</p>
+        <p class="BottomNavItem" id="Bottom3" onclick="(SearchBar_Bottom('Spiderman'))">Spiderman</p>
+        <p class="BottomNavItem" id="Bottom4" onclick="(SearchBar_Bottom('Star Wars'))">Star Wars</p>
+        <p class="BottomNavItem" id="Bottom5" onclick="(SearchBar_Bottom('Superman'))">Superman</p>
+        <p class="BottomNavItem" id="Bottom6" onclick="(SearchBar_Bottom('X-Men'))">X-Men</p>
+
+
     </div>
     <!--Bottom Navigation Bar-->
 
@@ -137,8 +158,7 @@
         <div id="AccountDashBoard" class="Account_Tab_Container">
             <p id="Manage_Acc_Top" class="Account_Text_Style">Manage your account</p>
             <p id="Manage_Acc_Top_Title" class="Account_Title_Style_Big">Your account details</p>
-            <p id="Manage_Info" class="Account_Text_Style">Click <span id="Edit_AccountInfo">here</span> to edit your
-                information</p>
+            <p id="Manage_Info" class="Account_Text_Style">All your account details are listed below</p>
             <p id="Manage_Acc_Title" class="Account_Title_Style_Med">Account details</p>
             <div id="Personal">
                 <p id="Personal_Title">Personal</p>
@@ -155,14 +175,14 @@
                 <p id="Comic_Watched" class="Acc_Text">COMICS WATCHLISTED:&nbsp;&nbsp;&nbsp;&nbsp;<span
                         id="Actual_Comic_Watch">0</span></p>
             </div>
-            <button id="Forgot_Password">Forgot Password?</button>
+            <button id="Forgot_Password">Change Password</button>
         </div>
 
 
         <div id="WatchList" class="Account_Tab_Container">
             <p id="WatchList_Title_Top" class="WatchList_Small_Text">Manage your watchlist</p>
             <p id="WatchList_Main_Title_Top">Your watchlist details</p>
-            <p id="WatchList_Note">*Note* 30 is the maximum number of comics you can save.</p>
+            <p id="WatchList_Note">*Note* 30 is the maximum number of comics you can save</p>
             <p id="WatchList_Secondary_Title">Watchlist details</p>
             <div id="Watclist_Info_Container">
                 <p id="Personal_Title">Info</p>
@@ -180,7 +200,8 @@
             <p id="Newsletter_Note">You can subscribe or unsubscribe from our Newsletter below</p>
             <p id="Newsletter_Secondary_Title">Newsletter details</p>
 
-            <button id="Edit_Newsletter">Unsubscribe</button>
+            <button id="Edit_Newsletter_True" onclick="unsub_sub_from_newsletter('false')">Unsubscribe</button>
+            <button id="Edit_Newsletter_False" onclick="unsub_sub_from_newsletter('true')">Subscribe</button>
         </div>
 
 
@@ -188,7 +209,7 @@
         <div id="HelpAndContact" class="Account_Tab_Container">
             <p id="HelpAndContact_Title_Top">Help and Contact</p>
             <p id="HelpAndContact_Main_Title_Top">Contact us!</p>
-            <p id="HelpAndContact_Note">Click the button below to go to our contact page.</p>
+            <p id="HelpAndContact_Note">Click the button below to go to our contact page</p>
             <p id="HelpAndContact_Secondary_Title">Contact us below</p>
             <button id="Submit_HelpAndContact" onclick="GoToContactPage()">Contact us</button>
 
@@ -196,6 +217,12 @@
 
 
         <div id="DeleteAccount" class="Account_Tab_Container">
+
+            <div id="Delete_Account_Loader" class="loader-container">
+                <div class="dot-loader"></div>
+                <div class="dot-loader"></div>
+                <div class="dot-loader"></div>
+            </div>
             <div id="Blur_DeleteAccount">
                 <p id="DeleteAccount_Title_Top">Delete Account</p>
                 <p id="DeleteAccount_Main_Title_Top">Delete your account</p>
@@ -205,9 +232,13 @@
             </div>
             <div id="Confirm_Delete">
                 <p id="Confrim_Text">Are you sure?</p>
-                <p id="Delete_Text_Note">Everything will be gone permanantly</p>
-                <button id="Cancel_Button_Actual" class="Delete_Buttons" onclick="Cancel_Delete_Acc()">Cancel</button>
-                <button id="Delete_Button_Actual" class="Delete_Buttons">Delete</button>
+                <p id="Delete_Text_Note">Everything will be gone permanently</p>
+                <div id="delete_buttons_container">
+                    <button id="Cancel_Button_Actual" class="Delete_Buttons"
+                        onclick="Cancel_Delete_Acc()">Cancel</button>
+                    <button id="Delete_Button_Actual" onclick="delete_account()" class="Delete_Buttons">Delete</button>
+                </div>
+
             </div>
         </div>
 

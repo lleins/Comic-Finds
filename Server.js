@@ -226,23 +226,101 @@ app.post('/api/get_saved_comics', async (req, res) => {
 
 
 //Delete Comic -------------------------------------------------------------------------------------------
-app.post('/api/delete_saved_comic', async (req, res) => {
-    const { email, description } = req.body;
+app.post('/api/delete_accounts', async (req, res) => {
+    const { email } = req.body;
 
     try {
+        const loginDeleteResult = await Login.deleteMany({ email: email });
 
-        const existingDocument = await Saved.findOneAndDelete({ email: email, description: description });
+        const savedDeleteResult = await Saved.deleteMany({ email: email });
 
-        if (existingDocument) {
-            return res.status(200).json({ message: 1 });
-        } else {
-            return res.status(200).json({ message: 0 });
+        const totalDeletedCount = loginDeleteResult.deletedCount + savedDeleteResult.deletedCount;
+
+        if (totalDeletedCount === 0) {
+            return res.status(404).json({ message: 0 });
         }
+        return res.status(200).json({ message: 1 });
     } catch (error) {
-        return res.status(500).json({ message: 3, error: error });
+        return res.status(500).json({ message: 3 });
     }
 });
 //Delete Comic -------------------------------------------------------------------------------------------
+
+//Check sub Newsletter-------------------------------------------------------------------------------------------
+
+app.post('/api/check_newsletter_sub', async (req, res) => {
+    const { email } = req.body;
+
+    const User = await Login.findOne({ email: email });
+
+    if (User.newsletter === "true") {
+        console.log("True");
+        return res.status(201).json({ message: 1 });
+    } else if (User.newsletter === "false") {
+        console.log("false");
+        return res.status(201).json({ message: 0 });
+
+    }
+})
+
+
+//Check sub Newsletter-------------------------------------------------------------------------------------------
+
+
+
+
+//Sub and unsub from Newsletter-------------------------------------------------------------------------------------------
+
+app.post('/api/change_newsletter_sub', async (req, res) => {
+    const { email, newValue } = req.body;
+
+    try {
+        const user = await Login.findOne({ email: email });
+
+        if (!user) {
+            return res.status(404).json({ message: 3 });
+        }
+
+        user.newsletter = newValue;
+        await user.save();
+
+        console.log(`Newsletter field updated to ${newValue}`);
+        return res.status(200).json({ message: 1, value: newValue });
+    } catch (error) {
+        console.error("Error updating newsletter field:", error);
+        return res.status(200).json({ message: 0 });
+    }
+});
+
+
+
+
+//Sub and unsub from Newsletter-------------------------------------------------------------------------------------------
+
+
+
+//Delete Account --------------------------------------------------------------------------------------------
+
+
+app.post('/api/delete_account', async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const result = await Login.deleteMany({ email: email });
+
+        if (result.deletedCount === 0) {
+            return res.status(404).json({ message: "No accounts found with the provided email." });
+        }
+
+
+        return res.status(200).json({ message: 1 });
+    } catch (error) {
+        console.error("Error deleting accounts:", error);
+        return res.status(500).json({ message: "Error deleting accounts." });
+    }
+});
+//Delete Account --------------------------------------------------------------------------------------------
+
 
 
 mongoose.connect('mongodb://127.0.0.1:27017/Comic-Finds', {

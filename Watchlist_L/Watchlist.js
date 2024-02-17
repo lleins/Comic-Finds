@@ -64,27 +64,19 @@ window.addEventListener("scroll", () => {
 
 //Cookies----------------------------------------------------------------------------
 function deleteCookie(name) {
-    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    localStorage.removeItem(name);
 }
 
 function setJwtCookie(name, jwt, daysToExpire) {
     const date = new Date();
     date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
+    const expires = date.toUTCString();
     console.log("Setting cookie:", name, jwt, expires);
-    document.cookie = `${name}=${jwt}; ${expires}; path=/; SameSite=None; Secure`;
+    localStorage.setItem(name, jwt);
 }
 
-// Get a cookie value by name
 function getJwtCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (const cookie of cookies) {
-        const [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
-        if (cookieName === name) {
-            return cookieValue;
-        }
-    }
-    return null;
+    return localStorage.getItem(name);
 }
 
 
@@ -307,13 +299,15 @@ function view_full_comic(img_src, description, price, write_up) {
     deleteCookie("View_Comic");
     deleteCookie("View_Comic_Watch");
     const view_list = []
+    img_src = img_src + "*";
+    description = description + "*";
+    price = price + "*";
 
-    view_list.push(img_src);
-    view_list.push(description);
-    view_list.push(price);
-    view_list.push(write_up);
+    view_list.push(img_src + description + price + write_up);
 
-    setJwtCookie("View_Comic_Watch", view_list, 1);
+
+
+    setJwtCookie("View_Comic", view_list, 1);
     window.location.href = "View.html";
 
 }
@@ -474,6 +468,150 @@ function handleKeyPress(event) {
 
 
 
+
+
+
+
+//NewsLetter button-----------------------------------------------------------------------
+const NewsLetter_Container = document.getElementById("NewsLetterContainer");
+
+const NewsLetterSignUp_Container = document.getElementById("NewsLetterSignUp");
+const NewsLetterSignUpSecondary_Container = document.getElementById("NewsLetterSignUpSecondary");
+
+const NewsLetter_Img = document.getElementById("NewsLetter_Image");
+const NewsLetter_Img_Style = getComputedStyle(NewsLetter_Img);
+
+const Exit_Img = document.getElementById("Exit_Image");
+const Exit_Img_Style = getComputedStyle(Exit_Img);
+
+function NewsLetter() {
+
+
+    if (NewsLetter_Img_Style.display == "flex") {
+        NewsLetter_Img.style.display = "none";
+        Exit_Img.style.display = "flex";
+        NewsLetterSignUp_Container.style.transition = "bottom .05s ease";
+        NewsLetterSignUp_Container.style.bottom = "80px";
+        NewsLetterSignUpSecondary_Container.style.transition = "bottom .05s ease";
+        NewsLetterSignUpSecondary_Container.style.bottom = "90px";
+
+    } else if (NewsLetter_Img_Style.display == "none") {
+        NewsLetter_Img.style.display = "flex";
+        Exit_Img.style.display = "none";
+        NewsLetterSignUp_Container.style.bottom = "-450px";
+        NewsLetterSignUp_Container.style.transition = " bottom .05s ease";
+        NewsLetterSignUpSecondary_Container.style.transition = "bottom .05s ease";
+        NewsLetterSignUpSecondary_Container.style.bottom = "-450px";
+
+    }
+
+
+}
+
+
+function check_login_newsletter() {
+    const check_cookie = getJwtCookie("Login_Token");
+
+    const title = document.getElementById("NewsLetter_Text_Title");
+    const write_up = document.getElementById("NewsLetter_Text_Description");
+    const login_text_bottom = document.getElementById("Sign_in_TextBottom");
+    const button_sub = document.getElementById("NewsLetter_Signup_Button");
+    const subbed_text = document.getElementById("subbed_text_news");
+    const not_subbed_text = document.getElementById("not_subbed_text_news");
+    if (check_cookie === null) {
+        write_up.textContent = "Sign up now and get access to exlusive offers, updates and more. Also a chance to register for our Newsletter.";
+        title.textContent = "Sign up";
+        login_text_bottom.style.display = "block";
+        button_sub.textContent = "Sign up";
+        subbed_text.style.display = "none";
+        not_subbed_text.style.display = "none";
+        button_sub.onclick = null;
+        button_sub.onclick = function () {
+            GoToSignInPageCreateAcc();
+        };
+    } else if (check_cookie !== null) {
+        login_text_bottom.style.display = "none";
+        const email_cookie = getJwtCookie("Login_Token");
+
+        fetch('http://localhost:4000/api/Account_Info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email_cookie, }),
+        })
+            .then(response => {
+                if (response.ok) {
+
+                    return response.json();
+                } else {
+
+                    throw new Error('Failed to send request to Account_Info');
+                }
+            })
+            .then(accountData => {
+                if (accountData.success === 1) { //remove_comics-------------------------------------
+                    fetch('http://localhost:4000/api/check_newsletter_sub', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email: accountData.email })
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok.');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.message === 1) { //Subscribed to newsleter
+                                write_up.textContent = "Subscribe to our Newsletter now and get access to exlusive offers, updates and more!";
+                                title.textContent = "Newsletter";
+                                button_sub.textContent = "Unsubscribe";
+                                subbed_text.style.display = "block";
+                                not_subbed_text.style.display = "none";
+                                button_sub.onclick = null;
+                                button_sub.onclick = function () {
+                                    GoToAccountPage_newsletter();
+                                };
+                            } else if (data.message === 0) { //Not subscribed to newsleter
+                                write_up.textContent = "Subscribe to our Newsletter now and get access to exlusive offers, updates and more!";
+                                title.textContent = "Newsletter";
+                                button_sub.textContent = "Subscribe";
+                                subbed_text.style.display = "none";
+                                not_subbed_text.style.display = "block";
+                                button_sub.onclick = null;
+                                button_sub.onclick = function () {
+                                    GoToAccountPage_newsletter();
+                                };
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with your fetch operation:', error);
+                        });
+                } else if (accountData.success === 0) { //remove_comics---------------------------------
+                    console.log("Did not succeed");
+                }
+            })
+            .catch(error => { //catch error with response
+                console.error('Error sending request to Account_Info:', error.message);
+            });
+    }
+}
+check_login_newsletter();
+
+function GoToAccountPage_newsletter() {
+    const Logn_cookie = getJwtCookie("Login_Token");
+
+    if (Logn_cookie === null) {
+        Logout_prompt_Call();
+    } else if (Logn_cookie !== null) {
+        setJwtCookie("account_newsletter", "1", 1);
+        window.location.href = "Account.html";
+    }
+}
+//NewsLetter button-----------------------------------------------------------------------
 
 
 

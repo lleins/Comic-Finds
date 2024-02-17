@@ -71,7 +71,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(24, 248, 80);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -92,7 +92,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(255, 83, 83);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -113,7 +113,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(255, 83, 83);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -134,7 +134,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(24, 248, 80);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -156,7 +156,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(255, 83, 83);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -178,7 +178,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(255, 83, 83);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -200,7 +200,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(255, 83, 83);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -258,6 +258,7 @@ body {
     margin-top: 250px;
     transform: translate(-50%, -20%);
     display: none;
+
 }
 
 .loader-container {
@@ -734,6 +735,149 @@ body {
 
 /*Search Result Title*/
 
+
+/*NewsLetter*/
+
+#NewsLetterContainer {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    z-index: 6;
+}
+
+
+#NewsLetter:hover {
+    background-color: rgb(255, 48, 48);
+}
+
+#NewsLetter_Image {
+    transform: scale(.9);
+    display: flex;
+}
+
+#Exit_Image {
+    transform: scale(.8);
+    display: none;
+    padding: 4px;
+}
+
+#NewsLetter {
+    font-family: helvetica;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(255, 66, 66);
+    border-radius: 20px;
+    font-weight: bold;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0px;
+    cursor: pointer;
+    transform: .1s;
+    transition: .1s;
+}
+
+#NewsLetter:active {
+    transform: scale(.95);
+}
+
+#NewsLetterSignUp {
+    position: fixed;
+    background-color: rgb(255, 66, 66);
+    border-radius: 15px;
+    z-index: 6;
+    left: 10px;
+    bottom: -450px;
+    height: 420px;
+    width: 320px;
+
+
+}
+
+.NewsLetter_Text {
+    color: white;
+    font-family: helvetica;
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+
+#ComicFinds_Text_NewsLetter {
+    font-size: 25px;
+    font-weight: bold;
+    font-variant: small-caps;
+    margin-top: -5px;
+    letter-spacing: 1px;
+}
+
+
+#NewsLetterSignUpSecondary {
+    position: fixed;
+    background-color: rgb(250, 250, 250);
+    height: 290px;
+    width: 300px;
+    bottom: -450px;
+    left: 20px;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+.NewsLetter_Text_Style {
+    color: rgb(140, 140, 140);
+    font-family: helvetica;
+    font-size: 15px;
+    position: flex;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 22px;
+}
+
+#ComicTitle_NewsLetter {
+    color: rgb(70, 70, 70);
+}
+
+#NewsLetter_Text_Title {
+    color: rgb(40, 40, 40);
+}
+
+#NewsLetter_Signup_Button {
+    position: relative;
+    color: rgb(240, 240, 240);
+    font-family: helvetica;
+    font-size: 16px;
+    background-color: rgb(255, 66, 66);
+    border-radius: 8px;
+    border: 0px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transition: .1s;
+    cursor: pointer;
+}
+
+
+
+#NewsLetter_Signup_Button:hover {
+
+    background-color: rgb(255, 48, 48);
+}
+
+#NewsLetter_SignIn_Text {
+    color: rgb(255, 66, 66);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/*NewsLetter*/
 
 
 
