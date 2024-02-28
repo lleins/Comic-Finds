@@ -579,7 +579,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(24, 248, 80);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -625,7 +625,7 @@ body {
     border-right: 1px solid rgb(220, 220, 220);
     border-bottom: 1px solid rgb(220, 220, 220);
     border-left: 40px solid rgb(255, 83, 83);
-    opacity: .9;
+    opacity: 1;
     display: block;
     transition: .3s;
     transform: .3s;
@@ -823,7 +823,7 @@ body {
 
 #Top_Title_2 {
     position: absolute;
-    top: 200px;
+    top: 188px;
     right: 60px;
 }
 

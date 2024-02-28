@@ -366,7 +366,7 @@ p {
     height: 28px;
     width: 28px;
     top: 8px;
-    opacity: .7;
+    opacity: .6;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
@@ -379,7 +379,7 @@ p {
     top: 8px;
     height: 26px;
     width: 26px;
-    opacity: .65;
+    opacity: .6;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
@@ -753,7 +753,6 @@ p {
     transform: translate(-50%, 0%);
     border-radius: 20px;
     text-align: center;
-    border: 1px solid rgb(70, 70, 70);
 }
 
 #Cookies_Text {
@@ -971,6 +970,10 @@ p {
     white-space: nowrap;
     margin-left: 0px;
     padding: 0;
+    z-index: 4;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(230, 230, 230);
 }
 
 .AutoScroll_Item {
@@ -982,61 +985,387 @@ p {
     display: inline-block;
     transition: transform .7s ease;
     margin: 0;
-    margin-right: -4px;
+    margin-right: -2px;
     background-blend-mode: multiply;
     background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+#AutoScroll_text_1 {
+    display: block;
+    z-index: 4;
+}
+
+#autoscroll_1_text {
+    position: absolute;
+    left: 10%;
+    top: 50px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+
+}
+
+#autoscroll_1_text_Comic_Finds {
+    position: absolute;
+    left: 10%;
+    top: 150px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+
+}
+
+.Comics_secondary_autoscroll {
+    color: rgb(255, 66, 66);
 }
 
 
+#AutoScroll_text_2 {
+    display: none;
+    z-index: 4;
+}
+
+#autoscroll_2_text {
+    position: absolute;
+    left: 10%;
+    top: 50px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+
+}
+
+#autoscroll_2_text_Comic_Finds {
+    position: absolute;
+    left: 10%;
+    top: 150px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+
+}
+
+#AutoScroll_text_3 {
+    display: none;
+    z-index: 4;
+}
+
+#autoscroll_3_text {
+    position: absolute;
+    left: 10%;
+    top: 50px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+
+}
+
+#autoscroll_3_text_Comic_Finds {
+    position: absolute;
+    left: 10%;
+    top: 150px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+
+}
+
+#AutoScroll_text_4 {
+    display: none;
+    z-index: 4;
+}
+
+#autoscroll_4_text {
+    position: absolute;
+    left: 10%;
+    top: 50px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+
+}
+
+#autoscroll_4_text_Comic_Finds {
+    position: absolute;
+    left: 10%;
+    top: 150px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+
+}
+
+#AutoScroll_text_5 {
+    display: none;
+    z-index: 4;
+}
+
+#autoscroll_5_text {
+    position: absolute;
+    left: 10%;
+    top: 50px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+
+}
+
+#autoscroll_5_text_Comic_Finds {
+    position: absolute;
+    left: 10%;
+    top: 150px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+
+}
+
+#AutoScroll_text_6 {
+    display: none;
+    z-index: 4;
+}
+
+#autoscroll_6_text {
+    position: absolute;
+    left: 10%;
+    top: 50px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 35px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+
+}
+
+#autoscroll_6_text_Comic_Finds {
+    position: absolute;
+    left: 10%;
+    top: 150px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    z-index: 4;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+
+}
 
 #AutoScroll_1 {
-    background-image: url('../Images/Spiderman.jpg');
+    background-image: url('../Images/Featured_top_7.jpg');
+
+
 }
 
 #AutoScroll_2 {
-    background-image: url('../Images/Batman.jpg');
+    background-image: url('../Images/Featured_top_2.jpg');
 
 }
 
 #AutoScroll_3 {
-    background-image: url('../Images/Flash.jpg');
+    background-image: url('../Images/Featured_top_5.jpg');
 
 }
 
 #AutoScroll_4 {
-    background-image: url('../Images/Spiderman2.jpg');
+    background-image: url('../Images/Featured_top_3.jpg');
 }
 
 #AutoScroll_5 {
-    background-image: url('../Images/DC.jpg');
+    background-image: url('../Images/Featured_top_4.jpg');
 }
 
 #AutoScroll_6 {
-    background-image: url('../Images/MarvelDC.jpg');
+    background-image: url('../Images/Featured_top_6.jpg');
 }
 
 
+#AutoScrollSideBars {
+    z-index: 3;
+}
+
 .SideBars {
-    background-color: rgb(40, 40, 40);
+
     position: absolute;
     top: 180px;
-    height: 70%;
-    width: 30%;
+    height: calc(70% + 30px);
+    width: 40px;
+    opacity: 1;
+    z-index: 4;
 }
 
 #LeftSideBar {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0));
+    /*background: linear-gradient(to left, rgba(255, 10, 10, 0), rgba(10, 10, 10));*/
     left: 0;
+    background-color: rgb(230, 230, 230);
+
+    cursor: pointer;
+}
+
+#Autoscroll_arrow_right {
+    position: absolute;
+    transform: scale(.5) translate(0%, -50%);
+    top: 50%;
+    left: -12px;
+
+}
+
+#Autoscroll_arrow_left {
+    position: absolute;
+    transform: scale(.5) translate(0%, -50%);
+    top: 50%;
+    left: -8px;
 
 }
 
 #RightSideBar {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0));
+    /*background: linear-gradient(to right, rgba(10, 10, 10, 0), rgba(10, 10, 10));*/
     right: 0;
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+
+
+.Auto_Scroll_Text {
+    position: absolute;
+    font-family: calibri;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    width: 300px;
+    white-space: pre-wrap;
+    left: 40px;
 
 }
 
+.Auto_Scroll_Text_secondary {
+    position: absolute;
+    font-family: calibri;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+    width: 250px;
+    white-space: pre-wrap;
+    left: 40px;
+    margin-top: 130px;
+    line-height: 25px;
+}
+
+
+
+#Auto_Scroll_1_Button {
+    margin-left: 40px;
+    background-color: rgb(255, 66, 66);
+    height: 45px;
+    margin-top: 210px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    cursor: pointer;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+    border-radius: 30px;
+    transition: .1s;
+    border: 1px solid rgb(255, 255, 255);
+
+}
+
+
+#Auto_Scroll_1_Button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 66, 66);
+}
+
 /*Auto Scroll Container*/
+
+
+
+
+
+/*Dots for Auto Scroll*/
+
+#AutoScroll_Dots {
+    position: absolute;
+    bottom: 20px;
+    z-index: 5;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background-color: rgb(255, 66, 66, 0);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 45px;
+    border: 0px solid white;
+}
+
+.Dots_AutoScroll_1 {
+    background-color: rgb(40, 40, 40);
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 50%;
+    transition: transform .7s ease;
+}
+
+.Dots_AutoScroll_0 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: transform .7s ease;
+}
+
+
+
+/*Dots for Auto Scroll*/
+
+
 
 
 
@@ -2686,6 +3015,93 @@ f #FeaturedShadowRight {
 }
 
 @media (max-width: 650px) {
+
+
+    #autoscroll_1_text {
+        font-size: 20px;
+        left: 20%;
+        top: 50px;
+    }
+
+    #autoscroll_1_text_Comic_Finds {
+        font-size: 12px;
+        left: 20%;
+        top: 115px;
+    }
+
+
+
+    #autoscroll_2_text {
+        font-size: 20px;
+        left: 20%;
+        top: 50px;
+    }
+
+    #autoscroll_2_text_Comic_Finds {
+        font-size: 12px;
+        left: 20%;
+        top: 115px;
+    }
+
+
+
+
+
+    #autoscroll_3_text {
+        font-size: 20px;
+        left: 20%;
+        top: 50px;
+    }
+
+    #autoscroll_3_text_Comic_Finds {
+        font-size: 12px;
+        left: 20%;
+        top: 115px;
+    }
+
+
+
+
+    #autoscroll_4_text {
+        font-size: 20px;
+        left: 20%;
+        top: 50px;
+    }
+
+    #autoscroll_4_text_Comic_Finds {
+        font-size: 12px;
+        left: 20%;
+        top: 115px;
+    }
+
+
+
+
+    #autoscroll_5_text {
+        font-size: 20px;
+        left: 20%;
+        top: 50px;
+    }
+
+    #autoscroll_5_text_Comic_Finds {
+        font-size: 12px;
+        left: 20%;
+        top: 115px;
+    }
+
+
+    #autoscroll_6_text {
+        font-size: 20px;
+        left: 20%;
+        top: 50px;
+    }
+
+    #autoscroll_6_text_Comic_Finds {
+        font-size: 12px;
+        left: 20%;
+        top: 115px;
+    }
+
 
     .comic_positon_3:hover {
         transform: scale(1);

@@ -18,6 +18,7 @@ import json
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+
 def Desc_Position_Search(element_list):
     j = 0 #Item Count
     counter = 0 #Counts index position of description in scraped list
@@ -323,7 +324,7 @@ def change_page():
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5500)
 
 #Flask Communication------------------------------------------------------------------------------------------------------------
 

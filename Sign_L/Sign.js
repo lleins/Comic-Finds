@@ -340,9 +340,6 @@ function Create_Account_Server() {
 
 function Login_Server() {
 
-    const success_Notif = document.getElementById("");
-    const fail_Notif = document.getElementById("");
-
     const emailFeild = document.getElementById("InputEmailSign");
     const emailData = emailFeild.value;
 

@@ -389,7 +389,7 @@ body {
     height: 28px;
     width: 28px;
     top: 8px;
-    opacity: .7;
+    opacity: .6;
     transition: .1s;
     transform: .1s;
     cursor: pointer;
@@ -432,7 +432,7 @@ body {
     top: 8px;
     height: 26px;
     width: 26px;
-    opacity: .65;
+    opacity: .6;
     transition: .1s;
     transform: .1s;
     cursor: pointer;

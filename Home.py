@@ -577,7 +577,6 @@ if len(image_elements_img_XMen) >= 1:
     relative_image_url7_XMen = image_element7_XMen.get("src")
     relative_image_url8_XMen = image_element8_XMen.get("src")
 
-
     image_url1_XMen = urljoin(url_XMen, relative_image_url1_XMen)
     image_url2_XMen = urljoin(url_XMen, relative_image_url2_XMen)
     image_url3_XMen = urljoin(url_XMen, relative_image_url3_XMen)

@@ -225,8 +225,9 @@ app.post('/api/get_saved_comics', async (req, res) => {
 //Get Watchlist------------------------------------------------------------------------------------------------
 
 
-//Delete Comic -------------------------------------------------------------------------------------------
-app.post('/api/delete_accounts', async (req, res) => {
+//Delete Account -------------------------------------------------------------------------------------------
+app.post('/api/delete_account', async (req, res) => {
+
     const { email } = req.body;
 
     try {
@@ -244,7 +245,7 @@ app.post('/api/delete_accounts', async (req, res) => {
         return res.status(500).json({ message: 3 });
     }
 });
-//Delete Comic -------------------------------------------------------------------------------------------
+//Delete Account -------------------------------------------------------------------------------------------
 
 //Check sub Newsletter-------------------------------------------------------------------------------------------
 
@@ -299,33 +300,36 @@ app.post('/api/change_newsletter_sub', async (req, res) => {
 
 
 
-//Delete Account --------------------------------------------------------------------------------------------
+//Delete Comic --------------------------------------------------------------------------------------------
 
 
-app.post('/api/delete_account', async (req, res) => {
-    const { email } = req.body;
+app.post('/api/delete_saved_comic', async (req, res) => {
+    const { email, description } = req.body;
 
     try {
-        const result = await Login.deleteMany({ email: email });
+        const result = await Saved.deleteOne({ email: email, description: description });
 
         if (result.deletedCount === 0) {
-            return res.status(404).json({ message: "No accounts found with the provided email." });
+            return res.status(404).json({ message: 0 });
         }
 
 
         return res.status(200).json({ message: 1 });
     } catch (error) {
         console.error("Error deleting accounts:", error);
-        return res.status(500).json({ message: "Error deleting accounts." });
+        return res.status(500).json({ message: 3 });
     }
 });
-//Delete Account --------------------------------------------------------------------------------------------
+//Delete Comic --------------------------------------------------------------------------------------------
 
 
+// for local - 'mongodb://127.0.0.1:27017/Comic-Finds'
+//for cloud - 'mongodb+srv://lleins237:9JQmeNpmMVVage4@cluster0.vrxb658.mongodb.net/Comic-Finds?retryWrites=true&w=majority&appName=Cluster0'
 
-mongoose.connect('mongodb://127.0.0.1:27017/Comic-Finds', {
+mongoose.connect('mongodb+srv://lleins237:9JQmeNpmMVVage4@cluster0.vrxb658.mongodb.net/Comic-Finds?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+
 });
 
 const PP_Login_Connection = mongoose.connection; //establish connection to database

@@ -230,7 +230,7 @@ function getJwtCookie(name) {
     return localStorage.getItem(name);
 }
 
-
+//On Firefox each page is treated as its own site so localdata stored cannot be accessed from file to file.
 
 function Cookies() {
     const Check_Cookie = getJwtCookie("Accept_Cookie"); //Accept Cookie
@@ -313,6 +313,15 @@ function Logout_Account() {
 
 const autoScrollContainer = document.getElementById("AutoScroll_Container");
 const autoScrollItems = document.querySelectorAll(".AutoScroll_Item");
+const text1 = document.getElementById("AutoScroll_text_1");
+const text2 = document.getElementById("AutoScroll_text_2");
+const text3 = document.getElementById("AutoScroll_text_3");
+const text4 = document.getElementById("AutoScroll_text_4");
+const text5 = document.getElementById("AutoScroll_text_5");
+const text6 = document.getElementById("AutoScroll_text_6");
+
+const list = [text1, text2, text3, text4, text5, text6]
+
 let currentImageIndex = 0;
 
 function startAutoScroll() {
@@ -322,13 +331,50 @@ function startAutoScroll() {
 
         autoScrollItems.forEach((item, index) => {
             item.style.transform = `translateX(${offset}vw)`;
+            const item_item = list[index];
+            item_item.style.display = "block";
         });
     }, 10000); // Change images every 10 second
 }
 
 startAutoScroll();
 
+const dot_1 = document.getElementById("Dot_1");
+const dot_2 = document.getElementById("Dot_2");
+const dot_3 = document.getElementById("Dot_3");
+const dot_4 = document.getElementById("Dot_4");
+const dot_5 = document.getElementById("Dot_5");
+const dot_6 = document.getElementById("Dot_6");
 
+const dot_array = [dot_1, dot_2, dot_3, dot_4, dot_5, dot_6];
+
+let currentIndex = 0;
+
+function showNextDot() {
+    dot_array.forEach((dot, index) => {
+        if (index === currentIndex) {
+            dot.style.width = '8px';
+            dot.style.height = '8px';
+            dot.style.backgroundColor = 'rgb(80, 162, 240)';
+        } else {
+
+            dot.style.width = '6px';
+            dot.style.height = '6px';
+            dot.style.backgroundColor = 'rgb(255, 255, 255)';
+        }
+    });
+
+    currentIndex = (currentIndex + 1) % dot_array.length;
+
+    setTimeout(showNextDot, 10000);
+
+    if (currentIndex === 0) {
+        // Reset currentIndex to 0 when it reaches the end
+        currentIndex = 0;
+    }
+}
+
+showNextDot();
 
 
 
@@ -417,7 +463,7 @@ function ScrollLeft(ContainerName, ScrollValue,) { //Scroll Left Function
     }, 510);
 
 }
-
+//AutoScroll Scroll Effect/Hover Arrows Effect---------------------------------------------------------
 
 //Featured Item Today Scroll Effect---------------------------------------------------------
 
@@ -680,6 +726,8 @@ function handleKeyPress(event) {
 
 
 //Search for comic---------------------------------------------------------------------------------
+
+
 
 
 
