@@ -4,7 +4,7 @@ Comic Finds is a web scraper designed to gather information about comic books fr
 
 ## Usage
 
-To visit Comic Finds go to, [http://3.21.165.54/Home.html](http://3.21.165.54/Home.html) in your web browser.
+[Visit Website](http://3.21.165.54/Home.html)
 
 Once you're on the Comic Finds platform, you can:
 
